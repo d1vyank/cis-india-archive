@@ -1,0 +1,9 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ $pages := .Pages }}
+{{ with .Params.listtype }}{{ $pages = where site.RegularPages "Params.type" . }}{{ end }}
+{{ $pager := .Paginate $pages.ByDate.Reverse }}
+<p class="counts">{{ len $pages }} items</p>
+<ul class="items">{{ range $pager.Pages }}{{ partial "item.html" . }}{{ end }}</ul>
+{{ partial "pager.html" $pager }}
+{{ end }}

@@ -1,0 +1,81 @@
+---
+title: 'Sub$-100 Phones: Browser Compatibility Tests'
+date: '2016-07-09'
+lastmod: '2017-02-16T16:47:00Z'
+authors:
+- Rohini Lakshané
+tags:
+- Intellectual Property Rights
+- Access to Knowledge
+- Pervasive Technologies
+description: This post documents the results of browser compatibility tests conducted
+  on six out of eight specimen mobile phones being studied under the Pervasive Technologies
+  project. These phones are Internet-enabled and cost the equivalent of USD 100 or
+  less in India. Rohini Lakshané and CIS volunteer Dhananjay Balan carried out the
+  tests. Intern Shreshth Wadhwa provided assistance.
+original_url: https://cis-india.org/a2k/blogs/sub-100-phones-browser-compatibility-tests
+type: blog
+program: a2k
+---
+<ul>
+<li>Names and descriptions of mobile phones under study: <a href="/files/a2k/blogs/annexure-1-mobile-phones-to-study.pdf">Annexure 1</a></li>
+<li>How the phones under study were chosen: <a href="https://cis-india.org/a2k/blogs/patent-landscaping-in-the-indian-mobile-device-market">Section 3.2: Criteria for choosing the mobile phones</a></li>
+</ul>
+<hr/>
+<h3>Research Question:</h3>
+<p>What technical standards are browsers pre-installed in the eight test phones compatible with?</p>
+<p>This question partially answers research question #2 in <a href="https://cis-india.org/a2k/blogs/patent-landscaping-in-the-indian-mobile-device-market">Methodology: Patent Landscaping in the Indian Mobile Device Market</a>, that is, what patents pertain to [technical] capabilities commonly found in networked mobile devices sold in India for USD 100 or less?</p>
+<h3>Method:</h3>
+<p>We conducted tests on all browsers pre-installed, that is, installed by the manufacturer, on six mobile phones to understand their extent of compliance with technical standards for the web. All browsers were tuned to their default settings and no plugins or extensions were installed in them. The tests could not be run on two phones for reasons stated in "Limitations".<br/><br/>For Android v4.0 (Ice Cream Sandwich) and higher versions, we set up a local host and automated all the tests by using a script. The local host was set up to expose sample HTTP endpoints. We tested all browsers through this server.<br/><br/>A Shell script was used to acquire screenshots of the results of the tests:<br/><i>#!/bin/bash<br/><br/>adb shell screencap -p $1<br/>adb pull $1</i><br/><br/>We collected screenshots of devices with Android versions below v4.0 by capturing the framebuffer since the shell command was introduced in v4.0.</p>
+<p><b>Script:</b> Github - https://gist.github.com/dbalan/e58f51b713bfd6d711fd02061e27ca90 or <b><a href="https://cis-india.org/a2k/blogs/github">Download as .zip</a></b>.</p>
+<p>Android version numbers, where applicable, can be found in the “User Agent” row of the test results. We took photos of the screens for the rest of the devices.</p>
+<h3>Standards and capabilities tested:</h3>
+<p><b>Browser Network Support</b></p>
+<ol>
+<li>HTTP/1.1</li>
+<li>HTTP/2</li>
+<li>SSL</li>
+<br/></ol>
+<p><b>Acid Tests</b></p>
+<p>Acid tests 1, 2, and 3 (http://www.acidtests.org) were run on all phones.</p>
+<p>Acid 1 tests for compliance to the CSS 1.0 standard; Acid 2 for HTML 4, CSS 2.1, PNG, and data URLs. Acid 3 for SVG, HTML, SMIL, Unicode, DOM, ECMAScript (Javascript), and CSS 3, among other parameters. Here is the full list of specifications tested by Acid 3: http://www.webstandards.org/action/acid3/x</p>
+<p><b>Image Formats</b></p>
+<ul>
+<li>JPEG</li>
+<li>GIF</li>
+<li>PNG</li>
+</ul>
+<ul>
+</ul>
+<h3></h3>
+<h3></h3>
+<h3>Results</h3>
+<p>View as <a href="https://cis-india.org/a2k/blogs/sub-100-mobile-phones-browser-compatibility-tests">.ods</a>;  View as <a href="https://cis-india.org/a2k/blogs/sub-100-phones-browser-compatibility">.xls</a></p>
+<h3></h3>
+<h3></h3>
+<h3>Reading the results:</h3>
+<p>User-agent string</p>
+<p><i>Example 1: Micromax Canvas Engage A091<br/>User-agent: Mozilla/5.0 (Linux; Android 4.4.2; Micromax A091 Build/A091) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36</i></p>
+<p><b>Mozilla/5.0</b>: Mozilla Firefox browser, version number<br/>This is a user-agent token.</p>
+<p><b>Linux</b>: Linux kernel<b> </b></p>
+<p><b>Android 4.4.2:</b> Operating system, version number<b> </b></p>
+<p><b>Micromax</b> <b>A091</b>: Device ID</p>
+<p><b>Build/A091:</b> Build number.</p>
+<p>This is a customised Android build by Micromax. (Build numbers of stock Android 4.4.2 are KOT49H and KVT49L).<b> </b></p>
+<p><b>AppleWebKit/537.36</b>: WebKit, version number. WebKit by Apple is a component of a layout engine that renders web pages in browsers. It is based on KHTML.KHTML: HTML layout engine developed by KDE. Licensed LGPL.</p>
+<p><b>like Gecko</b>: A browser that behaves like a Gecko browser<br/><b> </b></p>
+<p><b>Chrome/34.0.1847.114</b>: Chrome for Android browser, version number<br/><b> </b></p>
+<p><b>Mobile:</b> Either mobile browser or mobile device, or both <br/><b> </b></p>
+<p><b>Safari/537.36:</b> Apple Safari browser, version number</p>
+<p><i>Example 2: Opal Cyher-Shot NX900<br/>User-agent: Dorado WAP-Browser/1.0.0/powerplay/2</i></p>
+<p><b>Dorado WAP-Browser/1.0.0:</b> User agent key, version</p>
+<p>This is a WAP browser for mobile phones <a href="https://www.google.com/url?q=http://thadafinser.github.io/UserAgentParserComparison/v4/user-agent-detail/d5/a6/d5a63f05-4b47-48b9-bcf6-9f1ff3d90867.html%23&amp;sa=D&amp;ust=1468082385035000&amp;usg=AFQjCNEAjT9HLfuO9JJIzoAKXm095JixAA">based on a Java engine</a>. <i><br/></i></p>
+<h3>Observations:</h3>
+<p>Browsers pre-installed on phones of Indian brands comply with all technical standards and capabilities tested for. All of these phones -- Intex, Lava and Micromax -- also run on the Android operating system. In the case of failed tests, the results are the same or similar for most mobile phones. For example, Opera Mini 7.5 on Intex Aqua N15 and on Micromax Canvas Engage A091 scored 97/100 in the Acid3 test. This is in line with the <a href="http://d30ohmzj0cjdlk.cloudfront.net/en/Acid3">results released by Acid</a> for Opera Mini 7.5 and also by the <a href="http://www.browserscope.org/?category=acid3&amp;v=top&amp;ua=Opera%20Mini*&amp;o=csv">Browserscope</a> project for profiling web browsers.</p>
+<p>Awang, Yestel and Opal are brands from China or Hong Kong. The only pre-installed browser on Awang A808, an Android v2.3 (Gingerbread) phone, also cleared all tests but one. It scored 95/100 in the acid3 test, which is the case for the Firefox browser on most Gingerbread phones. The browsers on non-Android phones Yestel and Opal failed the tests for Acid1, Acid2, Acid3 and HTTP2, which indicates that while these phones are technically Internet-enabled, their users do not enjoy many of the benefits of the modern web.</p>
+<h3>Screenshots or photos of results:</h3>
+<p><a href="https://cis-india.org/a2k/blogs/photos-and-screenshots">View photos and screenshots</a><br/>The name of the file is in the format: &lt;name of browser&gt;_&lt;name of format/ acid test with number&gt;.&lt;file extension&gt;<br/>In the case of default browsers, &lt;name of browser&gt; appears as “android”.</p>
+<h3>Limitations:</h3>
+<p>Eight phones were under study. However, one of the phones (HiBro) did not contain a pre-installed browser. The only way to access the Internet on this phone was through pre-installed apps such as Facebook.</p>
+<p>The operating system of Kechaoda K16, which was Java-based, did not yield to the script used for running the tests. It had one pre-installed WAP browser. Both these phones were excluded from the tests.<br/><br/>Screenshots could not be obtained for the results of tests of two phones, Opal Cyher-Shot NX900 and Yestel Q5S+. We took photos of their screens instead.</p>
+<ol> </ol>

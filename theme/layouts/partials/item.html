@@ -1,0 +1,9 @@
+<li class="item">
+  <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  <div class="meta">
+    {{ if eq .Params.type "event" }}<span class="badge">Event</span>{{ end }}
+    {{ with .Params.event.start }}{{ (time .).Format "2 Jan 2006" }}{{ else }}{{ .Date.Format "2 Jan 2006" }}{{ end }}
+    {{ with .Params.authors }} · {{ delimit . ", " }}{{ end }}
+  </div>
+  {{ with .Description }}<p class="summary">{{ . | truncate 240 }}</p>{{ end }}
+</li>

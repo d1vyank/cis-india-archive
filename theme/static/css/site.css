@@ -1,0 +1,41 @@
+:root{--bg:#f8f9fb;--fg:#17202b;--muted:#556170;--line:#dfe3ea;--accent:#1f5596;--card:#fff;--badge:#e6edf6;
+ --pagefind-ui-primary:#1f5596;--pagefind-ui-text:#17202b;--pagefind-ui-background:#fff;--pagefind-ui-border:#dfe3ea;--pagefind-ui-tag:#e6edf6;--pagefind-ui-font:inherit}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161d;--fg:#e7ebf0;--muted:#9aa6b4;--line:#2a333f;--accent:#8cb8ec;--card:#18202a;--badge:#24364b;--pagefind-ui-primary:#8cb8ec;--pagefind-ui-text:#e7ebf0;--pagefind-ui-background:#18202a;--pagefind-ui-border:#2a333f;--pagefind-ui-tag:#24364b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11161d;--fg:#e7ebf0;--muted:#9aa6b4;--line:#2a333f;--accent:#8cb8ec;--card:#18202a;--badge:#24364b;--pagefind-ui-primary:#8cb8ec;--pagefind-ui-text:#e7ebf0;--pagefind-ui-background:#18202a;--pagefind-ui-border:#2a333f;--pagefind-ui-tag:#24364b;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,"Iowan Old Style","Noto Serif",serif}
+a{color:var(--accent)}
+.wrap{max-width:46rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.site-header{border-bottom:1px solid var(--line);font-family:system-ui,sans-serif;font-size:15px}
+.site-header .wrap{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{font-weight:700;text-decoration:none;color:var(--fg);font-size:18px}.brand span{color:var(--accent)}
+nav a{margin-left:1rem;text-decoration:none;color:var(--fg)}nav a:first-child{margin-left:0}nav a:hover{color:var(--accent)}
+main{padding-top:24px;padding-bottom:48px}
+h1{font-size:2rem;line-height:1.2;margin:.2em 0 .4em}
+.intro{padding:12px 0 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.search-inline{display:flex;gap:8px;margin:16px 0}
+.search-inline input{flex:1;min-width:0;padding:10px 12px;font:inherit;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg)}
+.search-inline button{padding:10px 16px;font:15px system-ui,sans-serif;border:0;border-radius:6px;background:var(--accent);color:var(--bg);cursor:pointer}
+.counts,.meta,.kicker,.post-foot,.pager,.site-footer{font-family:system-ui,sans-serif;font-size:14px;color:var(--muted)}
+.kicker{text-transform:uppercase;letter-spacing:.06em;margin:0;font-size:12px}
+.items{list-style:none;padding:0;margin:0}
+.item{padding:14px 0;border-bottom:1px solid var(--line)}
+.item-title{font-size:1.1rem;font-weight:600;text-decoration:none}
+.item .summary{margin:.3em 0 0;color:var(--muted);font-size:15px}
+.badge{background:var(--badge);color:var(--fg);padding:1px 6px;border-radius:4px;font-size:12px;margin-right:4px}
+.lede{font-size:1.1rem;color:var(--muted);font-style:italic}
+.body img,.lead img{max-width:100%;height:auto}
+.lead{margin:16px 0}.lead figcaption{font:13px system-ui,sans-serif;color:var(--muted)}
+.body table{border-collapse:collapse;width:100%;display:block;overflow-x:auto;font-size:15px}
+.body td,.body th{border:1px solid var(--line);padding:6px 8px;vertical-align:top}
+.body .center{text-align:center}
+.body blockquote{border-left:3px solid var(--line);margin-left:0;padding-left:1rem;color:var(--muted)}
+.body pre{overflow-x:auto}
+.event{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px;font:15px system-ui,sans-serif}
+.event dt{font-weight:600}.event dd{margin:0;overflow-wrap:anywhere}
+.attendees{margin-top:24px;font-family:system-ui,sans-serif;font-size:15px}
+.post-foot{border-top:1px solid var(--line);margin-top:32px;padding-top:12px;overflow-wrap:anywhere}
+.tags a{display:inline-block;background:var(--badge);color:var(--fg);text-decoration:none;padding:1px 8px;border-radius:4px;margin:2px 4px 2px 0}
+.terms{columns:2 14rem;padding:0;list-style:none}.terms li{padding:2px 0}.terms span{color:var(--muted);font-size:13px}
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.site-footer{border-top:1px solid var(--line);padding:16px 0 32px}

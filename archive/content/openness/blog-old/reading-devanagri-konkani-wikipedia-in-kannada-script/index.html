@@ -1,0 +1,38 @@
+---
+title: Reading Devanagari script based sites like Konkani Wikipedia in Kannada Script
+date: '2015-07-13'
+lastmod: '2016-06-18T18:14:00Z'
+authors:
+- U.B.Pavanaja
+tags:
+- Konkani Wikipedia
+- Access to Knowledge
+description: This is a small hack to read websites with Devanagari script (used for
+  Hindi, Marathi, Nepali, Maithili and a few more languages) based sites like Konkani
+  Wikipedia in Kannada script.
+original_url: https://cis-india.org/openness/blog-old/reading-devanagri-konkani-wikipedia-in-kannada-script
+type: blog
+program: openness
+---
+<p id="docs-internal-guid-ff83ed1f-466f-a710-9ab0-9e891e7f5af6"><a href="https://gom.wikipedia.org/">Konkani Wikipedia</a> finally <a href="https://blog.wikimedia.org/2015/07/15/konkani-wikipedia-goes-live/">went live</a> in this June after being in <a href="https://incubator.wikimedia.org/wiki/Wp/gom">Incubator </a>for nine years. <a href="https://en.wikipedia.org/wiki/Konkani_language">Konkani language</a> is written using five different scripts; Devanagari (official script for Konkani in Goa), Kannada, Latin, Malayalam and Persian. The current Konkani Wikipedia is available at <a href="https://gom.wikipedia.org">https://gom.wikipedia.org</a> where “gom” is for the Goan variation of Konkani.</p>
+<p class="center"><img alt="" loading="lazy" src="/files/home-images/Wikipedia.png" title="Wikipedia"/></p>
+<p>There is a significant Konkani population in coastal Karnataka and to a small extent in northern Kerala that use <a href="https://en.wikipedia.org/wiki/Kannada_alphabet">Kannada script</a> for writing Konkani. Many of these people might be facing issues with reading the Konkani articles in Devanagari script in the Goan Konkani Wikipedia which brings the need for making the Wikipedia available in Kannada and other scripts that Konkani uses.</p>
+<p>There are various ways to go about it. Some of the Wikimedia projects like the <a href="https://sr.wikipedia.org/">Serbian </a> and <a href="https://zh.wikipedia.org">Chinese Wikipedia</a> already had this issue and had multi-script transliteration as a solution. Transliteration between Devanagari and Kannada scripts could be transliterated in multiple ways and below is one of them.</p>
+<p>Noted typographer <a href="https://kn.wikipedia.org/wiki/%E0%B2%95%E0%B3%86._%E0%B2%AA%E0%B2%BF._%E0%B2%B0%E0%B2%BE%E0%B2%B5%E0%B3%8D">K. P. Rao</a> who is known for creating fonts for almost all the Indian scripts has recently come up with a solution for Devanagari⟷Kannada transliteration by creating a new font “Devama” that has Devanagari Unicode encodings with Kannada glyphs. The font has the rendering logic as per Kannada rules which means if we set this fonts for any text typed using Devanagari script, it will display it in Kannada script. This will help anyone who can read Kannada script to read something written in Devanagari. Mr. Rao has generously released “Devama” under Open Font License (OFL) ver. 1.1. The source file for the font is currently available at<a href="https://github.com/pavanaja/DevamaNew"> https://github.com/pavanaja/DevamaNew</a> for anyone to use and modify with attribution.</p>
+<p>How to use the font:</p>
+<ol>
+<li>
+<p><a href="https://github.com/pavanaja/DevamaNew/archive/master.zip">Download and install the font as a .zip file</a>.</p>
+</li>
+<li>
+<p>Unzip the file and find the “Devama.otf” file. Install it. (the installation will vary based on your operating system, check a <a href="https://www.howtogeek.com/192980/how-to-install-remove-and-manage-fonts-on-windows-mac-and-linux/">how-to guide</a> to learn).</p>
+</li>
+<li>
+<p>Now inorder to make the font working you need to change the browser settings. (check <a href="https://www.howtogeek.com/208552/how-to-change-the-default-fonts-in-your-web-browser/">here</a> for Firefox and Chrome browser settings). You need to set “Devama” as the display font for Devanagari script. <br/>In Mozilla Firefox:</p>
+</li>
+<ol>
+<li>
+<p>Select “Options” from Tools menu. It will open a new tab. Select the “Content” tab. Click on the button “Advanced...”. Select Devanagari from the drop-down list from “Fonts for” and set “Devama” as the font for all options. Click on “Ok” and close the dialog box. Now reload the Konkani Wikipedia to check if it is working or not.</p>
+</li></ol>
+</ol>
+<p>Not just Konkani Wikipedia, any other site in Devanagari script (used for Hindi, Marathi, Nepali, Maithili, Bihari and a few other Indian languages) could also be read in Kannada. This might be useful for those who could read in Kannada and have problems reading in Devanagari.</p>

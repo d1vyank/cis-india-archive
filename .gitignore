@@ -1,0 +1,7 @@
+# build output and local tools
+/site/
+/bin/
+node_modules/
+# raw crawl data (re-creatable with tools/crawl_sample.py)
+/crawl/
+__pycache__/

@@ -1,0 +1,28 @@
+{{ define "main" }}
+<article data-pagefind-body>
+  <p class="kicker" data-pagefind-ignore data-pagefind-filter="Type">{{ if eq .Params.type "event" }}Event{{ else }}Blog post{{ end }}</p>
+  <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+  <div class="meta" data-pagefind-ignore>
+    {{ with .Params.authors }}By {{ range $i, $a := . }}{{ if $i }}, {{ end }}<a href="{{ (site.GetPage (printf "/authors/%s" ($a | urlize))).RelPermalink }}" data-pagefind-filter="Author">{{ $a }}</a>{{ end }} · {{ end }}
+    Published <time datetime="{{ .Date.Format "2006-01-02" }}" data-pagefind-sort="date">{{ .Date.Format "2 January 2006" }}</time>
+    <span hidden data-pagefind-filter="Year">{{ .Date.Format "2006" }}</span>
+    <span hidden data-pagefind-filter="Program">{{ .Params.program }}</span>
+  </div>
+  {{ with .Params.event }}
+  <dl class="event">
+    {{ with .start }}<dt>When</dt><dd>{{ (time .).Format "Mon 2 Jan 2006, 3:04 PM" }}{{ with $.Params.event.end }} – {{ (time .).Format "Mon 2 Jan 2006, 3:04 PM" }}{{ end }} IST</dd>{{ end }}
+    {{ with .where }}<dt>Where</dt><dd>{{ . }}</dd>{{ end }}
+    {{ with .contact_name }}<dt>Contact</dt><dd>{{ . }}{{ with $.Params.event.contact_email }} · <a href="mailto:{{ . }}">{{ . }}</a>{{ end }}{{ with $.Params.event.contact_phone }} · {{ . }}{{ end }}</dd>{{ end }}
+    {{ with .event_url }}<dt>Web</dt><dd><a href="{{ . }}">{{ . }}</a></dd>{{ end }}
+  </dl>
+  {{ end }}
+  {{ with .Params.image }}<figure class="lead"><img src="{{ . }}" alt="{{ with $.Params.image_caption }}{{ . }}{{ else }}{{ $.Title }}{{ end }}" data-pagefind-meta="image[src]">{{ with $.Params.image_caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
+  {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  <div class="body">{{ .Content }}</div>
+  {{ with .Params.event.attendees }}<details class="attendees"><summary>Attendees ({{ len . }})</summary><ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol></details>{{ end }}
+</article>
+<aside class="post-foot" data-pagefind-ignore>
+  {{ with .Params.tags }}<p class="tags">Filed under: {{ range . }}<a href="{{ (site.GetPage (printf "/tags/%s" (. | urlize))).RelPermalink }}">{{ . }}</a>{{ end }}</p>{{ end }}
+  <p class="orig">Originally published at <a href="{{ .Params.original_url }}">{{ .Params.original_url }}</a></p>
+</aside>
+{{ end }}

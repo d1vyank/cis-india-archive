@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+{{ with .Params.original_url }}<link rel="canonical" href="{{ . }}">{{ end }}
+<link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ site.Home.RelPermalink }}">CIS India <span>Archive</span></a>
+    <nav>
+      <a href="{{ (site.GetPage "/browse/blog").RelPermalink }}">Blog</a>
+      <a href="{{ (site.GetPage "/browse/events").RelPermalink }}">Events</a>
+      <a href="{{ (site.GetPage "/tags").RelPermalink }}">Topics</a>
+      <a href="{{ (site.GetPage "/search").RelPermalink }}">Search</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+{{ block "main" . }}{{ end }}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>This is a static archive of content published by the Centre for Internet and Society, India, at <a href="{{ site.Params.original }}">cis-india.org</a>. Content is reproduced under its original licence; views expressed are those of the individual authors.</p>
+  </div>
+</footer>
+</body>
+</html>

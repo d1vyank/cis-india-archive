@@ -1,0 +1,20 @@
+{
+ "stats": {
+  "items": 100,
+  "skipped": 0,
+  "files_linked": 41
+ },
+ "missing_files": [
+  "https://cis-india.org/advocacy/open-standards/accessibility/uploads/Participants%20List%20for%20the%20web%20site.xls",
+  "https://cis-india.org/advocacy/open-standards/accessibility/uploads/Sessions%20for%20the%20workshopv2.doc/at_download/file",
+  "https://cis-india.org/advocacy/open-standards/accessibility/uploads/TRAINERS.doc/at_download/file",
+  "https://cis-india.org/events/upload/PixelPirateII-02.jpg/image_preview",
+  "https://cis-india.org/events/upload/ebenmoglen.jpg/image_preview",
+  "https://cis-india.org/openness/blog-old/NMoSP%20005.jpg/image_mini",
+  "https://cis-india.org/openness/blog-old/PrashantIyengar.jpg/image_mini",
+  "https://cis-india.org/openness/open-access-day/open%20access%20day%20flyer.pdf",
+  "https://cis-india.org/openness/pranesh-software-patents-draft.ppt",
+  "https://cis-india.org/openness/publications/ALF%20Position%20Paper%20Draft%20Patent%20Manual.pdf",
+  "https://cis-india.org/openness/publications/JTDs-position-on-DPM.pdf"
+ ]
+}

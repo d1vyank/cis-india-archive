@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1>Search</h1>
+<link href="{{ "pagefind/pagefind-ui.css" | relURL }}" rel="stylesheet">
+<div id="search"></div>
+<a id="site-root" href="{{ site.Home.RelPermalink }}" hidden></a>
+<script src="{{ "pagefind/pagefind-ui.js" | relURL }}"></script>
+<script>
+  const ui = new PagefindUI({ element: "#search", baseUrl: new URL(document.getElementById("site-root").href).pathname, showSubResults: true, showImages: false, resetStyles: false });
+  const q = new URLSearchParams(location.search).get("q");
+  if (q) ui.triggerSearch(q);
+</script>
+{{ end }}
