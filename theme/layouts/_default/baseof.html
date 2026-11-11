@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
+{{ if eq .Kind "404" }}<script>document.write("<base href=" + "/>")</script>{{ end }}{{/* 404.html is served at any path: resolve its links from the root (written by script so relativeURLs leaves it alone) */}}
 <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
 {{ with .Params.original_url }}<link rel="canonical" href="{{ . }}">{{ end }}

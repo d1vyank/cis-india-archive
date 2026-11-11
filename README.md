@@ -81,7 +81,7 @@ After the first deploy: project -> Settings -> Bindings -> Add -> R2 bucket, var
 |---|---|---|---|
 | Pages static requests and bandwidth | unlimited | all pages, search | nothing to cap |
 | Pages builds | 500 / month | one per push | builds just queue/stop; no charge |
-| Pages Functions (Workers Free) | 100,000 requests / day | one per attachment download | over the limit requests get error 1027 until midnight UTC; no charge **as long as the account stays on Workers Free** |
+| Pages Functions (Workers Free) | 100,000 requests / day | one per attachment download | over the limit `/files/*` redirects to the Internet Archive copy (step 5) until midnight UTC; no charge **as long as the account stays on Workers Free** |
 | R2 Class B (reads) | 10 M / month | one per attachment download | capped by the Function: at most ~3.1 M / month |
 | R2 Class A (writes, lists) | 1 M / month | ~4,000 per full upload | only you upload |
 | R2 storage | 10 GB-month | 4.2 GB | only you upload; don't add more than ~5 GB |
@@ -92,5 +92,25 @@ Rules to keep it that way:
 - Don't upgrade to Workers Paid; on the Free plan the daily request limit is a hard stop.
 - Billing -> Billable Usage -> Create budget alert, threshold e.g. USD 1, to your email. It only notifies (Cloudflare has no hard spending cap for R2), so it is the backstop for anything above.
 - `FILES_BASE=<url>` (redirect `/files/*` to a public bucket) is still supported by `build.sh`, but it removes the cap; don't use it on the free tier.
+
+### 5. Internet Archive fallback (when the daily Function quota runs out)
+
+All attachments are also in the Internet Archive item `cis-india-org-attachments`, at the same paths: `/files/<path>` on the site is `https://archive.org/download/cis-india-org-attachments/files/<path>`.
+
+- While the Function is running, it serves `/files/*` from R2 and the `_redirects` file is ignored (Pages never applies `_redirects` to requests a Function handles).
+- After 100,000 Function requests in a day, Pages "fails open": the Function is skipped and requests are handled as static. `build.sh` writes `_redirects` with `/files/* https://archive.org/download/cis-india-org-attachments/files/:splat 302`, so images and downloads then come from archive.org until the quota resets at midnight UTC. No extra requests, no script, nothing to switch by hand.
+- Keep the project's Settings -> Runtime -> **Fail open / closed** on **Fail open** (the default); fail closed shows an error page instead.
+- Backup: if a `/files/` request ever lands on the 404 page instead, a small script there forwards it to the same archive.org URL.
+- `FILES_FALLBACK=<url>` points the fallback elsewhere; `FILES_FALLBACK=` (empty) turns it off.
+
+Upload (or top up) the item from a machine with the dump, using the archive.org S3 keys from https://archive.org/account/s3.php:
+```sh
+pip install internetarchive
+ia configure                                           # or export IA_ACCESS_KEY=... IA_SECRET_KEY=...
+python3 tools/upload_files_ia.py work/archive --dry-run
+python3 tools/upload_files_ia.py work/archive          # resumable: re-run skips files already there
+python3 tools/upload_files_ia.py work/archive --verify # exit 0 once every file is in the item
+```
+The item is created as `mediatype=data` in the community data collection, CC BY 3.0, with no derivatives (no OCR or thumbnails). archive.org processes uploads in a queue, so files can take a few hours to appear.
 
 Cloudflare's build image installs Hugo from `HUGO_VERSION`; `build.sh` runs Pagefind through `npx` and writes `_routes.json` so that only `/files/*` invokes the Function.

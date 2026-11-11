@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{- with site.Params.filesfallback }}
+<script>
+// /files/* only reaches this page when the attachment Function is unavailable (daily quota used up and
+// the _redirects fallback not applied): send the visitor to the Internet Archive copy of the file.
+(function () {
+  var p = location.pathname;
+  if (p.indexOf("/files/") === 0) location.replace({{ . }} + p.slice(6) + location.search + location.hash);
+})();
+</script>
+{{- end }}
+<article class="not-found">
+  <h1>Page not found</h1>
+  <p>This page is not in the archive. It may have been a page that was not migrated (such as staff profiles), or its address may have changed.</p>
+  <p><a href="{{ (site.GetPage "/search").RelPermalink }}">Search the archive</a>, go to the <a href="{{ site.Home.RelPermalink }}">home page</a>, or try the <a href="{{ site.Params.original }}">original site</a>.</p>
+</article>
+{{ end }}
