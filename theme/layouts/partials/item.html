@@ -1,9 +1,14 @@
+{{- /* One row in a listing. Call with a page, or with (dict "page" . "programme" true) to label the programme. */ -}}
+{{ $p := . }}{{ $showProgramme := false }}
+{{ if reflect.IsMap . }}{{ $p = .page }}{{ $showProgramme = .programme }}{{ end }}
+{{ with $p }}
 <li class="item">
-  <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
-  <div class="meta">
-    {{ if eq .Params.type "event" }}<span class="badge">Event</span>{{ else if eq .Params.type "news" }}<span class="badge">News</span>{{ end }}
-    {{ with .Params.event.start }}{{ (time .).Format "2 Jan 2006" }}{{ else }}{{ .Date.Format "2 Jan 2006" }}{{ end }}
-    {{ with .Params.authors }} · {{ delimit . ", " }}{{ end }}
+  <p class="item-date">{{ with .Params.event.start }}{{ (time .).Format "2 Jan 2006" }}{{ else }}{{ .Date.Format "2 Jan 2006" }}{{ end }}</p>
+  <div class="item-main">
+    <p class="label">{{ if eq .Params.type "event" }}Event{{ else if eq .Params.type "news" }}News{{ else }}Blog post{{ end }}{{ if $showProgramme }}{{ with index (.Params.categories | default slice) 0 }} · {{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}{{ .Title }}{{ end }}{{ end }}{{ end }}</p>
+    <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ with .Params.authors }}<p class="item-authors">{{ delimit . ", " }}</p>{{ end }}
+    {{ with .Description }}<p class="summary">{{ . | truncate 240 }}</p>{{ end }}
   </div>
-  {{ with .Description }}<p class="summary">{{ . | truncate 240 }}</p>{{ end }}
 </li>
+{{ end }}

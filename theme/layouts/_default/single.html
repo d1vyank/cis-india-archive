@@ -1,6 +1,7 @@
 {{ define "main" }}
+<div class="post">
 <article data-pagefind-body>
-  <p class="kicker" data-pagefind-ignore><span data-pagefind-filter="Type">{{ if eq .Params.type "event" }}Event{{ else if eq .Params.type "news" }}News / media coverage{{ else }}Blog post{{ end }}</span>{{ range .Params.categories }} · <a href="{{ (site.GetPage (printf "/categories/%s" (. | urlize))).RelPermalink }}">{{ . }}</a>{{ end }}</p>
+  <p class="label" data-pagefind-ignore>{{ range .Params.categories }}{{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}<a href="{{ .RelPermalink }}">{{ .Title }}</a> · {{ end }}{{ end }}<span class="muted" data-pagefind-filter="Type">{{ if eq .Params.type "event" }}Event{{ else if eq .Params.type "news" }}News / media coverage{{ else }}Blog post{{ end }}</span></p>
   <h1 data-pagefind-meta="title">{{ .Title }}</h1>
   <div class="meta">
     {{ with .Params.authors }}By {{ range $i, $a := . }}{{ if $i }}, {{ end }}<a href="{{ (site.GetPage (printf "/authors/%s" ($a | urlize))).RelPermalink }}" data-pagefind-filter="Author" data-pagefind-weight="5">{{ $a }}</a>{{ end }} · {{ end }}
@@ -21,8 +22,29 @@
   <div class="body">{{ .Content }}</div>
   {{ with .Params.event.attendees }}<details class="attendees"><summary>Attendees ({{ len . }})</summary><ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol></details>{{ end }}
 </article>
-<aside class="post-foot" data-pagefind-ignore>
-  {{ with .Params.tags }}<p class="tags">Filed under: {{ range . }}<a href="{{ (site.GetPage (printf "/tags/%s" (. | urlize))).RelPermalink }}">{{ . }}</a>{{ end }}</p>{{ end }}
-  <p class="orig">Originally published at <a href="{{ .Params.original_url }}">{{ .Params.original_url }}</a></p>
+<aside class="post-side" data-pagefind-ignore>
+  {{- /* Documents linked from the body (not images), listed once each. */ -}}
+  {{ $files := slice }}
+  {{ range findRE `href="/files/[^"]+\.(?i:pdf|docx?|odt|ods|odp|xlsx?|pptx?|rtf|txt|csv|zip|epub)"` .RawContent }}{{ $files = $files | append (strings.TrimSuffix `"` (strings.TrimPrefix `href="` .)) }}{{ end }}
+  {{ with $files | uniq }}
+  <section>
+    <h2>Attached files</h2>
+    <ul class="files">{{ range . }}<li><a href="{{ . }}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v5M9.5 14.5L12 17l2.5-2.5"/></svg><span><b>{{ path.Base (urls.Parse (. | htmlUnescape)).Path }}</b><small>{{ path.Ext . | strings.TrimPrefix "." | upper }}</small></span></a></li>{{ end }}</ul>
+  </section>
+  {{ end }}
+  {{ with .Params.tags }}
+  <section>
+    <h2>Filed under</h2>
+    <p class="tags">{{ range . }}<a href="{{ (site.GetPage (printf "/tags/%s" (. | urlize))).RelPermalink }}">{{ . }}</a>{{ end }}</p>
+  </section>
+  {{ end }}
+  <section>
+    <h2>Original address</h2>
+    <p class="orig"><a href="{{ .Params.original_url }}">{{ .Params.original_url | strings.TrimPrefix "https://" | strings.TrimPrefix "http://" }}</a></p>
+  </section>
+  <section class="report">
+    <p>Something look wrong on this page? <a href="{{ site.Params.issues }}">Report it on GitHub</a>.</p>
+  </section>
 </aside>
+</div>
 {{ end }}

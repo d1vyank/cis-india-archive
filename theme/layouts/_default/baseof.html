@@ -6,27 +6,45 @@
 <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
 {{ with .Params.original_url }}<link rel="canonical" href="{{ . }}">{{ end }}
+<link rel="preload" href="{{ "fonts/inter-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="{{ site.Home.RelPermalink }}">CIS India <span>Archive</span></a>
-    <nav>
-      <a href="{{ (site.GetPage "/browse/blog").RelPermalink }}">Blog</a>
-      <a href="{{ (site.GetPage "/browse/events").RelPermalink }}">Events</a>
-      {{ if where site.RegularPages "Params.type" "news" }}<a href="{{ (site.GetPage "/browse/news").RelPermalink }}">News</a>{{ end }}
-      <a href="{{ (site.GetPage "/categories").RelPermalink }}">Programmes</a>
-      <a href="{{ (site.GetPage "/tags").RelPermalink }}">Topics</a>
-      <a href="{{ (site.GetPage "/search").RelPermalink }}">Search</a>
-    </nav>
-  </div>
-</header>
+<a class="skip" href="#main">Skip to content</a>
 <div class="notice" data-pagefind-ignore><div class="wrap">
-  <p>This is a static archive of content published by the Centre for Internet and Society, India, at <a href="{{ site.Params.original }}">cis-india.org</a>. Content is reproduced under its original licence. It was migrated by an automated script and may contain errors: please <a href="{{ site.Params.issues }}">report any problems on GitHub</a>.</p>
+  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+  <p>This is a static archive of content published by the Centre for Internet and Society, India, at <a href="{{ site.Params.original }}">cis-india.org</a>. Content is reproduced under its original licence. It was migrated by an automated script and may contain errors. <a class="report" href="{{ site.Params.issues }}">Report an issue</a></p>
 </div></div>
-<main class="wrap">
+{{- /* The page's programme, used to mark the current item in the navigation. */ -}}
+{{ $current := .Params.programme | default (index (.Params.categories | default slice) 0) }}
+{{ $search := site.GetPage "/search" }}
+<header class="site-header" data-pagefind-ignore>
+  <div class="wrap masthead">
+    <a class="brand" href="{{ site.Home.RelPermalink }}"><span class="brand-name">The Centre for Internet &amp; Society</span><span class="brand-tag">Archive · 2008 to 2025</span></a>
+    {{ if ne . $search }}
+    <form class="search-box" role="search" action="{{ $search.RelPermalink }}">
+      <label class="sr" for="q">Search the archive</label>
+      <input id="q" type="search" name="q" placeholder="Search titles, authors, full text">
+      <button aria-label="Search"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></button>
+    </form>
+    {{ end }}
+  </div>
+  <nav class="wrap programme-nav" aria-label="Programmes"><div>
+    <a href="{{ site.Home.RelPermalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>Home</a>
+    {{ range site.Params.programmes }}{{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}<a href="{{ .RelPermalink }}"{{ if eq .Params.programme $current }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ end }}{{ end }}
+    <span class="sep" aria-hidden="true"></span>
+    {{ with site.GetPage "/browse/events" }}<a class="minor" href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>Events</a>{{ end }}
+    {{ if where site.RegularPages "Params.type" "news" }}{{ with site.GetPage "/browse/news" }}<a class="minor" href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>In the news</a>{{ end }}{{ end }}
+  </div></nav>
+</header>
+<main id="main" class="wrap">
 {{ block "main" . }}{{ end }}
 </main>
+<footer class="site-footer" data-pagefind-ignore>
+  <div class="wrap">
+    <p>An unofficial, volunteer-maintained archive of cis-india.org. Content is reproduced under its original licence.</p>
+    <p class="links"><a href="{{ site.Params.original }}">Original site</a><a href="{{ site.Params.issues }}">Report an issue</a><a href="{{ site.Params.source }}">GitHub</a></p>
+  </div>
+</footer>
 </body>
 </html>

@@ -1,9 +1,36 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
 {{ $pages := .Pages }}
-{{ with .Params.listtype }}{{ $pages = where site.RegularPages "Params.type" . }}{{ end }}
+{{ $prog := .Params.programme }}
+{{ $term := . }}
+{{ if $prog }}
+  {{- /* A programme page, or one of its per-type listings under /browse/<programme>/<type>/. */ -}}
+  {{ $term = site.GetPage (printf "/categories/%s" ($prog | urlize)) }}
+  {{ $all := $term.Pages }}
+  {{ $pages = $all }}
+  {{ with .Params.listtype }}{{ $pages = where $all "Params.type" . }}{{ end }}
+  <header class="page-head">
+    <p class="label muted">Programme</p>
+    <h1>{{ $term.Title }}</h1>
+    <p class="lede">{{ $term.Description }} {{ len $all | lang.FormatNumber 0 }} items.</p>
+  </header>
+  <nav class="filters" aria-label="Filter by type">
+    <a href="{{ $term.RelPermalink }}"{{ if not .Params.listtype }} aria-current="page"{{ end }}>All <span>{{ len $all | lang.FormatNumber 0 }}</span></a>
+    {{ range slice (slice "blog" "blog" "Blog posts") (slice "events" "event" "Events") (slice "news" "news" "News") }}
+      {{ $n := len (where $all "Params.type" (index . 1)) }}
+      {{ $target := site.GetPage (printf "/browse/%s/%s" ($prog | urlize) (index . 0)) }}
+      {{ if and $n $target }}<a href="{{ $target.RelPermalink }}"{{ if eq $.Params.listtype (index . 1) }} aria-current="page"{{ end }}>{{ index . 2 }} <span>{{ $n | lang.FormatNumber 0 }}</span></a>{{ end }}
+    {{ end }}
+  </nav>
+{{ else }}
+  {{ with .Params.listtype }}{{ $pages = where site.RegularPages "Params.type" . }}{{ end }}
+  <header class="page-head">
+    {{ if eq .Kind "term" }}<p class="label muted">{{ if eq .Data.Singular "author" }}Author{{ else }}Topic{{ end }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    <p class="lede">{{ len $pages | lang.FormatNumber 0 }} items.</p>
+  </header>
+  <div class="filters"></div>
+{{ end }}
 {{ $pager := .Paginate $pages.ByDate.Reverse }}
-<p class="counts">{{ len $pages }} items</p>
-<ul class="items">{{ range $pager.Pages }}{{ partial "item.html" . }}{{ end }}</ul>
+<ul class="items narrow">{{ range $pager.Pages }}{{ partial "item.html" . }}{{ end }}</ul>
 {{ partial "pager.html" $pager }}
 {{ end }}
