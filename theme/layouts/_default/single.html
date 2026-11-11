@@ -1,12 +1,12 @@
 {{ define "main" }}
 <article data-pagefind-body>
-  <p class="kicker" data-pagefind-ignore data-pagefind-filter="Type">{{ if eq .Params.type "event" }}Event{{ else if eq .Params.type "news" }}News / media coverage{{ else }}Blog post{{ end }}</p>
+  <p class="kicker" data-pagefind-ignore><span data-pagefind-filter="Type">{{ if eq .Params.type "event" }}Event{{ else if eq .Params.type "news" }}News / media coverage{{ else }}Blog post{{ end }}</span>{{ range .Params.categories }} · <a href="{{ (site.GetPage (printf "/categories/%s" (. | urlize))).RelPermalink }}">{{ . }}</a>{{ end }}</p>
   <h1 data-pagefind-meta="title">{{ .Title }}</h1>
-  <div class="meta" data-pagefind-ignore>
-    {{ with .Params.authors }}By {{ range $i, $a := . }}{{ if $i }}, {{ end }}<a href="{{ (site.GetPage (printf "/authors/%s" ($a | urlize))).RelPermalink }}" data-pagefind-filter="Author">{{ $a }}</a>{{ end }} · {{ end }}
-    Published <time datetime="{{ .Date.Format "2006-01-02" }}" data-pagefind-sort="date">{{ .Date.Format "2 January 2006" }}</time>
-    <span hidden data-pagefind-filter="Year">{{ .Date.Format "2006" }}</span>
-    <span hidden data-pagefind-filter="Program">{{ .Params.program }}</span>
+  <div class="meta">
+    {{ with .Params.authors }}By {{ range $i, $a := . }}{{ if $i }}, {{ end }}<a href="{{ (site.GetPage (printf "/authors/%s" ($a | urlize))).RelPermalink }}" data-pagefind-filter="Author" data-pagefind-weight="5">{{ $a }}</a>{{ end }} · {{ end }}
+    <span data-pagefind-ignore>Published <time datetime="{{ .Date.Format "2006-01-02" }}" data-pagefind-sort="date">{{ .Date.Format "2 January 2006" }}</time>
+    <span hidden data-pagefind-filter="Year">{{ .Date.Format "2006" }}</span></span>
+    <span hidden data-pagefind-ignore>{{ range .Params.categories }}<span data-pagefind-filter="Programme">{{ . }}</span>{{ end }}</span>
   </div>
   {{ with .Params.event }}
   <dl class="event">

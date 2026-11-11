@@ -39,3 +39,5 @@ h1{font-size:2rem;line-height:1.2;margin:.2em 0 .4em}
 .terms{columns:2 14rem;padding:0;list-style:none}.terms li{padding:2px 0}.terms span{color:var(--muted);font-size:13px}
 .pager{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
 .site-footer{border-top:1px solid var(--line);padding:16px 0 32px}
+.notice{background:var(--badge);border-bottom:1px solid var(--line);font:14px/1.5 system-ui,sans-serif;color:var(--fg)}.notice p{margin:0;padding:8px 0}
+.programmes{display:flex;flex-wrap:wrap;gap:6px;font:14px system-ui,sans-serif}.programmes a{background:var(--badge);color:var(--fg);text-decoration:none;padding:3px 10px;border-radius:4px}.programmes span{color:var(--muted);font-size:12px}

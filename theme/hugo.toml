@@ -9,9 +9,11 @@ relativeURLs = true
 [taxonomies]
   tag = "tags"
   author = "authors"
+  category = "categories"
 [params]
   description = "An archive of blog posts, events and news published by the Centre for Internet and Society, India (2008 onwards)."
   original = "https://cis-india.org"
+  issues = "https://github.com/d1vyank/cis-india-archive/issues"
 [markup.goldmark.renderer]
   unsafe = true
 [outputs]

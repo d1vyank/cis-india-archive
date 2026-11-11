@@ -5,6 +5,7 @@
   <form class="search-inline" action="{{ (site.GetPage "/search").RelPermalink }}"><input type="search" name="q" placeholder="Search the archive" aria-label="Search the archive"><button>Search</button></form>
   <p class="counts">{{ len (where site.RegularPages "Params.type" "blog") }} blog posts · {{ len (where site.RegularPages "Params.type" "event") }} events{{ with where site.RegularPages "Params.type" "news" }} · {{ len . }} news items{{ end }}</p>
 </section>
+<p class="programmes">{{ range site.Taxonomies.categories.ByCount }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span>{{ .Count }}</span></a>{{ end }}</p>
 <h2>Latest blog posts</h2>
 <ul class="items">{{ range first 10 (where site.RegularPages "Params.type" "blog").ByDate.Reverse }}{{ partial "item.html" . }}{{ end }}</ul>
 <p><a href="{{ (site.GetPage "/browse/blog").RelPermalink }}">All blog posts →</a></p>
