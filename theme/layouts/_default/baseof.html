@@ -16,18 +16,17 @@
       <a href="{{ (site.GetPage "/browse/blog").RelPermalink }}">Blog</a>
       <a href="{{ (site.GetPage "/browse/events").RelPermalink }}">Events</a>
       {{ if where site.RegularPages "Params.type" "news" }}<a href="{{ (site.GetPage "/browse/news").RelPermalink }}">News</a>{{ end }}
+      <a href="{{ (site.GetPage "/categories").RelPermalink }}">Programmes</a>
       <a href="{{ (site.GetPage "/tags").RelPermalink }}">Topics</a>
       <a href="{{ (site.GetPage "/search").RelPermalink }}">Search</a>
     </nav>
   </div>
 </header>
+<div class="notice" data-pagefind-ignore><div class="wrap">
+  <p>This is a static archive of content published by the Centre for Internet and Society, India, at <a href="{{ site.Params.original }}">cis-india.org</a>. Content is reproduced under its original licence. It was migrated by an automated script and may contain errors: please <a href="{{ site.Params.issues }}">report any problems on GitHub</a>.</p>
+</div></div>
 <main class="wrap">
 {{ block "main" . }}{{ end }}
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <p>This is a static archive of content published by the Centre for Internet and Society, India, at <a href="{{ site.Params.original }}">cis-india.org</a>. Content is reproduced under its original licence; views expressed are those of the individual authors.</p>
-  </div>
-</footer>
 </body>
 </html>

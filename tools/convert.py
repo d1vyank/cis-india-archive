@@ -205,6 +205,20 @@ def clean(fragment, base):
     return re.sub(r"\n\s*\n+", "\n", html).strip()
 
 
+# The original site's programmes (its top navigation). An item belongs to the programme whose
+# folder it lives in, plus any programme named in its tags (news and events sit outside them).
+PROGRAMMES = {"accessibility": "Accessibility", "a2k": "Access to Knowledge", "openness": "Openness",
+              "internet-governance": "Internet Governance", "telecom": "Telecom", "raw": "RAW",
+              "digital-natives": "Digital Natives"}
+PROGRAMME_TAGS = {v.lower(): v for v in PROGRAMMES.values()} | {"researchers at work": "RAW"}
+
+
+def categories(urlpath, tags):
+    cats = [PROGRAMMES[s] for s in [urlpath.strip("/").split("/")[0]] if s in PROGRAMMES]
+    cats += [PROGRAMME_TAGS[t.strip().lower()] for t in tags if t.strip().lower() in PROGRAMME_TAGS]
+    return list(dict.fromkeys(cats))
+
+
 def text(el):
     return re.sub(r"\s+", " ", el.get_text(" ", strip=True)) if el else None
 
@@ -240,6 +254,7 @@ def convert(item):
         "original_url": url,
         "type": TYPE_MAP.get(item["type"], "blog"),
         "program": urlpath.strip("/").split("/")[0],
+        "categories": categories(urlpath, item.get("tags") or []),
     }
     lead = content.select_one("img.newsImage")
     if lead:
