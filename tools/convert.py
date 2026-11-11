@@ -15,6 +15,8 @@ from datetime import datetime
 from urllib.parse import urljoin, urlparse, unquote, quote
 from bs4 import BeautifulSoup, Comment, NavigableString
 import yaml
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from embeds import fix_embeds
 
 CRAWL, SITE = sys.argv[1], sys.argv[2]
 HOSTS = ("cis-india.org", "www.cis-india.org")
@@ -198,6 +200,8 @@ def clean(fragment, base):
             el["class"] = "center"
         if el.name == "span" and not el.attrs:
             el.unwrap()
+    for k, v in fix_embeds(fragment).items():   # iframes to https, Flash to iframes (tools/embeds.py)
+        stats[k] = stats.get(k, 0) + v
     for el in fragment.find_all(["p", "div"]):
         if not el.get_text(strip=True).replace("\xa0", "") and not el.find(["img", "iframe", "table"]):
             el.decompose()
