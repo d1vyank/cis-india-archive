@@ -135,3 +135,6 @@ h2{font-weight:600}
 @media (max-width:480px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}main{padding-top:28px}.body{font-size:17px}}
 @media print{.notice,.site-header,.site-footer,.post-side .report{display:none}}
 #search mark{background:var(--notice-bg);color:var(--notice-fg)}
+.body iframe{max-width:100%;border:0}
+.body iframe.video{display:block;width:100%;max-width:640px;height:auto;aspect-ratio:16/9;margin:0 0 22px}
+.body .embed-gone{display:block;font-size:15px;color:var(--soft)}

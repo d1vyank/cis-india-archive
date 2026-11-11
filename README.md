@@ -10,6 +10,7 @@ A static archive of blog posts and events from cis-india.org (Centre for Interne
 - `sample/` - the sample's `listing.json`, `inventory.json` (metadata, attachments and fetch status) and `convert_report.json` (files still missing).
 - `tools/crawl_sample.py OUT` - gentle crawler (one request at a time, 3 s pause, backoff).
 - `tools/convert.py CRAWL_DIR SITE_DIR` - turns a crawl into `archive/`-style content.
+- `tools/embeds.py` - used by `convert.py` to make embedded media play: `http://` iframes become `https://` (browsers block them on an HTTPS site), old Flash players (YouTube, SoundCloud, Vimeo) become iframes, and players from dead services (blip.tv, Storify) become a short note. `python3 tools/embeds.py archive/content` re-applies it to already converted content.
 - `tools/build.sh [extra-config.toml]` - merges `theme/` and `archive/` into `site/`, builds with Hugo 0.140.2 (extended), prunes pagination redirect stubs, indexes with Pagefind 1.3.0. Output: `site/public`.
 
 Raw crawl data (`crawl/`) and build output (`site/`, `bin/`) are not committed.
