@@ -1,0 +1,83 @@
+---
+title: Querying Wikipedia Data
+date: '2016-10-21'
+authors:
+- U.B.Pavanaja
+tags:
+- Wikimedia
+- CIS-A2K
+- Wikipedia
+- Access to Knowledge
+description: Recently I wrote a blog about the stub article length of Wikipedia articles.
+  I mentioned the difference in actual number of characters and the number of bytes
+  used to define stub articles between English and Indian language Wikipedias. One
+  can open any language Wikipedia, type Special:ShortPages in the search box to get
+  the list of articles which have less than 2048 bytes.
+url: /a2k/blogs/querying-wikipedia-data/
+original_url: https://cis-india.org/a2k/blogs/querying-wikipedia-data
+type: blog
+program: a2k
+---
+<p>Originally published blog can be <a href="http://pavanaja.com/english/querying-wikipedia-data/">accessed here</a>.</p>
+<hr/>
+<p>However, as already mentioned in that <a href="http://pavanaja.com/english/utf-8-indic-stub-length-wikipedia/">blog</a>, the number of bytes for Indian  languages to be considered as stub should be actually 2048*3 = 6144  bytes employing the same criteria. How to find the list of articles  fulfilling this condition?</p>
+<p>This brings us to the topic of querying Wikipedia data. Wikimedia  Foundation Labs has put up a website wherein one can run SQL queries on  Wikimedia data. The URL of the website is <a href="https://quarry.wmflabs.org">quarry.wmflabs.org</a>.  When we open the website, we get a textbox wherein one can type the SQL  query which will run on Wikimedia data. In this example I will consider  Wikipedia only. But the queries can be run on the data of other  Wikimedia projects like Wikisource, Wikidata, Wiktionary, etc.</p>
+<p>One has to login with his/her Wikimedia login. After logging the SQL query can be typed in the textbox and the Submit Query button  has to be clicked. The result of execution of the query on Wikimedia  data will be displayed. In this blog I will throw more light on Kannada  Wikipedia. The database for Kannada Wikipedia is called knwiki_p.  Complete list of databases can be obtained by running the SQL query  “show databases”.</p>
+<p>To get the list of tables in Kannada Wikipedia, the following SQL queries have to be executed:</p>
+<p>use knwiki_p;<br/>show tables;<br/><br/></p>
+<p>To know the scheme of any table, run the query desc  &lt;tablename&gt;;. For example, to know the details of the table by name, issue the query desc page;. The fields which are of importance in the current case is page_title and page_len. The following query will list all articles in Kannada Wikipedia which are having less than 6144 bytes.</p>
+<p>use knwiki_p;<br/>select page_title, page_len<br/>from page where page_len &lt; ‘6144’ and page_namespace = 0 and page_is_redirect = 0 order by page_len ;<br/><br/></p>
+<p>Some other useful queries are listed below:</p>
+<table>
+<tbody>
+<tr>
+<th><b>Query</b></th><th><b>What it does</b></th>
+</tr>
+<tr>
+<td>Select Count(*) from page where page_namespace = 0 and page_is_redirect =0;</td>
+<td>Number of articles without redirect</td>
+</tr>
+<tr>
+<td>Select Count(*) from page where page_namespace = 0 and page_is_redirect =0 and page_len &lt; 6144;</td>
+<td>Number of articles which are having bytes less than 6144</td>
+</tr>
+<tr>
+<td>select * from user where user_name Like “P%”;</td>
+<td>List all users whose username starts with letter “P”</td>
+</tr>
+<tr>
+<td>select user_id, user_name, user_editcount  from user where user_editcount &gt;3000 order by user_editcount desc;</td>
+<td>List all users with editcount more than 3000   </td>
+</tr>
+<tr>
+<td>SELECT
+<p>page_namespace,</p>
+<p>page_title,</p>
+<p>page_len</p>
+<p>FROM page</p>
+<p>WHERE page_len &gt; 175000</p>
+<p>AND page_title NOT LIKE “%/%”</p>
+<p>ORDER BY page_namespace ASC;</p>
+</td>
+<td>List of long articles (articles having  bytes more than 175000)</td>
+</tr>
+<tr>
+<td>SELECT rc_title as title, rc_comment as comments, count(*) as Edits
+<p>FROM recentchanges</p>
+<p>WHERE rc_namespace = 0</p>
+<p>GROUP BY 1 ORDER BY 3 DESC</p>
+<p>LIMIT 100;</p>
+</td>
+<td>Most edited 100 pages during past one month</td>
+</tr>
+<tr>
+<td>SELECT log_title, COUNT(*) FROM logging WHERE log_type=”thanks” GROUP BY log_title ORDER BY COUNT(*) DESC LIMIT 100;</td>
+<td>Who have been thanked most</td>
+</tr>
+</tbody>
+</table>
+<p>Useful links -</p>
+<ol>
+<li><a href="https://meta.wikimedia.org/wiki/Research:Quarry">Details about Quarry</a></li>
+<li><a href="https://wikitech.wikimedia.org/wiki/Help:MySQL_queries">MySQL queries help</a></li>
+</ol>

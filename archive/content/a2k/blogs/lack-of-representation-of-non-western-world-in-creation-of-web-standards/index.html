@@ -1,0 +1,316 @@
+---
+title: (Lack of) Representation of Non-Western World in Process of Creation of Web
+  Standards
+date: '2016-10-20'
+authors:
+- Harsh Gupta
+tags:
+- Open Standards
+- Access to Knowledge
+- Web Standards
+- Encrypted Media Extensions
+- Openness
+description: World Wide Consortium (W3C) as a standard setting organization for the
+  World Wide Web plays a very important role in shaping the web. We focus on the ongoing
+  controversy related to Encrypted Media Extensions (EME) and found that there was
+  a serious lack of participation from people from non-western countries. We also
+  found serious lack of gender diversity in the EME debate.
+url: /a2k/blogs/lack-of-representation-of-non-western-world-in-creation-of-web-standards/
+original_url: https://cis-india.org/a2k/blogs/lack-of-representation-of-non-western-world-in-creation-of-web-standards
+type: blog
+program: a2k
+---
+<p>W3C is the organization which sets the standard for HTML 5. Recently it got surrounded by controversy due to the Encrypted Media Extensions (EME) draft specification (David Dorwin et al. 2016).  EME aims to prevent piracy of digital video by making it hard to download the unencrypted video stream. But it also raises lots of issues regarding implementation in Free and Open Source Software, Interoperability, Privacy, Security, Accessibility and fair use. (Cory Doctorow 2016)</p>
+<p>In this study we looked at aspects of the debate which both of the sides ignored, the third world! We found that out of 48 people who participated in the debate around EME on W3C's public-html mailing list, none of them were from the continents of Asia, Africa or South America. These regions make up almost 80 % of the world's population and more than 60 percent of world's internet users (Stats 2016). When a group of people doesn't get represented a in the standard making process it is expected that their concerns don't get represented either. The representation of people is specially important in the EME debate because laws around Digital Rights Management around the world are different.  For example Indian laws does not disallow manufacture and distribution of circumvention tools whereas the law in USA does (Prakash 2016b). The cultural norms around the world are quite different and also the conditions under which people use the internet are different. India has the lowest average internet speed across the world (Akamai 2016). A large of fraction of Indian population (37% in 2010) accesses internet through Cyber Cafés (TRAI 2016). These factors makes the ability to download digital content much more important for an Indian internet user than a North American or European internet user.</p>
+<h2>Methodology</h2>
+<p>We used BigBang<a href="#_ftn1" id="_ftnref1" name="_ftnref1">[1]</a> python package to download the achieves of the public-html mailing list at W3C.<a href="#_ftn2" id="_ftnref2" name="_ftnref2">[2]</a> Our dump contains all the messages between 31st August 2010 to 15th May 2016. Then we filtered out all the emails with EME, encrypted media or DRM in the subject line. There were 472 such emails. We then de-duplicated the list of senders as some senders used multiple emails in the course of discussion. There were 48 unique senders afters de duplication. Then we looked up their social media profiles (LinkedIn, Twitter, Github), personal website or page at employers site to determine the region they belong to and their gender. All the source code used for the analysis is available on our github repository.<a href="#_ftn3" id="_ftnref3" name="_ftnref3">[3]</a></p>
+<h2>Result</h2>
+<h3>Regional Diversity</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><b>Region</b></p>
+</td>
+<td>
+<p><b>Participant (%)</b></p>
+</td>
+<td>
+<p><b>Email (%)</b></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Africa</p>
+</td>
+<td>
+<p>0 (0)</p>
+</td>
+<td>
+<p>0 (0)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Asia</p>
+</td>
+<td>
+<p>0 (0)</p>
+</td>
+<td>
+<p>0 (0)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Australia and New Zealand</p>
+</td>
+<td>
+<p>5 (10.4)</p>
+</td>
+<td>
+<p>16 (3.4)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Europe</p>
+</td>
+<td>
+<p>13 (27.1)</p>
+</td>
+<td>
+<p>146 (30.9)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>North America</p>
+</td>
+<td>
+<p>30 (62.5)</p>
+</td>
+<td>
+<p>310 (65.7)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>South America</p>
+</td>
+<td>
+<p>0 (0)</p>
+</td>
+<td>
+<p>0 (0)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Total</b></p>
+</td>
+<td>
+<p><b>48 (100)</b></p>
+</td>
+<td>
+<p><b>472 (100)</b></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>As mentioned in the Introduction above there was absolutely no participation from the whole continents of Africa, Asia, or South America with most of the emails being sent by North Americans.</p>
+<h3>Gender Diversity</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><b>Gender</b></p>
+</td>
+<td>
+<p><b>Participant(%)</b></p>
+</td>
+<td>
+<p><b>Email(%)</b></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Male</p>
+</td>
+<td>
+<p>47 (97.9)</p>
+</td>
+<td>
+<p>466 (98.7)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Female</p>
+</td>
+<td>
+<p>1 (2.1)</p>
+</td>
+<td>
+<p>6 (1.3)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Total</b></p>
+</td>
+<td>
+<p><b>48 (100)</b></p>
+</td>
+<td>
+<p><b>472 (100)</b></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>There was only one women participating in the discussing contributing 1.3 % of the emails sent. The numbers reflects widely discussed lack of gender diversity in Tech and Open communities.</p>
+<p>The debate inside W3C around EME also seriously lacked in gender diversity, which is typical of open communities.</p>
+<h3>Stakeholder Community</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><b>Stakeholder Community</b></p>
+</td>
+<td>
+<p><b>Participants per work category</b></p>
+</td>
+<td>
+<p><b>Emails sent per stakeholder category</b></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>FOSS browser developer</b></p>
+</td>
+<td>
+<p>5</p>
+</td>
+<td>
+<p>56</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Digital Content Provider</b></p>
+</td>
+<td>
+<p>9</p>
+</td>
+<td>
+<p>186</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>DRM Platform Provider</b></p>
+</td>
+<td>
+<p>15</p>
+</td>
+<td>
+<p>100</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Accessibility</b></p>
+</td>
+<td>
+<p>4</p>
+</td>
+<td>
+<p>47</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Security Researcher</b></p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Privacy</b></p>
+</td>
+<td>
+<p>2</p>
+</td>
+<td>
+<p>2</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Other W3C Employee</b></p>
+</td>
+<td>
+<p>3</p>
+</td>
+<td>
+<p>10</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>None of the Above</b></p>
+</td>
+<td>
+<p>10</p>
+</td>
+<td>
+<p>71</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Total</b></p>
+</td>
+<td>
+<p><b>48</b></p>
+</td>
+<td>
+<p><b>472</b></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>We observe that there was no participation from the Security Researcher community and negligible participation from privacy community. Voice of Digital Content Provider was overrepresented with almost 40% of emails sent by them.</p>
+<p>Methodological remarks:</p>
+<ul>
+<li>Participants are categorized on the basis stakes of their employer and not specifically on the work they do. For example someone who works on privacy in Google will be placed in "DRM platform provider" instead of "Privacy".</li>
+<li>W3C and Universities are considered to neutral and their employees are categorized by the work they do.</li>
+<li>Google's position is very interesting, it is a DRM provider as a browser manufacturer but also a content provider in Youtube and fair number of Google Employers are against EME due to other concerns. Therefore Christian Kaiser has been paced as Content provider because he works on Youtube, and everyone else has been placed as DRM provider.</li>
+</ul>
+<h3>Discussion and Future Work</h3>
+<p>The lack of diversity in W3C is not unique. (Graham, Straumann, and Hogan 2015) showed a significant western bias in Wikipedia, gender bias in Wikipedia has also a well known and is being actively worked upon. Internet Corporation for Assigned Names and Numbers has also been criticized for under representing interests of non North American and West European world (Prakash 2016a).</p>
+<p>We hope that W3C and other organizations will increase the diversity in their standard making process so that global voices actually shape the global internet.</p>
+<h3>Acknowledgement</h3>
+<p>This work was done during my internship at The Center for Internet &amp; Society, India. I thank Sunil Abraham for useful and timely feedback and Pranesh Prakash, Amber Sinha and Udbhav Tiwari for informed discussions.</p>
+<hr/>
+<h2>References</h2>
+<ul>
+<li>Akamai. 2016. “Akamai State of the Internet Q1 2016.” Accessed August 20. <a href="https://www.akamai.com/uk/en/multimedia/documents/state-of-the-internet/akamai-state-of-the-internet-report-q1-2016.pdf"><b>https://www.akamai.com/uk/en/multimedia/documents/state-of-the-internet/akamai-state-of-the-internet-report-q1-2016.pdf</b></a>.</li>
+<li>Cory Doctorow. 2016. “Interoperability and the W3C: Defending the Future from the Present.” <i>Electronic Frontier Foundation</i>. <a href="https://www.eff.org/deeplinks/2016/03/interoperability-and-w3c-defending-future-present"><b>https://www.eff.org/deeplinks/2016/03/interoperability-and-w3c-defending-future-present</b></a>.</li>
+<li>David Dorwin, Jerry Smith, Mark Watson, and Adrian Bateman. 2016. “Encrypted Media Extensions, W3C Editor’s Draft.” Accessed May 13. <a href="https://w3c.github.io/encrypted-media/"><b>https://w3c.github.io/encrypted-media/</b></a></li>
+<li>Feminism, Geek. 2016. “Geek Feminism Wiki FLOSS.” <i>Geek Feminism Wiki</i>. Accessed October 5. <a href="http://geekfeminism.wikia.com/wiki/FLOSS">http://geekfeminism.wikia.com/wiki/FLOSS</a>.</li>
+<li>Graham, Mark, Ralph K. Straumann, and Bernie Hogan. 2015. “Digital Divisions of Labor and Informational Magnetism: Mapping Participation in Wikipedia.” <i>Annals of the Association of American Geographers</i> 105 (6): 1158–78. doi:<a href="https://doi.org/10.1080/00045608.2015.1072791"><b>10.1080/00045608.2015.1072791</b></a>.</li>
+<li>Prakash, Pranesh. 2016a. “CIS Statement at ICANN 49’s Public Forum.” <i>The Centre for Internet and Society</i>. Accessed August 20. <a href="/internet-governance/blog/icann49-public-forum-statement/"><b>http://cis-india.org/internet-governance/blog/icann49-public-forum-statement</b></a>.</li>
+<li>Prakash, Pranesh. 2016b. “Technological Protection Measures in the Copyright (Amendment) Bill, 2010.” <i>The Centre for Internet and Society</i>. Accessed August 20. <a href="/a2k/blogs/tpm-copyright-amendment/"><b>http://cis-india.org/a2k/blogs/tpm-copyright-amendment</b></a>.</li>
+<li>Stats, Internet Live. 2016. “Number of Internet Users (2016) - Internet Live Stats.” Accessed August 20. <a href="http://www.internetlivestats.com/internet-users/"><b>http://www.internetlivestats.com/internet-users/</b></a>.</li>
+<li>TRAI.. “Recommendations on National Broadband Plan.” Accessed August 20. <a href="http://www.trai.gov.in/WriteReadData/Recommendation/Documents/Rcommendation81210.pdf"><b>http://www.trai.gov.in/WriteReadData/Recommendation/Documents/Rcommendation81210.pdf</b></a>.</li>
+<hr/>
+</ul>
+<p><a href="#_ftnref1" id="_ftn1" name="_ftn1"><sup><sup>[1]</sup></sup></a><sup> </sup> https://github.com/datactive/bigbang</p>
+<p><a href="#_ftnref2" id="_ftn2" name="_ftn2"><sup><sup>[2]</sup></sup></a><sup> </sup> https://lists.w3.org/Archives/Public/public-html/</p>
+<p><a href="#_ftnref3" id="_ftn3" name="_ftn3"><sup><sup>[3]</sup></sup></a><sup> </sup> https://github.com/hargup/eme_diversity_analysis</p>

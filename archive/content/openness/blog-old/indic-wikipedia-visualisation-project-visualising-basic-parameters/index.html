@@ -1,0 +1,77 @@
+---
+title: 'Indic Wikipedia Visualisation Project #1: Visualising Basic Parameters'
+date: '2013-03-26'
+authors:
+- Sajjad Anwar
+- Sumandro Chattapadhyay
+tags:
+- Access to Knowledge
+- Wikimedia
+- Wikipedia
+- Featured
+- Openness
+description: Sajjad Anwar and Sumandro Chattapadhyay bring you a visualisation of
+  the growth of Indic Wikipedia in this first post on Indic Wikipedia Visualisation
+  project. In doing so, the authors look into the different aspects of the past and
+  present activities of Indic Wikipedias, and divide the visualisation into three
+  different focus areas.
+url: /openness/blog-old/indic-wikipedia-visualisation-project-visualising-basic-parameters/
+original_url: https://cis-india.org/openness/blog-old/indic-wikipedia-visualisation-project-visualising-basic-parameters
+type: blog
+program: openness
+---
+<h3>Introduction</h3>
+<p>Understanding how the Indic or the Indian language Wikipedia projects are growing is something that we have been interested in for quite sometime. We were delighted to come across this opportunity from the <a href="https://cis-india.org/">Centre</a><a href="https://cis-india.org/"> </a><a href="https://cis-india.org/">for</a><a href="https://cis-india.org/"> </a><a href="https://cis-india.org/">Internet</a><a href="https://cis-india.org/"> </a><a href="https://cis-india.org/">and</a><a href="https://cis-india.org/"> </a><a href="https://cis-india.org/">Society</a> (CIS) and <a href="http://www.wikimedia.org/">Wikimedia</a><a href="http://www.wikimedia.org/"> </a><a href="http://www.wikimedia.org/">Foundation</a>. We divided our analyses into three focus areas: (1) basic parameters, (2) geographic patterns of edits, and (3) exploring the topics that receives the greatest number of edits. The existing infographics and data visualisations that we found about Indic Wikipedias mostly engaged on the first area, and also emphasised on yearly aggregates. We thought a more granular, that is monthly, understanding and a focus on the geographic and thematic spread of the edits would be very helpful to further appreciate the activities.</p>
+<p>We began by collecting data about the following basic parameters:</p>
+<ol>
+<li>Number of Editors</li>
+<li>Number of Articles</li>
+<li>Page Views</li>
+<li>Number of Active Editors</li>
+<li>Number of New Articles</li>
+<li>Number of New Editors</li>
+<li>Edit Size</li>
+</ol>
+<h3>Acquiring the data</h3>
+<p>We explored the <a href="http://www.mediawiki.org/wiki/API">MediaWiki</a><a href="http://www.mediawiki.org/wiki/API"> </a><a href="http://www.mediawiki.org/wiki/API">API</a>, <a href="http://toolserver.org/">ToolServer</a> and the <a href="http://stats.wikimedia.org/">Wikimedia</a><a href="http://stats.wikimedia.org/"> </a><a href="http://stats.wikimedia.org/">Statistics</a><a href="http://stats.wikimedia.org/"> </a><a href="http://stats.wikimedia.org/">Portal</a>. These are several ways of obtaining data about Wikipedia in general. Depending on the use case, such as the quantity of data required or the need for customised/selective data scraping, any one or more of these methods of data gathering can be chosen. The API had limitations in terms of how much data you can access, and it is meant to be used to access actual Wikipedia entries. We, however, were looking for metadata about the entries/articles (such as when it was first created, when and how many times it was edited, etc.) and not the actual entries/articles, that is the actual contents of Indic Wikipedias. ToolServer is an excellent way of running custom scripts. Although, this takes for granted that user (of ToolServer) has substantial command over the back-end infrastructures and processes that Wikipedia runs on. We wrote a few scrapers to extract metadata about Indic Wikipedia projects from the ToolServer but not exactly being experts in the Wikipedia back-end systems, we found scraping from ToolServer rather time-and effort-intensive. The statistics portal is a well organised and an accessible place for collecting data for analyses. However, we came across several missing parameters and projects, that is the statistic portal did not have all the parameters and Wikipedia projects we were interested in. In our search for Indic Wikipedia datasets so far, we realised that the Wikimedia Analytics Team (WAT) puts a lot of effort in writing scripts and collecting various data at different levels. Wikimedia developer Yuvi Panda and the Access to Knowledge team at CIS, aware of our difficulty in obtaining the data, also pointed us towards the WAT. While we were already scraping data on some of the parameters, we approached the WAT whose prompt and very supportive response much accelerated our work process. The fantastic Wikimedia developers, especially Evan Rosen (a big ‘thank you’ for him) shared the needed data, which we cleaned up and archived at the <a href="https://github.com/geohacker/indicwiki">Github repository</a> for the project.</p>
+<p>We obtained data for the period from January 2001 to December 2012. It appears that the Indic Wikipedia projects began their activities around 2005. A big part of cleaning the data involved identifying when each of the projects started and dropping data. There are <a href="https://meta.wikimedia.org/wiki/India_Access_To_Knowledge/Indic_Languages">20 </a><a href="https://meta.wikimedia.org/wiki/India_Access_To_Knowledge/Indic_Languages">Indic</a><a href="https://meta.wikimedia.org/wiki/India_Access_To_Knowledge/Indic_Languages"> </a><a href="https://meta.wikimedia.org/wiki/India_Access_To_Knowledge/Indic_Languages">Wikipedia</a> projects with 4,98,964 articles, 5,689 editors and over 3,35,49,102 readers.</p>
+<h3>Deciding upon chart types</h3>
+<p>We spent quite some time discussing different methods of visualising the data. The major difficulty is that there are too many entities to be plotted. As each language must be plotted as a separate entity — point, line, circle, etc. — the chart has a tendency to become cluttered and illegible. Even if we take only one variable — say New Editors — there will still be 20 points or lines to be plotted. Hence, using any of the conventional charts becomes difficult. For example, if we chose a line chart with New Editors on the Y-axis and months on the X-axis, there will be 20 lines each of a different colour, representing different languages. Also, the five-six year monthly timeline translates into 60-72 temporal data points.</p>
+<p>We have adopted two strategies, and related chart types, to address this difficulty.</p>
+<p>Firstly, we used a monthly calendar-like heatmap chart that limits the temporal spread of data to one year for each section of the chart and uses a positionally uniform set of columns for each language so as to make reading the chart easier. Limiting each chart section to 12 months allow the user to focus on more granular movements of the variable concerned, say the number of New Editors per month. By representing each languages on an unique column, and not by an upwards-and-downwards moving line as in a line chart, makes it easier for the user to follow movements in each language (where movement is shown by the intensity of colour, as characteristic of heatmaps) without the need to have a separate coloured entity — point, line, circle — for each language.</p>
+<p>Secondly, we used a motion chart, as made famous by Dr. Hans Rosling, that removes the temporal axis from X- and Y-axes of the chart and uses animated transition to represent temporal change. Motion chart has the unique ability to handle as many as five variables in an organised manner, using the following visual elements: X-axis, Y-axis, Z-axis (animated temporal transitions), size of bubbles, and colour of bubbles. It is, however, recommended that represented variables be limited to a maximum of four for easier legibility. In our case, we have used the X- and Y-axes to plot various related variables (which can be selected by the user) such as New Editors and New Articles, the Z-axis to represent time, and the colour of the bubbles to represent a third optional variable (also can be selected by the user). Since different Indian language Wikipedia projects often take a wide range of values for most variables, using the size of the bubble to represent any of those variables is avoidable. Further, the motion chart gives the user a lot of controls to explore the various projects and variables according to their interest and especially to compare particular projects and variables to each other.</p>
+<p>Discussing the chart types with the Access to Knowledge team, we decided to use simpler line charts — emphasising upon single Indic Wikipedia projects — on the language-specific pages that we will be creating next.</p>
+<h3>Calendar charts</h3>
+<table>
+<tbody>
+<tr>
+<th><img alt="Indic Wikipedia Language Chart" loading="lazy" src="/files/home-images/indicwiki_calendar_chart.png" title="Indic Wikipedia Language Chart"/></th>
+</tr>
+<tr>
+<td class="center">Calendar heatmap chart of  New Editors across Indic Wikipedia projects, 2008-2011. Source: <a href="http://bit.ly/XDb3fa">http://bit.ly/XDb3fa</a></td>
+</tr>
+</tbody>
+</table>
+<p>We visualised three parameters using the calendar heatmap strategy: (1) <a href="http://geohacker.github.com/indicwiki/new-articles">New</a><a href="http://geohacker.github.com/indicwiki/new-articles"> </a><a href="http://geohacker.github.com/indicwiki/new-articles">Articles</a>, (2) <a href="http://geohacker.github.com/indicwiki/new-editors">New</a><a href="http://geohacker.github.com/indicwiki/new-editors"> </a><a href="http://geohacker.github.com/indicwiki/new-editors">Editors</a>, (3) <a href="http://geohacker.github.com/indicwiki/active-editors">Active</a><a href="http://geohacker.github.com/indicwiki/active-editors"> </a><a href="http://geohacker.github.com/indicwiki/active-editors">Editors</a>.</p>
+<p>The New Articles Calendar shows new articles posted on every Indic Wikipedias for every month since 2004. It was interesting to note the few number of articles in 2012 for all the languages. The first language to have the most number of new articles is Bengali. Hindi picks up around same time with fewer number of articles. Except Urdu and Nepali, every other language dropped in the number of new articles. However, we should remember that a lower number of new articles does not necessarily indicate at low overall activity in the project concerned.</p>
+<p>Like the new articles, we wanted to explore the patterns in the number of new editors across all of the Indic Wikipedia projects. As you run through the new editors calendar chart, it is evident that there is consistent growth in the editor base for few projects like Hindi, Marathi, Bengali, Telugu, Tamil, Kannada and Malayalam. If one takes a step back and compares this with the number of new articles chart, something is not very clear -- in some of the projects, there is a growth in the number of editors but not many new articles are posted. We are very keen to understand why this has happened.</p>
+<p>If we look at the active editors calendar, Tamil started with 2 active editors in January 2004 and with few ups and downs grew to about 115 active editors in December 2012. Malayalam started slow in late 2004 with 2 editors and grew to 155 active editors in December 2012. We are sure the viewers should be able to find out more patterns by studying the charts closely and comparatively.</p>
+<h3>Motion chart</h3>
+<p>We developed <a href="http://geohacker.github.com/indicwiki/motion_chart.html">a</a><a href="http://geohacker.github.com/indicwiki/motion_chart.html"> </a><a href="http://geohacker.github.com/indicwiki/motion_chart.html">motion</a><a href="http://geohacker.github.com/indicwiki/motion_chart.html"> </a><a href="http://geohacker.github.com/indicwiki/motion_chart.html">chart</a><a href="http://geohacker.github.com/indicwiki/motion_chart.html"> </a><a href="http://geohacker.github.com/indicwiki/motion_chart.html">comparing</a><a href="http://geohacker.github.com/indicwiki/motion_chart.html"> </a><a href="http://geohacker.github.com/indicwiki/motion_chart.html">five</a><a href="http://geohacker.github.com/indicwiki/motion_chart.html"> </a><a href="http://geohacker.github.com/indicwiki/motion_chart.html">variables</a>: (1) Active Editors (&gt; 5 edits per month), (2) New Editors, (3) Total Editors, (4) New Articles, and (5) Total Articles. When the visualisation is opened, Total Editors is plotted on the X-axis, Total Articles is plotted on the Y-axis, the colour of the bubbles indicate the Active Editors (Blue is low and Red is high) and the sizes of the bubbles are kept the same for easier comparison.</p>
+<p>The user can click on the drop down menus at the X- and Y-axes, and next to the size and colour variables, and make them represent different variables.</p>
+<p>We chose to configure the X- and Y-axes to show the data in logarithmic scales and not in linear scales. Since most projects experience small increments over time and there exists a wide difference between the most and the least popular/active projects, the logarithmic scale is better suited to represent the changes in the given data. The user has the option to select linear scale at the end of both X- and Y-axes (click on "Log").</p>
+<p>As evident in the visualisation, the Newari project and the Hindi-Malayalam project cluster show very interesting contrasting dynamics — while both achieve similar Total Articles numbers, the latter is much more editor-heavy. This suggests a smaller but more active editor community for the Newari project.</p>
+<p>Please click on the image of the motion chart below to open the interactive version in a separate window. The code can be accessed at the project repository on <a href="https://github.com/geohacker/indicwiki">Github</a>.</p>
+<table>
+<tbody>
+<tr>
+<th><img alt="Indic Wiki Motion Chart" loading="lazy" src="/files/home-images/indicwiki_motion_chart.png" title="Indic Wiki Motion Chart"/></th>
+</tr>
+<tr>
+<td>Motion chart comparing multiple variables across Indic Wikipedia projects, 2001-2011. Source: <a href="http://bit.ly/Yw4Wzq">http://bit.ly/Yw4Wzq</a></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<p><a href="http://sajjad.in/">Sajjad Anwar</a> is a programmer based in Bangalore. <a href="http://www.ajantriks.net/">Sumandro Chattapdhyay</a> is a researcher based in Delhi. They often work together.</p>
+<hr/>

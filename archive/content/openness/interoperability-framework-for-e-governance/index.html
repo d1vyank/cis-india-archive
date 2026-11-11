@@ -1,0 +1,31 @@
+---
+title: Comments on Technical Standards for Interoperability Framework for E-Governance
+  in India (Phase II)
+date: '2012-02-29'
+authors:
+- Pranesh Prakash
+tags:
+- Openness
+description: The e-Governance Standards Division has called for public comments on
+  the draft of the Technical Standards IFEG Phase II. We from the Centre for Internet
+  and Society have given our comments.
+url: /openness/interoperability-framework-for-e-governance/
+original_url: https://cis-india.org/openness/interoperability-framework-for-e-governance
+type: blog
+program: openness
+---
+<p>The present document is — as the draft IFEG Phase I document was — an excellent step in the right direction, following very ably the policy guidelines laid down in the National Policy on Open Standards for e-Governance.</p>
+<p>The Expert Committee and other contributors have made excellent choices as to the 29 standards that have been laid down in this phase of the IFEG.  It is praiseworthy that the majority of these (20) are designated as mandatory, and only nine are designated as interim standards.  Furthermore, the system has been quite transparent with the selection of standards, providing concise descriptions for each.</p>
+<p>That said, the document could be improved by providing greater detail for those standards which are said to violate the National Open Standards Policy.  In the current document, every interim standard is said to violate “clause 2”, rather than providing the more specific details (sub-clause, one-line explanation) about the violation.</p>
+<p>It is unfortunate that yet again accessibility-related standards have been passed over in the presentation and archival domain.</p>
+<p>As we have mentioned in earlier feedback, many other governmental interoperability frameworks are going beyond merely listing technical standards.  Some governments, such as Germany and the EU, go beyond technical interoperability, and also have documents dealing with organizational, informational, and legal interoperability.  These are equally important components of an interoperability framework.  Other governments also also lay down best practice guides, and other aids to implementation, sometimes even including application recommendations.  Further, there are many which lay out standards for the the semantic layer, business services layer, etc.</p>
+<p>We at the Centre for Internet and Society are currently advising the government of Iraq on development of their e-Governance Interoperability Framework, and would be glad to extend any support that the Department of IT may require of us, including comments on all further phases.</p>
+<h2>Section-specific Comments</h2>
+<h3>Section 5.2.8</h3>
+<p>It is unclear whether by IEEE 802.11-2007, the base version is being referred to or the amended version, since IEEE 802.11-2007 has been amended by IEEE 802.11n-2009 to include the IEEE 802.11n standard.  As IEEE 802.11n has also become an established standard, it is suggested that section 5.2.28 make it clear that the amended standard is being referred to.</p>
+<h3>Section 5.2.13</h3>
+<p>It is recommended that IMAP v4rev1 (IETF RFC 3501, updated by RFCs 4466, 4469, 4551, 5032, 5182, 5738, 6186, supplemented by RFCs 2177, 4550) be used instead of POP3 (IETF RFC 1939).  It is critical that governmental messages be preserved on government servers, and should not simply be downloaded and then deleted as is the default with POP3 implementations.  IMAP allows for downloading and offline access to mails as well.  Any deletion on the server from the client would be recorded in the server logs,  hence allowing for transparency.  Given this, and the more advanced features available in IMAP, it should be preferred to POP3.  In other government interoperability frameworks where an e-mail access protocol is specified, including those of Germany, Malaysia, and Hong Kong, IMAP is provided as a standard and never is POP3 provided as the sole standard.</p>
+<h3>Section 5.2.15</h3>
+<p>SAML 2.0 is a standard for exchanging authentication and authorization data between security domains, and is not a ‘Wireless LAN Authentication’ standard.  Indeed, section 5.2.8 (IEEE 802.11-2007) talks about ‘Wireless LAN Security’.</p>
+<h3>Section 5.2.23<br/></h3>
+<p>WML v1.3, as noted, is a declining standard that is deprecated due to the recommendation by W3C of XHTML Basic v1.1.  If it is at all included, it should be included not as “Mandatory – Watchlist”, but as “Additional Standard”, as it is a direct competitor to XHTML Basic v1.1.</p>

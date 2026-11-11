@@ -1,0 +1,65 @@
+---
+title: Investigating TLS blocking in India
+date: '2020-07-09'
+authors:
+- Simone Basso
+- Gurshabad Grover
+- Kushagra Singh
+tags:
+- Protocols
+- Internet Governance
+- Censorship
+description: 'A study into Transport Layer Security (TLS)-based blocking by three
+  popular Indian ISPs: ACT Fibernet, Bharti Airtel and Reliance Jio.'
+url: /internet-governance/blog/investigating-tls-blocking-in-india/
+original_url: https://cis-india.org/internet-governance/blog/investigating-tls-blocking-in-india
+type: blog
+program: internet-governance
+---
+<p>Gurshabad Grover and Kushgra Singh collaborated with Simone Basso (OONI) to investigate TLS-based blocking in India. The research report was published on <a href="https://ooni.org/post/2020-tls-blocking-india/">OONI's blog</a>. It was edited and reviewed by Maria Xynou and Arturo Filastò.</p>
+<hr/>
+<h2>Summary</h2>
+<p>This report investigates Transport Layer Security
+(<a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">TLS</a>)-based
+blocking in India. <a href="/internet-governance/blog/reliance-jio-is-using-sni-inspection-to-block-websites/">Previous
+research</a>
+by the <a href="https://cis-india.org/">Centre for Internet &amp;
+Society, India</a> (CIS) has already
+exposed TLS blocking based on the value of the <a href="https://en.wikipedia.org/wiki/Server_Name_Indication">SNI
+field</a>.
+OONI has also <a href="https://ooni.org/post/2020-iran-sni-blocking/">implemented and started
+testing</a>
+SNI-based TLS blocking measurements.</p>
+<p>Recently, the Magma Project
+<a href="https://blog.magma.lavafeld.org/post/women-on-web-blocking/">documented</a>
+cases where CIS India and OONI’s methodologies could be improved. They
+specifically found that blocking sometimes appears to depend not only on
+the value of the SNI field but also on the address of the web server
+being used. These findings were later confirmed by OONI measurements in
+<a href="https://ooni.org/post/2020-engine-evaluation-spain">Spain</a>
+and <a href="https://ooni.org/post/2020-iran-dot/">Iran</a> through
+the use of an extended measurement methodology.</p>
+<p>We were therefore curious to see whether such an extended methodology
+would discover further cases of TLS blocking in India. To answer this
+research question we ran experiments on the networks of three popular
+Indian Internet Service Providers (ISPs) (<a href="https://ipinfo.io/AS24309">ACT
+Fibernet</a>, <a href="https://ipinfo.io/AS45609">Bharti
+Airtel</a>, and <a href="https://ipinfo.io/AS55836">Reliance
+Jio</a>) which account for <a href="https://trai.gov.in/sites/default/files/PIR_08012020_0.pdf">over
+70% of the internet subscribers in
+India</a>.</p>
+<p>We recorded SNI-based blocking on both Bharti Airtel and Reliance Jio.
+We also discovered that Reliance Jio blocks TLS traffic not just based
+on the SNI value, but also on the web server involved with the TLS
+handshake. Moreover, we noticed that ACT Fibernet’s DNS resolver directs
+users towards servers owned by ACT Fibernet itself. Such servers caused
+the TLS handshake to fail, but the root cause of censorship was the DNS.</p>
+<p>We also document that one of the endpoints we tested,
+<code>collegehumor.com:443</code>, does not allow establishing TCP connection from
+several vantage points and control measurements. Yet, in Reliance Jio,
+we see cases where the connections to such endpoints complete
+successfully and a timeout occurs during the TLS handshake. We believe
+this is caused by some kind of proxy that terminates the TCP connection
+and performs the TLS handshake.</p>
+<hr/>
+<p>Read the full research report on <a href="https://ooni.org/post/2020-tls-blocking-india/">OONI's blog</a>.</p>

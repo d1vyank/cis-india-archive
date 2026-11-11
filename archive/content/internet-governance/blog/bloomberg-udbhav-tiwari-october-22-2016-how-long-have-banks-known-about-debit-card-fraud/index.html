@@ -1,0 +1,55 @@
+---
+title: How Long Have Banks Known About The Debit Card Fraud?
+date: '2016-10-22'
+authors:
+- Udbhav Tiwari
+tags:
+- Cyber Security
+- Internet Governance
+- Privacy
+description: The recent security breach in an Indian payment switch provider, confirmed
+  earlier this week by the National Payments Corporation of India Ltd (NPCIL), has
+  forced domestic banks into damage control mode over the past few days.
+url: /internet-governance/blog/bloomberg-udbhav-tiwari-october-22-2016-how-long-have-banks-known-about-debit-card-fraud/
+original_url: https://cis-india.org/internet-governance/blog/bloomberg-udbhav-tiwari-october-22-2016-how-long-have-banks-known-about-debit-card-fraud
+type: blog
+program: internet-governance
+---
+<p>The article was <a href="http://www.bloombergquint.com/opinion/2016/10/21/how-long-have-banks-known-about-the-debit-card-fraud">published by Bloomberg</a> on October 22, 2016.</p>
+<hr/>
+<p>The breach was detected when various customers began to lodge complaints  with their banks about unauthorised transactions on their accounts,  which upon investigation were said to originate from a foreign location  such as China. The security breach has affected actively at least 641  customers to the tune of Rs 1.8 crore, with lakhs more being affected by  the pro-active measures (including card revocation) being taken by  banks to prevent further financial losses.</p>
+<p>Surprisingly little is known, however, about the nature of the attack responsible for the breach, the extent or scope of damage it has caused and the sufficiency of the countermeasures being initiated by the banks against the attacks. This article will talk about these aspects of the attack and also suggest normative measures that can be carried out to minimize harm and prevent such attacks in the future.</p>
+<h3>The Modus Operandi</h3>
+<p>According to reports, the compromise may have happened at the level of the Hitachi Payment Services, which is a payment services provider which operates, among other financial services, ATMs for a variety of banks across the country. One or a certain number of ATMs were apparently compromised by a malware, which then infected the payment services provider network, leading to a far larger potential target area than just the physical ATMs for malware to act against. The malware could have infected the payment switch provider via physically being uploaded onto vulnerable ATM machines, which are known to run out-dated embedded operating systems with various documented loopholes that are rarely patched. The malware then could have recorded the details of the cards used on the infected ATMs (or even in the network generally) and then, via the same compromised network, transmitted confidential details, including ATM pins and CVV numbers, to the operators of the malware.</p>
+<p><img alt="Malware" loading="lazy" src="/files/home-images/Malware.jpg" title="Malware"/></p>
+<p>The attack could have also occurred from some other vulnerable part of the payment network, such as a payment switch within the bank itself, making it far more dangerous as it still maybe be active on parts of the network within the bank and would have access to a far wider range &amp; variety of information than a mere ATM. There is no real way to know if the threat has been even contained, forget neutralised, as the audits being carried out by PCI-DSS authorised agencies have been on-going for the past month and their reports are not due at least another 15 days, as intimated by NPCIL.</p>
+<h3>Massive Financial Implications</h3>
+<table>
+<tbody>
+<tr>
+<th>
+<p><img alt="Bank" loading="lazy" src="/files/home-images/Bank.png" title="Bank"/></p>
+</th>
+</tr>
+<tr>
+<td>Policemen guard the banking hall of a State Bank of India branch in New Delhi. (Photographer: Sondeep Shankar/Bloomberg News) <br/></td>
+</tr>
+</tbody>
+</table>
+<p>The compromise of these details, regardless of the source of the compromise, has massive financial implications. This is because various international services allow debit/credit cards to be used only with the card number, expiry date, name &amp; CVV number. They do not require the use of ATM Pins or an OTP (one time password) sent to a mobile phone for online transactions. In fact, unlike India where the RBI mandates OTPs for debit cards, this CVV based simplified online usage is the standard practice of using ATM Cards digitally in most of the developed world.</p>
+<p>This would mean that merely changing ATM pins, something which SBI alleges less than 7 percent of its customers had done prior to all 6 lakh cards being blocked, would serve as almost no protection if the cards are enabled for international online transactions. The fact that most of the dubious, unauthorised financial transactions are occurring from foreign locations probably demonstrates that it is these kinds of internationally enabled cards that are being targeted for this sort of an attack.</p>
+<h3>Are Banks Concealing Information?</h3>
+<table>
+<tbody>
+<tr>
+<th>
+<p><img alt="Bank" loading="lazy" src="/files/home-images/copy_of_Bank.png" title="Bank"/></p>
+</th>
+</tr>
+<tr>
+<td>A customer exits a Yes Bank Ltd. automated teller machine (ATM) in Ahmedabad. (Photographer: Dhiraj Singh/Bloomberg)</td>
+</tr>
+</tbody>
+</table>
+<p>The absence of data/security breach laws in India is being sharply felt as there as has been an abject lack of clarity and information from the banking sector and the government regarding the attack. Over 47 states in the USA and most of the countries in the EU have enacted strict data security breach laws that mandate public intimation &amp; disclosure of key information pertaining to the attack along with detailed containment measures. The presence of such a law in India would have gone a long way in preventing the breach from being under the wraps for so long (it occurred at the bank level in September, almost a month ago) and also ensured far more vigilant active compliance by corporations &amp; banks to international security standards and best practices. For now, the only true countermeasure to prevent future harm to affected card holders is for all affected cards to be revoked by the banks and new cards being issued to affected customers.</p>
+<p>Constant vigilance &amp; comprehensive security audits by banks to detect affected cards and active protection for customers, using financial and identity insurance services such as AllClear ID Plus (used by Sony in the 2011 Playstation Hack) will go a long way in mitigating the harm of the breach. The banking industry, government &amp; security agencies should all learn from this breach and a combination of new legislation, updated industry practices and consumer awareness is necessary for proactive &amp; reactive actions in the future.</p>

@@ -1,0 +1,36 @@
+---
+title: Investigating Encrypted DNS Blocking in India
+date: '2020-10-27'
+authors:
+- Divyank Katira
+description: We find that encrypted DNS protocols are not blocked in India and share
+  our test methodology.
+url: /internet-governance/blog/investigating-encrypted-dns-blocking-in-india/
+original_url: https://cis-india.org/internet-governance/blog/investigating-encrypted-dns-blocking-in-india
+type: blog
+program: internet-governance
+---
+<p><em>This report was edited and reviewed by Gurshabad Grover and Simone Basso.</em></p>
+<p>The Domain Name System (DNS) translates human-readable web addresses, like ‘cis-india.org’, into machine-readable IP addresses, such as ‘172.67.211.18’, that the routers that comprise the internet can understand and direct traffic to. This basic function of the web has historically operated unencrypted — allowing intermediaries that facilitate access to the internet, like coffee shop Wi-Fi operators and internet service providers (ISPs), to view what websites we visit. This gap in privacy is being exploited by both public and private entities to <a href="https://arxiv.org/abs/1912.08590">censor</a> access to the web and <a href="https://bits.blogs.nytimes.com/2015/02/18/atts-offer-share-your-data-for-personalized-ads-or-pay-more/?_r=0">surveil</a> our browsing habits.</p>
+<p>New <a href="https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+-+The+Solutions">internet protocols</a> are being deployed that attempt to encrypt connections to DNS providers. Through the use of these methods, the contents of DNS queries are hidden from network intermediaries and eavesdroppers and are only visible to the DNS provider chosen by an individual or a default one assigned to them by their ISP or web browser. While there are <a href="/internet-governance/blog/reliance-jio-is-using-sni-inspection-to-block-websites/">other ways</a> of censoring web traffic, encrypted DNS protocols prevent censors from using their older DNS-based methods. In response to these new protocols, states like Iran are trying to <a href="https://ooni.org/post/2020-iran-dot/">block</a> them entirely, to maintain the status quo.</p>
+<p>In this report, we investigate and find that encrypted DNS protocols, specifically the <a href="https://tools.ietf.org/html/rfc8484">DNS over HTTPS</a> (DoH) and <a href="https://tools.ietf.org/html/rfc8310">DNS over TLS</a> (DoT) standards, are accessible through major Indian ISPs, and describe the technical details of our testing methodology.</p>
+<h4>Test Setup</h4>
+<p>We compiled a <a href="https://gist.github.com/d1vyank/5f03302fdf961f0260175acc807d4942">list</a> of publicly accessible DNS resolvers that support the encrypted DoH and DoT protocols and tested access to them from four popular Indian ISPs, namely Airtel, Atria Convergence Technologies (ACT), Reliance Jio, and Vodafone. Together, these cover a large majority (roughly 95%, as <a href="https://web.archive.org/web/20200803100152/https://trai.gov.in/sites/default/files/PIR_30062020.pdf">reported</a> by TRAI) of the Indian internet subscriber base. </p>
+<p>To test connectivity, we used the Open Observatory for Network Interference (OONI) <a href="https://github.com/ooni/probe-engine">probe engine</a> (version <a href="https://github.com/ooni/probe-engine/releases/tag/v0.18.0">0.18.0</a>). Specifically, the ‘miniooni’ command-line interface tool bundled with it. Instructions on how to install this can be found <a href="https://github.com/ooni/probe-engine#building-miniooni">here</a>.</p>
+<h4>Test methodology</h4>
+<p>To test whether DNS providers are reachable over encrypted communication protocols, the tool performs a DNS query using the specified one (either DoH or DoT). If the connection is successful and we receive a response from the DNS server, we conclude that the protocol is not blocked. Failing to query a specific DNS server over DoT or DoH does not necessarily mean that it has been censored. To understand whether a failure could be censorship, rather than a transient error, we would correlate measurements from many users within the same ISP and country and use an alternate network, such as a VPN, to access the possibly blocked service from another country. </p>
+<p>In Iran, where DNS over TLS is <a href="https://ooni.org/post/2020-iran-dot/">reported</a> to be blocked, it was found that censorship occurs by interfering with the TLS handshake. Traffic corresponding to DNS over TLS is easier to identify and block as it communicates over a unique port and a distinctive ALPN, while DNS over HTTPS traffic is harder to block effectively as the HTTPS standard is widely used on the web and interference would lead to <a href="https://en.wikipedia.org/wiki/Collateral_freedom">collateral censorship</a>.</p>
+<h4>Results</h4>
+<p>The tests were run on each ISP in early October 2020 using the following command:</p>
+<div><code>$ ./miniooni --file=./resolvers.txt dnscheck</code></div>
+<p>The raw results in the OONI <a href="https://github.com/ooni/spec/tree/master/data-formats">data format</a> can be found <a href="https://gist.github.com/d1vyank/be47bbcb90c1964c9279c9170b1c2ce0">here</a>. A summary of the observations are as follows:</p>
+<ul><li>All DNS resolvers tested were accessible over both DoH and DoT protocols from all ISPs tested.</li><li>IPv6 addresses were not reachable through ACT broadband. This limitation was independently confirmed using the <a href="https://test-ipv6.com/">Test-IPv6 tool</a> and has also been discussed on <a href="https://www.reddit.com/r/bangalore/comments/gs2ibd/act_fibernet_ipv6/">Reddit</a>.
+</li></ul>
+<h4>Limitations</h4>
+<p>As our <a href="/internet-governance/blog/how-india-censors-the-web/">previous research</a> by the Centre for Internet and Society indicates, censorship practices vary across ISPs. While we find no evidence of encrypted DNS protocols being blocked on these four major ISPs, there may be others implementing such blocking.</p>
+<p>The second limitation is that these tests were run on a handful of connections from a couple of locations (Delhi and Bangalore). Web censorship mechanisms may vary by location within the country.</p>
+<p>Finally, the results only indicate the accessibility of encrypted DNS resolvers at a particular point in time. We have not put in place any continuous monitoring of the censorship of encrypted DNS protocols.</p>
+<h4>Conclusion</h4>
+<p>Broadly, the legal framework of web censorship in India allows the Government and courts to ask ISPs to block access to online resources. The precise technical details of how to implement the censorship are left to the ISPs.</p>
+<p>Because of net neutrality obligations, ISPs are not supposed to arbitrarily block resources. Coupled with the fact that the use of encrypted DNS protocols is not related to any particular content/website deemed unlawful, it might be expected that ISPs are not blocking encrypted DNS protocols. However, previous evidence of arbitrary blocking by ISPs motivated us to study whether any major ISP was blocking the use of these protocols or preventing access to any third-party DNS server.</p>
+<p>As part of this exercise, we also contributed code to the OONI probe engine, making it easier for other researchers to test connectivity to multiple DNS providers.</p>

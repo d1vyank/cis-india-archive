@@ -1,0 +1,37 @@
+---
+title: UTF-8, Indic and Stub Length Article in Wikipedia
+date: '2016-10-20'
+authors:
+- U.B.Pavanaja
+tags:
+- CIS-A2K
+- Kannada Wikipedia
+- Access to Knowledge
+description: One of the activities conducted as part of Wiki Conference India 2016
+  was the Punjab Editathon. It was about adding articles related to Punjab to Indian
+  language Wikipedias and English Wikipedia. There was also an announcement made about
+  some award for highest contribution.
+url: /a2k/blogs/utf-8-indic-and-stub-length-article-in-wikipedia/
+original_url: https://cis-india.org/a2k/blogs/utf-8-indic-and-stub-length-article-in-wikipedia
+type: blog
+program: a2k
+---
+<p>See the original blog post at <a href="http://pavanaja.com/english/utf-8-indic-stub-length-wikipedia/">Dr. Pavanaja Blog</a></p>
+<hr/>
+<p>This lead to continued discussions in a closed chat group on how do we  decide the winner. People thought it is very simple to announce the  winner just based on highest number of bytes added. On first look, it  looked very trivial and a simple case. I pointed out during the  discussions about the encoding used in Wikipedia is UTF-8 and it uses  different number of bytes for English and Indian languages. Before  giving more details I would like to draw your attention to a simple  experiment.</p>
+<p>I typed Kannada letter ಅ (a) in my Sandbox in Kannada Wikipedia and  saved it. Then I checked the RecentChanges page in Kannada Wikipedia.  That showed that I have added 3 bytes to my Sandbox page. But I had  added just one Kannada character.  I did the same experiment in English  Wikipedia. I just added one letter, the English letter “A” to my Sandbox  in English Wikipedia and checked the number of bytes added. It showed  just one byte.</p>
+<table>
+<tbody>
+<tr>
+<th><img alt="whatsapp-image-2016-10-19-at-11-20-09-pm" height="91" loading="lazy" src="http://pavanaja.com/wp-content/uploads/2016/10/WhatsApp-Image-2016-10-19-at-11.20.09-PM-300x136.jpeg" width="200"/></th><th></th><th><img alt="whatsapp-image-2016-10-19-at-11-20-14-pm" height="102" loading="lazy" src="http://pavanaja.com/wp-content/uploads/2016/10/WhatsApp-Image-2016-10-19-at-11.20.14-PM-300x153.jpeg" width="200"/></th>
+</tr>
+<tr>
+<td><img alt="english-a" height="121" loading="lazy" src="http://pavanaja.com/wp-content/uploads/2016/10/English-A-300x181.jpg" width="201"/></td>
+<td></td>
+<td><img alt="english-1-byte" height="127" loading="lazy" src="http://pavanaja.com/wp-content/uploads/2016/10/English-1-byte-300x190.jpg" width="201"/></td>
+</tr>
+</tbody>
+</table>
+<p>What is going on? Here is the explanation.  There are different ways Unicode text can be stored. UTF-8, UTF-16 and UTF-32 are the prominent ways. UTF-16 uses 2 bytes for all characters. UTF-32 uses 4 bytes. UTF-8 is a special kind of encoding. It uses series of single bytes to represent Unicode data. The first character, called Byte Order Mark (BOM) indicates what encoding is being used. Unicode website has more details on these. UTF-8 was mainly used for web as the networking devices used on the initial days of Unicode could handle only 8 bits (1 byte) of data. In other words, UTF-8 was used for backward compatibility with ASCII, the original 8-bit encoding used prior to the advent of Unicode.  Even today the default encoding used by HTML is UTF-8.</p>
+<p>Does these answer our original question? Not yet. I said UTF-8 uses series of single bytes. It uses 1 byte for English, 2 bytes for European languages and 3 bytes for Indian languages. That is the reason why we saw 3 bytes for one Kannada character.</p>
+<p>This pops up another interesting question regarding the definition of a stub article in Wikipedia.  As per Wikipedia, an article which has less than 2048 bytes is considered as a stub article.  Go to any language Wikipedia’s search page and type Special:ShortPages to get the list of all articles which are having less than 2048 bytes. If we convert this into number of characters it turns out to be 2048 for English but about 682 for Indic. That means the length of a stub article will be different for English and Indian language Wikipedias. Should we have a different yardstick for the definition of a stub article for Indian language Wikipedias then? I think yes.</p>

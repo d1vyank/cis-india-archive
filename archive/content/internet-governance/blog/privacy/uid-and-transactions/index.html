@@ -1,0 +1,43 @@
+---
+title: 'Open Letter to the Finance Committee: UID and Transactions'
+date: '2011-02-17'
+authors:
+- Prasad Krishna
+tags:
+- Privacy
+description: Since official documentation from the UIDAI is very limited, we assume
+  that data pertaining to transactions would comprise of the Aadhaar number, identifier
+  of the authenticating device, date-time stamp, and approval/rejection/error code.
+  Recording and maintaining of data pertaining to transactions is very important because
+  it increases transparency and accountability through an audit trail. However, storage
+  of such sensitive data creates many privacy risks, because more often than not metadata
+  gives you as much intelligence as raw data.
+url: /internet-governance/blog/privacy/uid-and-transactions/
+original_url: https://cis-india.org/internet-governance/blog/privacy/uid-and-transactions
+type: blog
+program: internet-governance
+---
+<p>For example – even if you didn’t have access to the Radia recordings – just knowing who she called, when, how frequently, in what order, and for how long, will give quite a comprehensive picture. Thus, we believe that such data should not be fully stored in a central database. By way of an open letter, we suggest three alternative ways of storing and securing data relating to transactions, so that transparency and accountability is preserved without enabling surveillance or profiling of individuals.  </p>
+<ul><li><strong>Partial storage of data relating to transactions</strong></li></ul>
+<p>Once a transaction is processed, half of the UID number is stored in the central database, while the other half of the number is stored with the service provider. Thus, for an agency to reconstruct the audit trail they must seek consent from the service provider and the UIDAI for information regarding a specific transaction. The process would follow steps like these:</p>
+<ol><li>Send part of the Aadhaar number to the CIDR </li><li>Service provider stores part of the Aadhaar number locally.</li><li>Law enforcement and intelligence agencies seeking transaction data securing required approvals from the Home Ministry and then request data from the UIDAI and service provider</li><li>Data is provided by UIDAI and the service provider and combined to reconstruct the audit trail.  </li></ol>
+<div>
+<ul><li>Storage of the public keys with a custodian </li></ul>
+</div>
+<p>Similar to the model followed in the new wiretapping regulations<a href="#1">1</a>, the transaction details in the central database is secured using several custodians. Thus, no single entity has complete knowledge of access to the database. And if the transaction details are leaked to the public, the custodian can be held responsible for negligence. Thus, for an agency to reconstruct the audit trail they must seek approvals and request encrypted data. The process would follow steps like these:</p>
+<div>
+<div>
+<ol><li>Encrypt transaction data with the public key of the ‘custodian’ </li><li>Store encrypted data in CIDR </li><li>Law enforcement and intelligence agencies seeking transaction details require approvals from the Home Ministry, and then request encrypted data from the UIDAI. </li><li>The custodian on receipt of the necessary approvals decrypts the data using his/her private key, and then the audit trail becomes available. </li></ol>
+</div>
+</div>
+<div>
+<ul><li>Complete storage of transaction details at the service provider level</li></ul>
+</div>
+<div>After a transaction is processed, the information is encrypted and stored in a de-centralized manner with the service provider, thus agencies or individuals can only access information regarding a specific transaction at a specific organization. The process would follow steps like these: </div>
+<div>
+<div>
+<ul><li>Encrypt transaction data </li><li>Store encrypted data at service provider level</li><li>Law enforcement and intelligence agencies seeking transaction details require approvals from the Home Ministry, and then request encrypted data from each service provider. Audit trail is reconstructed by merging data sets from different service providers. </li><li>The CIDR will only hold Aadhaar number, date-time stamp, and approval/rejection/error code.</li></ul>
+</div>
+</div>
+<h3>Note</h3>
+<p><a id="1" name="1">1 http://timesofindia.indiatimes.com/india/Tapping-norms-Govt-will-erase-private-talk/articleshow/7407633.cms</a></p>

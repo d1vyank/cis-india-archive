@@ -1,0 +1,157 @@
+---
+title: 'Analysing Wikipedia: A First Attempt at Clustering'
+date: '2009-04-27'
+authors:
+- Kiran Jonnalagadda
+tags:
+- Wikipedia
+description: In this, their second update on their Analysing Wikipedia project, Kiran
+  Jonnalagadda and Hans Varghese Mathews discuss their first attempt at grouping the
+  various editors of a frequently edited Wikipedia document, each distinguished from
+  the others by some particular interest, through a quick machine process requiring
+  minimal human intervention.
+url: /raw/histories-of-the-internet/blogs/wiki-analysis-and-assist/our-first-attempt-at-clustering/
+original_url: https://cis-india.org/raw/histories-of-the-internet/blogs/wiki-analysis-and-assist/our-first-attempt-at-clustering
+type: blog
+program: raw
+---
+<p>For our first trials, we attempted two ways of analysing Wikipedia. Here’s
+  a description of the first:</p>
+<p>Given a target article, we retrieved its revision history over the last
+  <em>n</em> days and made a list of all the users who had edited the article
+  during this period. Then, for each of them, we made a list of all the other
+  articles they had edited during the same period. We filtered this for
+  outliers:</p>
+<ol><li>Wikipedia administrators rack up thousands of edits each month as they
+  revert vandalism and annotate pages across the site. Our data downloading
+  script can remove them from consideration in one of two ways. We used both in
+  various combinations while attempting to arrive at a reasonable dataset for
+  analysis:</li>
+<ol><li>Ignore anyone who made more than a specified number of
+  edits.</li><li>Ignore explicitly specified users.</li></ol>
+<li>Some users (almost always anonymous) make one edit to an article and are
+  never seen again. Others make an edit but have no articles in common with any
+  of the other editors, typically because they edited to make an annotation,
+  such as making a link to the same article in another language Wikipedia. We
+  added the ability to filter for these by requiring that users have at least
+  one other (or more) articles in common.</li></ol>
+<p>The following is Hans’s explanation for how the data thus retrieved was
+  analysed.</p>
+<h3>Report of an Experiment in Clustering</h3>
+<ol>
+<li>
+<p>The object of the exercise described in what follows was to see if the various
+editors of a frequently edited Wikipedia document could be clustered in different
+groups, each distinguished from the others by some particular interest, through
+some <em>quick</em> machine process requiring minimal human intervention.
+The experiment was not entirely unsuccessful; but the supervention of human judgement
+upon machine decision was more haphazard than one could wish.</p>
+</li>
+<li>
+<p>The Wikipedia page named <strong>Evolution</strong> was chosen as the primary document;
+and for our collection of editors we chose, out of all the editors that this page had
+had from November 2008 through January 2009, those who had in that same period
+edited at least one other Wikipedia page. The rationale for proceeding so was to
+compute in some very quick and convenient way a <em>measure of similarity</em> between
+each pair of the editors to be clustered: without <em>at all</em> considering, at this stage,
+the textual character of their individual interventions. The data from which these
+similarities were computed constituted a matrix, with a row for each such ancillary
+document and a column for each editor; and the entry in the <em>i<sup>th</sup></em>
+row and the <em>j<sup>th</sup></em> column was 1 if the <em>i<sup>th</sup></em>
+page had been edited by the <em>j<sup>th</sup></em> editor, and 0
+otherwise. The similarity between any pair of editors was then assessed by counting
+the pages they had both edited against the counts, for each, of those pages that
+one had edited but the other not: but in such a way that, among the pages both
+had edited, those that were <em>on the whole</em> less edited received more weight; while
+among the pages only one or other had edited, those that were on the whole less
+edited received less weight.</p>
+</li>
+<li>
+<p>The similarities thus obtained were collected in a square and <em>symmetric</em> matrix,
+having as many rows and columns as there were editors: with the similarity between
+the <em>i<sup>th</sup></em> and the <em>j<sup>th</sup></em> editor being the entry in the
+<em>i<sup>th</sup></em> row and the <em>j<sup>th</sup></em> column, and
+the entry in the <em>j<sup>th</sup></em> row and the <em>i<sup>th</sup></em>
+column as well. This matrix of similarities
+was then used to cluster the editors in a variety of ways, using various techniques.
+Three among these clusterings were retained, on considerations of variation in size
+between, and of <em>coherence</em> within, their constitutive clusters: with the coherence of
+a given cluster of individuals being measured by
+λ<sub>1</sub>/(λ<sub>1</sub> + λ<sub>2</sub> + ... + λ<sub><em>k</em></sub>), where
+λ<sub>1</sub> is the largest among the positive eigenvalues {λ<sub>1</sub>, λ<sub>2</sub>, ... λ<sub><em>k</em></sub>} of the submatrix
+recording the similarities between the individuals in that cluster.</p>
+<div>A square matrix <em>A</em> of numbers, with <em>m</em> rows and columns say, may be regarded as device
+for <em>rotating the direction</em> and <em>rescaling the length</em> of any vector <strong>v</strong> having <em>m</em> numerical entries
+or components: through the usual multiplication, with the <em>i<sup>th</sup></em> component of the resultant vector
+A · <strong>v</strong> being (A<sub><em>i</em>1</sub><em>v</em><sub>1</sub> +
+A<sub><em>i</em>2</sub><em>v</em><sub>2</sub> + ... + A<sub><em>im</em></sub><em>v<sub>m</sub></em>),
+where <em>A<sub>ij</sub></em> is the entry in the <em>i<sup>th</sup></em> row and <em>j<sup>th</sup></em>
+column of <em>A</em>, while <em>v<sub>j</sub></em> is the <em>j<sup>th</sup></em> component of <strong>v</strong>.
+An <em>eigenvector</em> <strong>u</strong> of <em>A</em> is a vector of <em>unit length</em>
+whose direction is only reversed, if it is at all rotated; and one has <em>A</em> · <strong>u</strong> = λ<strong>u</strong> for some
+<em>eigenvalue</em> λ now, with a reversal of direction if λ &lt; 0, and with the size or ‘absolute value’
+|λ| being the rescaling of length.</div>
+<div>A vector <strong>v</strong> has the usual <em>Euclidean</em> length ||<strong>v</strong>|| =
+  (<em>v<sup>2</sup><sub>1</sub></em> + <em>v<sup>2</sup><sub>2</sub></em> ... +
+  <em>v<sup>2</sup><sub>m</sub></em>)<sup>½</sup> here. To specify
+the direction of <strong>v</strong> we must consider the <em>m</em> <em>standard
+  basis vectors</em> we obtain by taking the <strong>0</strong>
+vector here, whose <em>m</em> components are all zeroes, and replacing any one of these with 1; and
+<strong>e</strong><sub><em>k</em></sub> usually denotes the vector which has 1 for its <em>k<sup>th</sup></em> component and zeroes everywhere else.
+Now for each <em>j</em> ∈ {1, 2, ..., <em>m</em>} the <em>direction-number</em> <em>v<sub>j</sub></em>/||<strong>v</strong>|| is the cosine of the angle between
+<strong>v</strong> and <strong>e</strong><sub><em>j</em></sub> in the plane this pair of vectors would determine, whenever <strong>v</strong> is not a multiple of
+<strong>e</strong><sub><em>j</em></sub> : whenever <strong>v</strong> cannot be obtained from <strong>e</strong><sub><em>j</em></sub> by multiplying each component of the latter with
+some number. Note that when <strong>v</strong> is so obtained the <em>direction-number</em> <em>v<sub>j</sub></em>/||<strong>v</strong>|| would be either
+1 = cosine(0<sup>◦</sup>) or −1 = cosine(180<sup>◦</sup>) : which is appropriate, since <strong>v</strong> would lie either along
+<strong>e</strong><sub><em>j</em></sub> itself or along its reverse −<strong>e</strong><sub><em>j</em></sub>
+in any plane that <strong>e</strong><sub><em>j</em></sub> might help determine. The word “plane”
+has its common geometrical meaning now.</div>
+<p>We note that such a criterion of coherence would favour those clusters in which
+the similarities between members were more uniform than elsewhere: were the
+similarities between them used to locate all the editors in some Euclidean space,
+using some technique like multidimensional scaling for instance, our criterion would
+favour <em>globular</em> clusters over <em>ﬂat</em> or <em>chainlike</em> ones.
+Regarding variation between the
+sizes of constitutive clusters in a clustering, the desideratum was that the largest
+such cluster should not exceed too much the mean size of the remainder, when their
+difference is scaled by the variation in size there.</p>
+<p>The specifics of the clustering techniques that were employed, and the statistical
+tests which decided the retention of clusterings, are set out in the technical
+supplement to this report; and the computation of similarities described in <strong>1</strong> may be
+found there as well.</p>
+</li>
+<li>
+<p>Each cluster within a retained clustering was next used to induce a weighting
+on the collection of edited pages, in the evident way, with the weight of a document
+relative to a cluster being the proportion of the individuals there who had edited it;
+and the names of its most frequently edited pages were taken as indicative of the
+interest of that group or ‘pack’ of editors. A choice between the three retained
+clusterings might now be made by considering how <em>distinctively</em> the separate interests
+of their several constitutive packs could be characterised.</p>
+<p>Such judgements are apt to vary considerably between individuals, of course:
+but we note that there were appreciable congruences between the three clusterings
+that were retained. Each clustering yielded one notably coherent pack, consisting
+of the same individuals almost in each clustering, set apart by their attention to
+<em>creationism</em> and <em>intelligent design</em>. Each retained clustering also yielded a pack
+whose members seemed to have a special interest in <em>evolution as theory and fact;</em>
+and these cognate groups almost overlapped as well. Another group identifiable
+in all three clusterings had its members linked by their common attention to the
+Wikipedia <em>Sandbox</em>. These results are hardly surprising. But we note that all three
+clusterings did indicate a small group, somewhat more coherent in one than in the
+other two, of individuals linked by an interest in the <em>gastrointestinal tract.</em></p>
+</li>
+<li>
+<p>Given the ‘virtual’ character of our packs or groups we should expect that
+some individuals may sit well in more than one of them; and we should ﬁnd a way
+to allot such an individual to each among the groups with which he might have
+comparable affinities. A convenient way to do so would be to locate our editors in
+some Euclidean space, again, so that each group may be identified with the <em>centroid</em>
+of the points to which its members are assigned. An individual who is markedly
+further from the centroid of his own group, than his fellows there, might now be
+allotted to some other groups: if, for instance, his distances from their centroids,
+compared to his distances from the rest, are markedly closer to his distance from
+his assigned centroid. Proceeding so would work best with globular spatial clusters,
+again, and we should be cautious about how similarities between individuals will
+be used to spatially locate them: especially when some very few of the clusters in
+a clustering are markedly more coherent than the others.</p>
+</li></ol>

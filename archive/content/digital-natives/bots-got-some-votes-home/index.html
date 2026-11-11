@@ -1,0 +1,156 @@
+---
+title: The Bots That Got Some Votes Home
+date: '2012-06-20'
+authors:
+- Nilofar Ansher
+tags:
+- Featured
+- Researchers at Work
+- Digital Natives
+description: Nilofar Ansher gives us some startling updates on the "Digital Natives
+  Video Contest" voting results declared in May 2012, in this blog post.
+url: /digital-natives/bots-got-some-votes-home/
+original_url: https://cis-india.org/digital-natives/bots-got-some-votes-home
+type: blog
+program: digital-natives
+image: /files/digital-natives/bots-got-some-votes-home/image.jpeg
+image_caption: 'Image courtesy: Martin Potter'
+---
+<p>It was a hint of suspicion raised by one of our colleagues at the Centre for Internet &amp; Society that spurred our Web Analytics team to check into the voting activity of the contest that was all about the ‘<a href="/digital-natives/vote-for-digital-natives/">Everyday Digital Native</a>’. And while we acknowledged and celebrated the ‘digital’ in the native (users of technology), we forgot the human part that the digital has to engage with. Following weeks of deliberations, we now have conclusive evidence that points to irregularities in voting numbers of the Top 10 contestants. We are now staring at the elephant in the room: those innocuous little automated scripts we sweetly nicknamed, ‘bots’.</p>
+<p>Internet bots, also known as web robots or simply bots, are software applications that run automated tasks over the Internet. Typically, bots perform tasks that are both simple and structurally repetitive, at a much higher rate than would be possible for a human alone. The largest use of bots is in web spidering, in which an automated script fetches, analyzes and files information from web servers at many times the speed of a human. Each server can have a file called robots.txt, containing rules for the spidering of that server that the bot is supposed to obey. In addition to their uses outlined above, bots may also be implemented where a response speed faster than that of humans is required (e.g., gaming bots and auction-site robots) or less commonly in situations where the emulation of human activity is required, for example chat bots (Source: Wikipedia).</p>
+<h3>What irregularities?</h3>
+<p>You would see how a script or bot would have played a role in ‘automating’ the votes for a video. The Top 10 videos received a combined voting number of 20,000+. The discrepancy occurs at the juncture where the votes polled on the front end (the webpage where the contestant video was visible to the public) did not match with the number of hits the page received on the backend (this is the analytics part). For instance, the top polled video has some few thousand votes more than the number of people who actually visited our CIS website in the same duration. This prompted a review of the logs and the possible “hand” of a nonhuman agent acting on its human creator’s command to drive up the votes.</p>
+<h3>How was this done? The Technicalities</h3>
+<p>The following graph shows the extremely high level of voting requests just before the closing date (March 31, 2012). This would not be extraordinary except for the fact that two or three entries had an exceptionally higher vote count relative to their page views as per the analytics statistics.</p>
+<p><img alt="" loading="lazy" src="https://cis-india.org/digital-natives/video-contest/scripted-voting-report/quickhist_march_april.png" title="Voting requests by date"/></p>
+<h3>Analysis of the voting against the http requests for the voting link against page views</h3>
+<div>
+<table>
+<tbody>
+<tr>
+<th>
+<p>Entry</p>
+</th>
+<th>Actual Votes Recorded (1)<br/></th>
+<th>Direct http requests to votes (2)<br/></th>
+<th>http requests for  normal page view access (3)<br/></th>
+<th>Recommended adjusted vote count (4)<br/></th>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/digital-media-dance">Digital Dance</a></p>
+</td>
+<td>268</td>
+<td>448</td>
+<td>198</td>
+<td>198</td>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/big-stories-small-towns">Big Stories, Small Town</a></p>
+</td>
+<td>3</td>
+<td>10</td>
+<td>112</td>
+<td>3</td>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/digital-natives-contest/entries/connecting-souls-bridging-dreams">Connecting Souls, Bridging Dreams</a></p>
+</td>
+<td>1113</td>
+<td>2018</td>
+<td>1685</td>
+<td>1113</td>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/finalist-summary/deployed">Deployed</a></p>
+</td>
+<td>191</td>
+<td>479</td>
+<td>195</td>
+<td>191</td>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/from-the-wild-into-the-digital-world">From The Wild Into The Digital World</a></p>
+</td>
+<td>10317</td>
+<td>11880</td>
+<td>810</td>
+<td>810</td>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/i-am-a-ghetto-digital-native">I Am A Ghetto Digital Native</a></p>
+</td>
+<td>321</td>
+<td>365</td>
+<td>844</td>
+<td>321</td>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/life-in-the-city-slums">Life in the City Slums</a></p>
+</td>
+<td>13</td>
+<td>18</td>
+<td>94</td>
+<td>13</td>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/who-is-a-digital-native">Digital Natives</a></p>
+</td>
+<td>111</td>
+<td>328</td>
+<td>102</td>
+<td>102</td>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/with-no-distinction">With No Distinction</a></p>
+</td>
+<td>369</td>
+<td>557</td>
+<td>1232</td>
+<td>369</td>
+</tr>
+<tr>
+<td>
+<p><a href="https://cis-india.org/digital-natives/video-contest/entries/digital-coverage-in-a-digital-world">Digital Coverage in a Digital World</a></p>
+</td>
+<td>9622</td>
+<td>13650</td>
+<td>181</td>
+<td>181</td>
+</tr>
+</tbody>
+</table>
+<h3></h3>
+<ol>
+<li>These are the public votes displayed on the contestant’s page through the thumbs up icon</li>
+<li>These are http requests to the voting link against each video when the user clicked on the thumbs up icon.</li>
+<li>These are http requests which are collectively related to the video  page (page view). A normal human user would browse through a page first,  which downloads some other urls, such as the HTML for the page,  JavaScript, images, and so on. A normal vote request would be included  collectively. A direct http request to the voting link on the other hand  does not do this, and only makes a specific request to vote without  downloading the other parts that make up the page.</li>
+<li>A normal human vote count should be the same or less than the number  of page views. Only three videos highlighted show abnormal behaviour  and it is recommended these be adjusted to the page view counts.</li></ol>
+<h3>Are you saying contestants cheated?</h3>
+<p>While the use of programming scripts to accrue votes is no new tactic  and we should, in fact, have a more robust mechanism to monitor such  activity during a contest, we cannot prove the culpability of the human  agents. The contestants might be innocent actors with overzealous  friends or colleagues who ran the voting scripts. As of now, since there  is no way to ascertain their part in this irregularity, it’s best we  give them the benefit of the doubt. What comes through loud and clear is  that once you do away with the scripted votes, four contestants still  manage to have enough votes to maintain their positions in the final  five. In the fifth position, we now have a contestant from the top ten  finalists, who has secured the requisite votes (after vote adjustment)  to propel him into the final five.</p>
+<h3>Recommendation</h3>
+<p>‘Digital Dance’ (Cijo Abraham), ‘From the Wild into the Digital  World’ (John Musila) and ‘Digital Coverage in a Digital World’ (T.J.  Burks) had additional vote url counts than page views. It is recommended  that the total votes for these videos be adjusted to the page view  counts, and not the actual vote counts as displayed on their individual  web pages (thumbs up icon) during the voting period.</p>
+<p>The rankings of the adjusted voting would now read as:</p>
+<ol>
+<li>Connecting Souls, Bridging Dreams – Marie Jude Bendiola (1113)</li>
+<li>From The Wild Into The Digital World - John Musila (810)</li>
+<li>With No Distinction - T.J. K. M. (369)</li>
+<li>I Am A Ghetto Digital Native – MJ (321)</li>
+<li>Digital Dance – Cijo Abraham (198)</li></ol>
+<h3>Transparency at CIS</h3>
+<p>‘The Digital Natives with a Cause?’ research inquiry is shaped around  concerns of transparency, equity and community accountability. In our  research methods as well as in outputs of the different activities, we  have always maintained a complete transparency of decision making  processes as well as in depending upon the incredible people we work  with to help us learn, grow and reflect openly on the concerns that we  have been engaged with. We strive to follow this method and in  publishing these statistics, we want to ensure that there is complete  transparency about the votes that were accrued and how the final winners  were selected. We also take this opportunity as a learning experience  to re-think the question of the non-human actors in our networks and  further about the nature of participation and reputation online. We hope  that the publishing of these results will help answer any inquiries on  how the process unfolded.</p>
+<h3>View Logs and Source Code</h3>
+<ul>
+<li><a href="/files/digital-natives/video-contest/scripted-voting-report/logs-during-voting-period.t3">All logs from the web server for this period</a> (24.7MB) Identical IPs are from caching server.</li>
+<li><a href="/files/digital-natives/video-contest/scripted-voting-report/main.R.bin">R script to evaluate data for table</a></li></ul>
+<h3>What next?</h3>
+<p>Since we spotted the error in time, we haven’t disbursed the prize  money of EUR 500 to each of the Top 5 contestants. They will now receive  the prize along with a chance to participate in the Digital Native  workshop-cum-Webinar, slated to be held in July 2012. The top 10 videos  will be showcased in this event.</p>
+</div>

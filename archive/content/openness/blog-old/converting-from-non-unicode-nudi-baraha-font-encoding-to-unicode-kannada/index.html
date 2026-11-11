@@ -1,0 +1,35 @@
+---
+title: Converting from nonUnicode (Nudi, Baraha, ...) font encoding to Unicode Kannada
+date: '2014-10-31'
+authors:
+- U.B.Pavanaja
+tags:
+- Access to Knowledge
+- Wikimedia
+- Wikipedia
+- Openness
+- Kannada Wikipedia
+description: People have been using computers for typing and printing Kannada text
+  for more than 25 years. Most of the usage of Kannada on computers was limited to
+  the DTP arena.
+url: /openness/blog-old/converting-from-non-unicode-nudi-baraha-font-encoding-to-unicode-kannada/
+original_url: https://cis-india.org/openness/blog-old/converting-from-non-unicode-nudi-baraha-font-encoding-to-unicode-kannada
+type: blog
+program: openness
+---
+<p>People made use of packages like PageMaker (Version 6.5 or 7) to type and compose pages. Even now, many people still use these packages for Kannada DTP work. The text entered into these packages is stored as font glyph codes rather than character encodings. Non-Unicode truetype fonts like Nudi, Baraha, ShreeLipi, Akruti, etc, are some of the most popular fonts being used.</p>
+<p>The system does not understand these characters as Kannada characters. Any text based operations like search, replace, sorting, spell-check, text-to-speech, etc, are not possible with this kind of text. Employing Unicode for all digitisation works of Kannada text solves this problem. Usage of Unicode for Kannada has become prominent only recently. All websites like Facebook, Twitter, Wikipedia, Wikisource, etc, want the text only in Unicode. There is still a large amount of text entered and stored with old non-Unicode font based encodings. These are mostly present in the form of PageMaker files. This blog post explains the process of converting the text present in PageMaker into Kannada Unicode text.</p>
+<p>The Kannada and Culture Department of the Government of Karnataka have  released Unicode complaint open-type fonts and Unicode based software  for Kannada under GPL. These are available for free download on their website (<a href="http://kannadasiri.co.in/index/software">http://kannadasiri.co.in/index/software</a>). Download and<br/>install  “Ascii to Unicode Kannada Converter” from this page. This software  works only in Windows. Now you are ready to convert the text from  PageMaker file into Unicode.</p>
+<p>Open the PageMaker file. Select the Text tool depicted by a big “T” shaped icon. Click anywhere in the text area. Select the entire text (Ctrl-A followed by Ctrl-C). Now open Notepad and paste this text into that (press Ctrl-V). The text will appear gibberish in Notepad. Don’t worry about it. Save the file as plain text file (.TXT file). Remember where you have saved the file.</p>
+<table>
+<tbody>
+<tr>
+<th><img alt="screen-shot2" loading="lazy" src="/files/home-images/Screen2.PNG" title="screen-shot2"/></th><th><img alt="screen4" loading="lazy" src="/files/home-images/screen4.PNG" title="screen4"/><br/></th>
+</tr>
+</tbody>
+</table>
+<p>Now run the “Kannada ASCII Unicode Converter” software. In the first textbox enter the name of the ASCII file to be converted (the file you just saved from Notepad). In the bottom textbox enter a filename for the Unicode text file that will be created by the software. Select the default “GOK (Kuvempu Nudi Baraha)”, or other encoding as the case may be, as the encoding from which the text has to be converted. Click on the button written “ಪರಿವರ್ತಿಸಿ”. It will show the progress of conversion.</p>
+<p><img alt="screen-shot" loading="lazy" src="/files/home-images/Screen1.PNG" title="screen-shot"/></p>
+<p>Once the conversion is complete, it will display an appropriate message to indicate completion of the conversion. If you open the text file created by the software, it will have the text converted into Unicode. This text can be used in Wikisource, Wikipedia, etc.</p>
+<p><img alt="screen3" loading="lazy" src="/files/home-images/screen3.PNG" title="screen3"/></p>
+<p><img alt="screen-shot3" loading="lazy" src="/files/home-images/Screen3.PNG" title="screen-shot3"/></p>

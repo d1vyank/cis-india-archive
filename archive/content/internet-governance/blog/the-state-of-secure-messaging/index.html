@@ -1,0 +1,158 @@
+---
+title: The State of Secure Messaging
+date: '2020-07-15'
+authors:
+- Divyank Katira
+tags:
+- Freedom of Speech and Expression
+- Encryption
+- IETF
+description: A look at the protections provided by and threats posed to secure communication
+  online.
+url: /internet-governance/blog/the-state-of-secure-messaging/
+original_url: https://cis-india.org/internet-governance/blog/the-state-of-secure-messaging
+type: blog
+program: internet-governance
+---
+<p><em>This blogpost was edited by Gurshabad Grover and Amber Sinha.</em></p>
+<p>The current benchmark for secure communication online is 
+end-to-end encrypted messaging. It refers to a method of encryption 
+wherein the contents of a message are only readable by the devices of 
+the individuals, or endpoints, participating in the communication. All 
+other Internet intermediaries such as internet service providers, 
+internet exchange points, undersea cable operators, data centre 
+operators, and even the messaging service providers themselves cannot 
+read them. This is achieved through cryptographic <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">mechanisms</a>
+ that allow independent devices to establish a shared secret key over an
+ insecure communication channel, which they then use to encrypt and 
+decrypt messages. Common examples of end-to-end encrypted messaging are 
+applications like Signal and WhatsApp.</p>
+<p>This post attempts to give at-risk individuals, concerned 
+citizens, and civil society at large a more nuanced understanding of the
+ protections provided and threats posed to the security and privacy of 
+their communications online.</p>
+<h4>Threat Model</h4>
+<p>The first step to assessing security and privacy is to 
+identify and understand actors and risks. End-to-end encrypted messaging
+ applications consider the following threat model:</p>
+<ul><li>
+<p>Device compromise: Can happen physically through loss or 
+theft, or remotely. Access to an individual’s device could be gained 
+through technical flaws or coercion (<a href="https://www.eff.org/wp/digital-privacy-us-border-2017">legal</a>, or <a href="https://xkcd.com/538/">otherwise</a>). It can be temporary or be made persistent by installing <a href="https://citizenlab.ca/2019/10/nso-q-cyber-technologies-100-new-abuse-cases/">malware</a> on the device.</p>
+</li><li>
+<p>Network monitoring and interference: Implies access to data
+ in transit over a network. All Internet intermediaries have such 
+access. They may either actively interfere with the communication or 
+passively <a href="https://www.theatlantic.com/international/archive/2013/07/the-creepy-long-standing-practice-of-undersea-cable-tapping/277855/">observe</a> traffic.</p>
+</li><li>
+<p>Server compromise: Implies access to the web server hosting
+ the application. This could be achieved through technical flaws, 
+insider access such as an employee, or through coercion (<a href="https://en.wikipedia.org/wiki/Investigatory_Powers_Act_2016">legal</a>, or otherwise). </p>
+</li></ul>
+<p>End-to-end encrypted messaging aims to offer complete 
+message confidentiality and integrity in the face of server and network 
+compromise, and some protections against device compromise. These are 
+detailed below.</p>
+<h4>Protections Provided</h4>
+<p>Secure messaging services guarantee certain properties. For
+ mature services that have received adequate study from researchers, we 
+can assume them to be sound, barring implementation flaws which are 
+described later.</p>
+<ul><li>
+<p>Confidentiality: The contents of a message are kept private and the ciphers used are <a href="https://pthree.org/2016/06/19/the-physics-of-brute-force/">practically</a> unbreakable by adversaries.</p>
+</li></ul>
+<ul><li>
+<p>Integrity: The contents of a message cannot be modified in transit.</p>
+</li></ul>
+<ul><li>
+<p>Deniability: Aims to mimic unrecorded real-world 
+conversations where an individual can deny having said something. 
+Someone in possession of the chat transcript cannot <em>cryptographically</em>
+ prove that an individual authored a particular message. While some 
+applications feature such off-the-record messaging capabilities, the 
+legal applicability of such mechanisms is <a href="https://debian-administration.org/users/dkg/weblog/104">debatable</a>.</p>
+</li></ul>
+<ul><li>
+<p>Forward and Future Secrecy: These properties aim to limit 
+the effects of a temporary compromise of credentials on a device. 
+Forward secrecy ensures messages collected over the network, which were 
+sent before the compromise, cannot be decrypted. Future secrecy ensures 
+messages sent post-compromise are protected. These mechanisms are easily
+ circumvented in practice as past messages are usually stored on the 
+device being compromised, and future messages can be obtained by gaining
+ persistent access during compromise. These properties are meant to 
+protect individuals <a href="https://hal.inria.fr/hal-01966560/document">aware</a> of these limitations in exceptional situations such as a journalist crossing a border.</p>
+</li></ul>
+<h4>Shortcomings</h4>
+<p>While secure messaging services offer useful protections 
+they also have some shortcomings. It is useful to understand these and 
+their mitigations to minimise risk.</p>
+<ul><li>
+<p>Metadata: Information about a communication such as <strong>who</strong> the participants are, <strong>when</strong> the messages are sent, <strong>where</strong> the participants are located, and <strong>what</strong>
+ the size of a message is can offer important contextual information 
+about a conversation. While some popular messaging services <a href="https://signal.org/blog/sealed-sender/">attempt</a>
+ to minimize metadata generation, metadata leakage, in general, is still
+ considered an open problem because such information can be gleaned by 
+network monitoring as well as from server compromise. Application 
+policies around whether such data is stored and for how long it is 
+retained can improve privacy. There are also <a href="https://ricochet.im/">experimental</a> approaches that use techniques like onion routing to hide metadata.</p>
+</li></ul>
+<ul><li>
+<p>Authentication: This is the process of asserting whether an
+ individual sending or receiving a message is who they are thought to 
+be. Current messaging services trust application servers and cell 
+service providers for authentication, which means that they have the 
+ability to replace and impersonate individuals in conversations. 
+Messaging services offer advanced features to mitigate this risk, such 
+as notifications when a participant’s identity changes, and manual 
+verification of participants’ security keys through other communication 
+channels (in-person, mail, etc.).</p>
+</li></ul>
+<ul><li>
+<p>Availability: An individual’s access to a messaging service
+ can be impeded. Intermediaries may delay or drop messages resulting in 
+what is called a denial of service attack. While messaging services are 
+quite resilient to such attacks, governments may censor or completely 
+shut down Internet access.</p>
+</li></ul>
+<ul><li>
+<p>Application-level gaps: Capabilities offered by services in
+ addition to messaging, such as contact discovery, online status, and 
+location sharing are often <a href="https://www.forbes.com/sites/thomasbrewster/2017/01/22/whatsapp-facebook-backdoor-government-data-request/">not covered</a>
+ by end-to-end encryption and may be stored by the application server. 
+Application policies around how such information is gathered and 
+retained affect privacy.</p>
+</li></ul>
+<ul><li>
+<p>Implementation flaws and backdoors: Software or hardware 
+flaws (accidental or intentional) on an individual’s device could be 
+exploited to circumvent the protections provided by end-to-end 
+encryption. For mature applications and platforms, accidental flaws are 
+difficult and <a href="https://arstechnica.com/information-technology/2019/09/for-the-first-time-ever-android-0days-cost-more-than-ios-exploits/">expensive</a> to exploit, and as such are only accessible to Government or other 
+powerful actors who typically use them to surveil individuals of 
+interest (and not for mass surveillance). Intentional flaws or backdoors
+ introduced by manufacturers may also be present. The only defence 
+against these is security researchers who rely on manual inspection to 
+examine software and network interactions to detect them.</p>
+</li></ul>
+<h4>Messaging Protocols and Standards</h4>
+<p>In the face of demands for exceptional access to encrypted 
+communication from governments, and risks of mass surveillance from both
+ governments and corporations, end-to-end encryption is important to 
+enable secure and private communication online. The signal protocol, 
+which is open and adopted by popular applications like WhatsApp and 
+Signal, is considered a success story as it brought end-to-end 
+encryption to over a billion users and has become a de-facto standard.</p>
+<p>However, it is unilaterally developed and controlled by a single organisation. Messaging Layer Security (or <a href="https://datatracker.ietf.org/wg/mls/about/">MLS</a>)
+ is a working group within the Internet Engineering Task Force (IETF) 
+that is attempting to standardise end-to-end encryption through 
+participation of individuals from corporations, academia, and civil 
+society. The draft protocol offers the standard security properties 
+mentioned above, except for deniability which is still being considered.
+ It incorporates novel research that allows it to scale efficiently for 
+large groups up to thousands of participants, which is an improvement 
+over the signal protocol. MLS aims to increase adoption further by 
+creating open standards and implementations, similar to the Transport 
+Layer Security (TLS) protocol used to encrypt much of the web today. 
+There is also a need to look beyond end-to-end encryption to address its
+ shortcomings, particularly around authentication and metadata leakage.</p>

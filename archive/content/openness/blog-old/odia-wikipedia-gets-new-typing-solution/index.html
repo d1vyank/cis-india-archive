@@ -1,0 +1,69 @@
+---
+title: Odia Wikipedia Gets a New Typing Solution!
+date: '2012-11-19'
+authors:
+- Subhashish Panigrahi
+tags:
+- Openness
+- Wikipedia
+- Access to Knowledge
+- Wikimedia
+description: Subhashish Panigrahi worked with Yuvi Panda to create a new typing scheme
+  for Odia Wikipedia and other Wikimedia projects. This blog post gives a summary
+  of this development and its outcome.
+url: /openness/blog-old/odia-wikipedia-gets-new-typing-solution/
+original_url: https://cis-india.org/openness/blog-old/odia-wikipedia-gets-new-typing-solution
+type: blog
+program: openness
+---
+<table>
+<tbody>
+<tr>
+<th class="center"><img alt="Odia Lekhani Keyboard Layout" height="230" loading="lazy" src="https://cis-india.org/openness/blog-old/Odia_Lekhani_keyboard_layout.png" title="Odia Lekhani Keyboard Layout" width="599"/></th>
+</tr>
+<tr>
+<td class="center">
+<p class="center"><a href="http://or.wikipedia.org/wiki/%E0%AC%89%E0%AC%87%E0%AC%95%E0%AC%BF%E0%AC%AA%E0%AC%BF%E0%AC%A1%E0%AC%BC%E0%AC%BF%E0%AC%86:Lekhani">Odia Lekhani Phonetic Keyboard Layout</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A new typing scheme <a href="http://or.wikipedia.org/wiki/WP:Lekhani">Lekhani</a> (Odia for a stylus which was used for writing on palm leaves) to be used for <a href="http://or.wikipedia.org/">Odia Wikipedia</a>, other sister Wikimedia projects and for offline and <a href="/openness/blog-old/typing-in-indic-languages-from-mobiles/">typing using mobile devices</a> was researched upon.</p>
+<p>Indian languagFedora's Phonetic Keyboard Layoutes use various typing schemes (key combinations for output in Indic languages) which could be used for writing, printing, publishing and for any other purpose both for offline and online publication as well as printing. Development for <a href="http://en.wikipedia.org/wiki/Template:Unicode_chart_Oriya">Unicode standard</a> in Odia language progressed lately. <a href="http://wiki.wikimedia.in/WikiPatrika/2011-06/Community_News/or">Revival of Odia Wikipedia</a> after 2011 helped the use of unicode more on internet because of its extensive content (more than 3100 articles on various topics) and <a href="http://facebook.com/groups/OdiaWiki">online activities</a> on <a href="http://meta.wikimedia.org/wiki/Access_To_Knowledge/Pilot_Designs/Social_Media#Social_Media_Pilot-Odisha">social media</a>. Currently there are over different typing schemes available for Odia including the non-unicode typing schemes used mostly by the DTP operators and many newspapers and publication houses. One of the earliest development was the <a href="http://or.wikipedia.org/wiki/ସହଯୋଗ:ଓଡ଼ିଆରେ_ଟାଇପ_କରିବେ_କେମିତି#Odia_InScript">Inscript keyboard layout</a> which follows a global standard for most Indic languages. Inscript is useful and once someone gets his fingers used to typing it is fun. But, most of the beginners find it difficult to type in Inscript. In those cases phonetic keyboards are quite helpful where someone need to press the English keys which corresponds to the Roman characters, e.g. R-a-d-h-aa for "Radha". Based on these sort of logics a keyboard layout was deployed for all the Indic languages on <a href="http://www.mediawiki.org/wiki/Extension:Narayam">Narayam</a> including Odia. (See <a href="http://or.wikipedia.org/wiki/ସହଯୋଗ:ଓଡ଼ିଆରେ_ଟାଇପ_କରିବେ_କେମିତି#Odia_Transliteration.29">Odia transliteration</a> for details). The primary developer for transliteration was <a href="http://junaidpv.in/">Junaid PV</a>, a Malayalam Wikipedian who helped for the Indic languages and few other Asian languages. As transliteration follows more a common rule there are many ambiguities and bugs reported after it was deployed on Odia Wikipedia. Even though many rounds of changes there are still bugs which doesn't allow many editors to type accurately. This is one of the reasons when there was a need for a purely phonetic typing scheme which has more affinity to the way an Odia user would type the words using a Roman key board.</p>
+<p>The idea for deploying a new phonetic typing scheme was started during <a href="http://www.mediawiki.org/wiki/India_Hackathon_2011">Mumbai Hackathon in 2011</a>. Subhashish brought the proposal in community village pump for ideas and consensus and the basic layout and testing was done. The whole project went into a slumber for a long time! Recently when <a href="http://yuvi.in/">YuviPanda</a> was in Delhi and met Subhashish the idea of hacking and testing the tool came again. The whole keyboard layout was <a href="https://github.com/wikimedia/jquery.ime/blob/master/rules/or/or-lekhani.js">revised and deployed on github</a>. Two main keyboard layouts which were used for keeping the major inputs as standard were Fedora Phonetic keyboard and Apple Oriya Qwerty.</p>
+<table>
+<tbody>
+<tr>
+<th class="center"><img alt="Indic Oriya Typing" loading="lazy" src="/files/home-images/IndicOriya.png" title="Indic Oriya Typing"/></th>
+</tr>
+<tr>
+<td class="center">Fedora's Phonetic Keyboard Layout</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<th class="center"><img alt="Apple Querty Keyboard" height="244" loading="lazy" src="/files/home-images/AppleQuertyKeyboard.png" title="Apple Querty Keyboard" width="585"/></th>
+</tr>
+<tr>
+<td class="center">Apple QWERTY Keyboard</td>
+</tr>
+</tbody>
+</table>
+<p>Majority of the key combinations have been kept same except for few small changes. The typing scheme is deployed on <a href="http://translatewiki.net/">TranslateWiki.net</a> for <a href="http://www.mediawiki.org/ULS">Universal Language Selector</a> and <a href="http://gerrit.wikimedia.org/">gerrit</a> which will be enabled on Odia Wikipedia soon for Narayam. The recent mobile typing tool, "Indic typing tool" which was developed at Delhi office of the Centre for Internet and Society by Yuvi Panda and Subhashish Panigrahi also uses Lekhani as a default typing tool.</p>
+<p>Quick links:</p>
+<ul>
+<li><a href="http://or.wikipedia.org/wiki/WP:Lekhani">Lekhani</a> typing scheme for Odia</li>
+<li>Source file: <a href="https://github.com/wikimedia/jquery.ime/blob/master/rules/or/or-lekhani.js">https://github.com/wikimedia/jquery.ime/blob/master/rules/or/or-lekhani.js</a></li>
+<li>Check the <a href="https://github.com/wikimedia/jquery.ime/tree/master/rules/or">github page</a> for other Odia typing tools and <a href="https://github.com/wikimedia/jquery.ime/tree/master/rules">here</a> for all other languages</li>
+<li><a href="http://meta.wikimedia.org/wiki/India_Access_To_Knowledge/Community_support/Tools_and_apps/Indic_typing_tool">Typing in Lekhani using mobile phone</a></li>
+</ul>
+<p>Credits:</p>
+<ul>
+<li><a href="http://or.wikipedia.org/wiki/%E0%AC%89%E0%AC%87%E0%AC%95%E0%AC%BF%E0%AC%AA%E0%AC%BF%E0%AC%A1%E0%AC%BC%E0%AC%BF%E0%AC%86:Lekhani">Odia Lekhani Phonetic Keyboard Layout (CC-BY-SA 3.0):</a> Manoranjan Behera</li>
+<li>Fedora's Phonetic Keyboard Layout: RedHat</li>
+<li>Apple QWERTY Keyboard: Apple Inc.</li>
+</ul>
+<ul>
+</ul>

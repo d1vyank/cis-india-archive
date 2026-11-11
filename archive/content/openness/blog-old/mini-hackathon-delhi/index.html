@@ -1,0 +1,35 @@
+---
+title: A Wikipedia Mini-hackathon in Delhi
+date: '2012-11-11'
+authors:
+- Yuvraj Pandian
+tags:
+- Access to Knowledge
+- Wikimedia
+- Wikipedia
+- Workshop
+- Openness
+description: Wikipedian Yuvaraj Pandian visited the CIS office in Delhi and helped
+  the Access to Knowledge team conduct a super-ad-hoc mini-hackathon with two other
+  volunteers, Sheel from Delhi and Harsh from Ahmedabad. The aim was to get them a
+  kickstart in developing userscripts/gadgets, and get them to a point where the prior
+  existing documentation makes sense to them.
+url: /openness/blog-old/mini-hackathon-delhi/
+original_url: https://cis-india.org/openness/blog-old/mini-hackathon-delhi
+type: blog
+program: openness
+---
+<p>The ad-hoc plan had three parts:</p>
+<ol>
+<li>The execution environment (Concept of userscripts vs gadgets, ResourceLoader)</li>
+<li>The API concepts (Special:ApiSandbox, concept of 'actions' in the API)</li>
+<li>Accessing the API from JS (mediawiki.api module, concept of AJAX)</li>
+</ol>
+<p>Here is the account of what they did, written by Yuvi:</p>
+<p>"We covered all parts of them slowly, with both Harsh and Sheel working at things until they fully understood what they were doing and why whatever they were doing was working.</p>
+<p>I introduced them to the environment first by having them execute code in Chrome's JS Console, and then in their own common.js. Once they understood the context in which the code was getting executed, the 'ResourceLoader default modules'<a href="#fn1" id="fr1" name="fr1">[1]</a>documentation started making sense to them, and they could pick up other modules from there.</p>
+<p>We then explored the API via the API Sandbox<a href="#fn2" id="fr2" name="fr2">[2]</a>, which is a relatively new (and not very well known) way of letting people play around with the API. It is a massive improvement over the older, non-interactive docs<a href="#fn3" id="fr3" name="fr3">[3]</a>, and both Harsh and Sheel were very excited about being able to discover all the things they could do with the API. A fair amount of time was spent messing around with it on different wikipedias (en, hi and gu) and reading bits of the API Documentation<a href="#fn4" id="fr4" name="fr4">[4]</a> to understand the concepts behind the actions - and for filling in the gaps.</p>
+<p>Finally we had them use the API from a userscript to make calls. I went through the entire process line by line, explaining how AJAX works and how asynchronous programming works. We traced the flow of code together to understand how the seamingly nonlinear asynchronous programming model works. Then we dug into a bit of how to use the mw.loader module to make dependencies work, and why the same code that was working in the chrome js console was not working in their common.js.</p>
+<p>It ended with them trying to port HotCat to their native language wikipedias. Harsh started to explore more about getting started with MediaWiki dev itself (rather than just gadgets), but the clone took a looooong time and we had run out of time by then. I directed him to a WMF tech open chat happening today, and hopefully that could help!</p>
+<hr/>
+<p>[<a href="#fr1" id="fn1" name="fn1">1</a>].<a href="https://www.mediawiki.org/wiki/ResourceLoader/Default_modules">https://www.mediawiki.org/wiki/ResourceLoader/Default_modules</a><br/>[<a href="#fr2" id="fn2" name="fn2">2</a>].<a href="https://en.wikipedia.org/wiki/Special:ApiSandbox">https://en.wikipedia.org/wiki/Special:ApiSandbox</a><br/>[<a href="#fr3" id="fn3" name="fn3">3</a>].<a href="https://en.wikipedia.org/w/api.php">https://en.wikipedia.org/w/api.php</a><br/>[<a href="#fr4" id="fn4" name="fn4">4</a>].<a href="https://www.mediawiki.org/wiki/API:Main_page">https://www.mediawiki.org/wiki/API:Main_page</a></p>

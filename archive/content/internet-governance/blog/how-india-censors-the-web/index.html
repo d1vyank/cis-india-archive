@@ -1,0 +1,21 @@
+---
+title: How India Censors The Web
+date: '2020-01-17'
+authors:
+- Gurshabad Grover
+description: An empirical study of web censorship in India
+url: /internet-governance/blog/how-india-censors-the-web/
+original_url: https://cis-india.org/internet-governance/blog/how-india-censors-the-web
+type: blog
+program: internet-governance
+---
+<p>A paper authored by Kushagra Singh, Gurshabad Grover and Varun Bansal is now available on <a href="https://arxiv.org/abs/1912.08590">arXiv</a>.</p>
+<h2>Executive Summary<br/></h2>
+<p>Our work presents the largest study of web censorship in India, both in terms of number of censorship mechanisms that we test for, and the number of potentially-blocked websites. We compile a list of potentially blocked websites from three sources: (i) Published and leaked Government orders issued under section 69A of the IT Act, (ii) Court orders for blocking websites made public via RTIs, and (iii) User reports collected and published by the Internet Freedom Foundation. We pass this list to our tests and run them from connections of six different ISPs (Jio, Airtel, Vodafone, MTNL, BSNL, and ACT), which together serve more than 98% of Internet users in India. Our findings not only confirm that ISPs are using different techniques to block websites, but also demonstrate that different ISPs are not blocking the same websites.</p>
+<p>In terms of censorship methods, our results confirm that ISPs in India are at liberty to use any technical filtering mechanism they wish: there was, in fact, no single mechanism common across ISPs. We observe ISPs to be using a melange of techniques for blocking access, including DNS poisoning\ and HTTP host inspection. Our tests also discern the use of SNI inspection being employed by the largest ISP in India (Jio) to block HTTPS websites, the use of which is previously undocumented in the Indian context.</p>
+<p>Our study also records large inconsistencies in website blocklists of different Indian ISPs. From our list of 4379 potentially blocked websites, we find that 4033 appear in at least one ISP’s blocklist. In terms of absolute numbers, we notice that ACT blocks the maximum number of websites (3721). Compared to ACT, Airtel blocks roughly half the number of websites (1892). Perhaps most surprisingly, we find that only 1115 websites out of the 4033 (just 27.64%) are blocked by all six ISPs. Simply stated, we find conclusive proof that Internet users in India can have wildly different experiences of web censorship.</p>
+<p>Analysing inconsistencies in blocklists also makes it clear that ISPs in India are (i) not properly complying with website blocking (or subsequent unblocking orders), and/or (ii) arbitrarily blocking websites without the backing of a legal order. This has important legal ramifications: India’s net neutrality regulations, codified in the license agreements that ISPs enter with the Government of India, explicitly prohibit such behaviour.</p>
+<p>Our study also points to how the choice of technical methods used by ISPs to censor websites can decrease transparency about state-ordered censorship in India. While some ISPs were serving censorship notices, other ISPs made no such effort. For instance, Airtel responded to DNS queries for websites it wishes to block with NXDOMAIN. Jio used SNI-inspection to block websites, a choice which makes it technically impossible for them to serve censorship notices. Thus, the selection of certain technical methods by ISPs exacerbate the concerns created by the opaque legal process that allows the Government to censor websites.</p>
+<p>Web censorship is a curtailment of the right to freedom of expression guaranteed to all Indians. There is an urgent need to reevaluate the legal and technical mechanisms of web censorship in India to make sure the curtailment is transparent, and the actors accountable.</p>
+<p>The paper can be accessed on <a href="https://arxiv.org/abs/1912.08590">arXiv</a>.</p>
+<p><em>Update (12 June 2020): </em>The paper will appear at the 12th ACM Conference on Web Science (WebSci '20). The updated paper can be accessed <a href="/files/internet-governance/how-india-censors-the-web-websci.pdf">here</a>.</p>

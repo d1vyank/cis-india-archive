@@ -1,0 +1,125 @@
+---
+title: Data Flow in the Unique Identification Scheme of India
+date: '2015-09-03'
+authors:
+- Vidushi Marda
+tags:
+- Internet Governance
+- Privacy
+description: This note analyses the data flow within the UID scheme and aims at highlighting
+  vulnerabilities at each stage. The data flow within the UID Scheme can be best understood
+  by first delineating the organizations involved in enrolling residents for Aadhaar.
+  The UIDAI partners with various Registrars usually a department of the central or
+  state Government, and some private sector agencies like LIC etc– through a Memorandum
+  of Understanding for assisting with the enrollment process of the UID project.
+url: /internet-governance/blog/data-flow-in-unique-identification-scheme-of-india/
+original_url: https://cis-india.org/internet-governance/blog/data-flow-in-unique-identification-scheme-of-india
+type: blog
+program: internet-governance
+---
+<p><i>Many thanks to Elonnai Hickok for her invaluable guidance, input and feedback</i></p>
+<hr/>
+<p>These Registrars then appoint Enrollment Agencies that enroll residents by collecting the necessary data and sharing this with the UIDAI for de-duplication and issuance of an Aadhaar number, at enrolment centers that they set up. The data flow process of the UID is described below:<a href="#_ftn1" id="_ftnref1" name="_ftnref1">[1]</a></p>
+<ol> </ol>
+<h3><b>Data Capture</b></h3>
+<ul>
+<li><i>Filling out an enrollment form</i> – To enroll for an Aadhaar number, individuals are required to provide proof of address and proof of identity. These documents are verified by an official at the enrollment center. </li>
+</ul>
+<p>Vulnerability: Though an official is responsible for verifying these documents, it is unclear how this verification is completed. It is possible for fraudulent proof of address and proof of identity to be verified and approved by this official.</p>
+<ol> </ol>
+<ul>
+<li><i>The 'introducer' system</i>: For individuals who do not have a Proof of Identity, Proof of Address etc the UIDAI has established an 'introducer' system. The introducer verifies that the individual is who they claim to be and that they live where they claim to live.</li>
+</ul>
+<ol> </ol>
+<p>Vulnerability: This introducer is akin to the introducer concept in banking; except that here, the introducer must be approved by the Registrar, and need not know the person bring enrolled. This leads to questions of authenticity and validity of the data collected and verified by an 'introducer'. The Home Ministry in 2012, indicated that this must be reviewed.<a href="#_ftn2" id="_ftnref2" name="_ftnref2">[2]</a></p>
+<ol> </ol>
+<ul>
+<li><i>Categories of data for enrollment</i>: The UIDAI has a standard enrollment form and list of documents required for enrollment. This includes: name, address, birth date, gender, proof of address and proof of identity. Some MoUs (Memorandum of Understanding) permit for the Registrars to collect additional information in addition to what is required by the UIDAI. This could be any information the Registrar deems necessary for any purpose.</li>
+</ul>
+<ol> </ol>
+<p>Vulnerability: The fact that a Registrar may collect any information they deem necessary and for any purpose leads to concerns regarding (1) informed consent – as individuals are in placed in a position of having to provide this information as it is coupled with the Aadhaar enrollment process (2) unauthorized collection - though the MOU between the UIDAI and the Registrar has authorized the Registrar to collect additional information – if the information is personal in nature and the Registrar is a body corporate it must be collected as per the Information Technology Rules 2011 under section 43A. It is unclear if Registrars that are body corporates are collecting data in accordance to these rules. (3) As Registrars are permitted to collect any data they deem necessary for any purpose – this leads to concerns regarding misuse of this data..<a href="#_ftn3" id="_ftnref3" name="_ftnref3">[3]</a></p>
+<ol> </ol>
+<ul>
+<li><i>Verification of Resident’s Documents</i>: true copies of original  documents, after verification are sent to the Registrar for “permanent storage.”<a href="#_ftn4" id="_ftnref4" name="_ftnref4">[4]</a></li>
+</ul>
+<ol> </ol>
+<p>Vulnerability: It is unclear as to what extent and form this storage takes place. There is no clarity on who is responsible for the data once collected, and the permissible uses of such data are also unclear. The contracts between the UID and Registry claim that guidelines must be followed, while the guidelines state that, “<i>The documents are required to be preserved by Registrar till the UIDAI finalizes its document storage agency”</i> and states that the <i>“Registrars must ensure that the documents are stored in a safe and secure manner and protected from unauthorized access.”</i> <a href="#_ftn5" id="_ftnref5" name="_ftnref5">[5]</a> The question of what is “unauthorized access”, “secure storage”, when is data transferred to the UIDAI and when the UIDAI will access it and why remain unanswered. Moreover, there is nothing about deleting documents once the MoU lapses. The guidelines in question were also developed post facto.</p>
+<ol> </ol>
+<ul>
+<li><i>Data collection for enrollment</i>: After verification of proof of address and proof of identity, operators at the enrolling the agency will be enrolling individuals.  Data Collection is completed by operators at the enrolling agency. This includes the digitization of enrollment forms and collection of biometrics. Enrollment information is manually collected and entered into computers operating software provided by the UIDAI and then transferred to the UIDAI. Biometrics are collected through devices that have been provided by third parties such as Accenture and L1Identity Solutions.</li>
+</ul>
+<ol> </ol>
+<p>Vulnerability: After data is collected by enrollment operators it is  possible for data leakage to occur at the point of collection or during transfer to the Registrar and UIDAI. Data operators, are therefore not answerable to the UIDAI, but to a private agency; a fact which has been the cause of concern even within the government.<a href="#_ftn6" id="_ftnref6" name="_ftnref6">[6]</a> There have also been instances of sub contracting which leads to more complications in respect of accountability. Misuse<a href="#_ftn7" id="_ftnref7" name="_ftnref7">[7]</a> and loss of data is a very real possibility, and irregularities have been reported as well.<a href="#_ftn8" id="_ftnref8" name="_ftnref8">[8]</a> By relying on technology that is provided by third parties (in many cases foreign third parties) data collected by these devices is also available to these companies while at the same time the companies are not regulated by Indian law.</p>
+<ol> </ol>
+<ul>
+<li><i>Import pre-enrolment data into Aadhaar enrollment client</i>, <i>Syncing NPR/census data into the software</i>: The National Population Register (NPR) enrolls usual residents, and is governed by the Citizenship Rules, which prescribe a penalty for non disclosure of information.</li>
+</ul>
+<ol> </ol>
+<p>Vulnerability: Biometrics does not form part of the Rules that govern NPR data collection; the Citizenship Rules, 2003. In many ways, collection of biometrics without amending the citizenship laws amounts to a worrying situation. The NPR hands over information that it collects to UIDAI, biometrics collected as part of the UIDAI is included in the NPR, leading to concerns surrounding legality and security of such data.</p>
+<ol> </ol>
+<ul>
+<li><i> Resident’s consent</i>: for “whether the resident has agreed to <b>share the captured information</b> with organizations engaged in delivery of welfare services.”</li>
+</ul>
+<ol> </ol>
+<p>Vulnerability: This allows the UIDAI to use data in an almost unfettered fashion. The enrolment form reads, “<i>‘‘I have no objection to the UIDAI sharing information provided by me to the UIDAI with agencies engaged in delivery of welfare services.” </i>Informed consent, Vague. What info and with whom. Why is necessary for the UIDAI to share this information, when the organization is only supposed to be a passive intermediary? Does beyond the mandate of the UIDAI, which is only to provide and authenticate the number.<i> </i></p>
+<ol> </ol>
+<ul>
+<li><i>Biometric exceptions</i>: The operator checks if the resident’s eyes/hands are amputated/missing, and after the Supervisor verifies the same, the record is made as an exception and only the individuals photograph is recorded.</li>
+</ul>
+<ol> </ol>
+<p>Vulnerability: There has widespread misuse of this clause, with data being fabricated to fall into this category, making it unreliable as a whole. In March 2013, 3.84 lakh numbers were cancelled as they were based on fraudulent use of the exception clause. <a href="#_ftn9" id="_ftnref9" name="_ftnref9">[9]</a><i> </i></p>
+<ul>
+<li><i>Operator checks if resident wants Aadhaar enabled bank account</i>: The UID project was touted to be a scheme that would ensure access to benefits and subsidies that are provided through cash transfers as well as enabling financial inclusion. Subsequently, the need for a Aadhaar embedded bank account was made essential to avail of these benefits. The operator at this point checks whether the resident would like to open such a bank account. </li>
+</ul>
+<p> Vulnerability: The data provided at the time of linking UID with a bank account cannot be corrected or retracted. Although this has the vision of financial inclusion, it is now a threat of exclusion.</p>
+<ol> </ol> <ol> </ol>
+<ul>
+<li><i>Capturing biometrics- </i>The UIDAI scheme includes assigning each individual a unique identification number after collecting their demographic and biometric information. One Time Passwords are used to manually override a situation in which biometric identification fails.<a href="#_ftn10" id="_ftnref10" name="_ftnref10">[10]</a> The UIDAI data collection process was revamped in 2012 to include best finger detection and multiple try method.<a href="#_ftn11" id="_ftnref11" name="_ftnref11">[11]</a></li>
+</ul>
+<ol> </ol>
+<p>Vulnerabilities: The collection process is not always accurate, in fact, 70% of the residents who enrolled in Salt Lake, will have to re-enroll due to discrepancies at the time of enrollment.<a href="#_ftn12" id="_ftnref12" name="_ftnref12">[12]</a> Further, a large number of people in India are unable to give biometric information due to manual labour, or cataracts etc.</p>
+<p>After such data is entered, the Operator shows such data to the Resident or Introducer or Head of the Family (as the case may be) for validation.</p>
+<ol> </ol>
+<ul>
+<li><i>Operator Sign off</i> – Each set of data needs to be verified by an Operator whose fingerprint is already stored in the system.</li>
+</ul>
+<ol> </ol>
+<p>Vulnerability:<i> Vesting authority to sign off in an operator allows for  signing off on inaccurate or fraudulent data. </i>For example, the issuance of aadhaar numbers to biometric exceptions highlight issues surrounding misuse and unreliability of this function.<a href="#_ftn13" id="_ftnref13" name="_ftnref13">[13]</a></p>
+<p>After this, the Enrolment operator gets supervisor’s sign off for any exceptions that might exist, Acknowledgement and consent for enrolment is stored. Any correction to specified data can be made within 96 hours.<b> </b></p>
+<h3><b>Document Storage, Back up and Sync</b></h3>
+<p>After gathering and verifying all the information about the resident, the Enrolment Agency Operator will store photocopies of the documents of the resident. These Agencies also backup data “from time to time” (recommended to be twice a day), and maintain it for a minimum of 60 days. They also sync with the server every 7-10 days.</p>
+<p>Vulnerability: The security implications of third party operators storing information is greatly exacerbated by the fact that these operators use technology and devices from companies have close ties to intelligence agencies in other countries; L-1 Identity Solutions have close ties with America’s CIA, Accenture with French intelligence etc. <a href="#_ftn14" id="_ftnref14" name="_ftnref14">[14]</a></p>
+<ol> </ol>
+<h3><b>Transfer of Demographic and Biometric Data Collected to CIDR</b></h3>
+<p>“First mile logistics” include transferring data by using Secure File Transfer Protocol) provided by UIDAI or through a “suitable carrier” such as India Post.</p>
+<ol> </ol>
+<p>Vulnerability: There is no engagement between the UIDAI and the enrolling agencies; the registrars engage private enrolment agencies, and not the UIDAI. Further, the scope of people authorized to collect information, the information that can be collected, how such information is stored etc are all vague. In 2009, there was a notification that claimed that the UIDAI owns the database<a href="#_ftn15" id="_ftnref15" name="_ftnref15">[15]</a> but there is no indication on how it may be used, how this might react to instances of identity fraud, etc.</p>
+<ol> </ol>
+<h3><b>Data De-duplication and Aadhar Generation at CIDR</b></h3>
+<p>On receiving biometric information, the de-duplication is done to ensure that each individual is given only one UID number.</p>
+<p>Vulnerability:</p>
+<ul>
+<li>This de-duplication is carried out by private companies, some of which are not of indian origin and thus are also not bound by Indian law. Also, the volume of Aadhaar numbers rejected due to quality or technical reasons is a cause of worry; the count reaching 9 crores in May 2015.<a href="#_ftn16" id="_ftnref16" name="_ftnref16">[16]</a></li>
+<li>The MoUs promise registrars access to information contained in the Aadhaar letter, although individuals are ensured that such letter is only sent to them. <a href="#_ftn17" id="_ftnref17" name="_ftnref17">[17]</a></li>
+<li>General compliance and de-duplication has been an issue, with over 34,000 people being issued more than one Aadhaar number,<a href="#_ftn18" id="_ftnref18" name="_ftnref18">[18]</a> and innumerable examples of faulty Aadhaar cards being issued.<a href="#_ftn19" id="_ftnref19" name="_ftnref19">[19]</a></li>
+</ul>
+<hr/>
+<p><a href="#_ftnref1" id="_ftn1" name="_ftn1">[1]</a> Enrolment Process Essentials : UIDAI , (December 13,2012), http://nictcsc.com/images/Aadhaar%20Project%20Training%20Module/English%20Training%20Module/module2_aadhaar_enrolment_process17122012.pdf</p>
+<p><a href="#_ftnref2" id="_ftn2" name="_ftn2">[2]</a> <i>UIDAI to review biometric data collection process of 60 crore resident Indians: P Chidambaram</i>, Economic Times, (Jan 31, 2012), <a href="http://articles.economictimes.indiatimes.com/2012-01-31/news/31010619_1_biometrics-uidai-national-population-register">http://articles.economictimes.indiatimes.com/2012-01-31/news/31010619_1_biometrics-uidai-national-population-register</a>.</p>
+<p><a href="#_ftnref3" id="_ftn3" name="_ftn3">[3]</a>See: an MoU signed between the UIDAI and the Government of Madhya Pradesh. Also see: Usha Ramanathan, “<i>States as handmaidens of UIDAI</i>”, The Statesman (August 8, 2013).</p>
+<p><a href="#_ftnref4" id="_ftn4" name="_ftn4">[4]</a>http://nictcsc.com/images/Aadhaar%20Project%20Training%20Module/English%20Training%20Module/module2_aadhaar_enrolment_process17122012.pdf</p>
+<p><a href="#_ftnref5" id="_ftn5" name="_ftn5">[5]</a> Document Storage Guidelines for Registrars – Version 1.2, https://uidai.gov.in/images/mou/D11%20Document%20Storage%20Guidelines%20for%20Registrars%20final%2005082010.pdf</p>
+<p><a href="#_ftnref6" id="_ftn6" name="_ftn6">[6]</a> Arindham Mukherjee, Lola Nayar, <i>Aadhaar,A Few Basic Issues</i>, Outlook India, (December 5, 2011)<i>, </i><a href="http://dataprivacylab.org/TIP/2011sept/India4.pdf">http://dataprivacylab.org/TIP/2011sept/India4.pdf</a>.</p>
+<p><a href="#_ftnref7" id="_ftn7" name="_ftn7">[7]</a> <i>Aadhaar: UIDAI probing several cases of misuse of personal data, </i>The Hindu, (April 29, 2012), http://www.thehindubusinessline.com/economy/aadhar-uidai-probing-several-cases-of-misuse-of-personal-data/article3367092.ece.</p>
+<p><a href="#_ftnref8" id="_ftn8" name="_ftn8">[8]</a> Harsimran Julka, <i>UIDAI wins court battle against HCL technologies, </i>The Economic Times, (October 4, 2011), <a href="http://articles.economictimes.indiatimes.com/2011-10-04/news/30242553_1_uidai-bank-guarantee-hp-and-ibm">http://articles.economictimes.indiatimes.com/2011-10-04/news/30242553_1_uidai-bank-guarantee-hp-and-ibm</a>.</p>
+<p><a href="#_ftnref9" id="_ftn9" name="_ftn9">[9]</a> Chetan Chauhan, <i>UIDAI cancels 3.84 lakh fake Aadhaar numbers</i>, The Hindustan Times, (December 26, 2012), <a href="http://www.hindustantimes.com/newdelhi/uidai-cancels-3-84-lakh-fake-aadhaar-numbers/article1-980634.aspx">http://www.hindustantimes.com/newdelhi/uidai-cancels-3-84-lakh-fake-aadhaar-numbers/article1-980634.aspx</a>.</p>
+<p><a href="#_ftnref10" id="_ftn10" name="_ftn10">[10]</a> Usha Ramanathan, “<i>Inclusion project that excludes the poor</i>”, The Statesman (July 4, 2013).</p>
+<p><a href="#_ftnref11" id="_ftn11" name="_ftn11">[11]</a> UIDAI to Refresh Data Collection Process, Zee News, (February 7, 2012) <a href="http://zeenews.india.com/news/delhi/uidai-to-refresh-data-collection-process_757251.html">http://zeenews.india.com/news/delhi/uidai-to-refresh-data-collection-process_757251.html</a>.</p>
+<p><a href="#_ftnref12" id="_ftn12" name="_ftn12">[12]</a> Snehal Sengupta, <i>Queue up again to apply for Aadhaar</i>, The Telegraph, (February 27, 2015), http://www.telegraphindia.com/1150227/jsp/saltlake/story_5642.jsp#.VayjDZOqqko</p>
+<p><a href="#_ftnref13" id="_ftn13" name="_ftn13">[13]</a> Chauhan, <i>supra </i>note 7.</p>
+<p><a href="#_ftnref14" id="_ftn14" name="_ftn14">[14]</a> Usha Ramanathan, <i>Three Supreme Court Orders Later, What’s the Deal with Aadhaar? </i>Yahoo News, (April 13, 2015), <a href="https://in.news.yahoo.com/three-supreme-court-orders-later--what-s-the-deal-with-aadhaar-094316180.html">https://in.news.yahoo.com/three-supreme-court-orders-later--what-s-the-deal-with-aadhaar-094316180.html</a>.</p>
+<p><a href="#_ftnref15" id="_ftn15" name="_ftn15">[15]</a> Usha Ramanathan, “<i>Threat of Exclusion and of Surveillance</i>”<i>,</i> The Statesman (July 2, 2013).</p>
+<p><a href="#_ftnref16" id="_ftn16" name="_ftn16">[16]</a> <i>Over 9 Crore Aadhaar enrolments rejected by UIDAI, </i>Zee News (May 8, 2015).</p>
+<p><a href="#_ftnref17" id="_ftn17" name="_ftn17">[17]</a> Usha Ramanathan, “<i>States as handmaidens of UIDAI</i>”, The Statesman (August 8, 2013).</p>
+<p><a href="#_ftnref18" id="_ftn18" name="_ftn18">[18]</a> Surabhi Agarwal, <i>Duplicate Aadhar numbers within estimate, </i>Live Mint (March 5, 2013).</p>
+<p><a href="#_ftnref19" id="_ftn19" name="_ftn19">[19]</a> Usha Ramanathan, “<i>Outsourcing enrolment, gathering dogs and trees</i>”, The Statesman (August 7, 2013).</p>

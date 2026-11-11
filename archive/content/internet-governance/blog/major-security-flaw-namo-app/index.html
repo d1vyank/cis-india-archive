@@ -1,0 +1,73 @@
+---
+title: Developer team fixed vulnerabilities in Honorable PM's app and API
+date: '2016-12-04'
+authors:
+- Pranesh Prakash
+tags:
+- Privacy
+- Security
+- Internet Governance
+- Data Protection
+- Cyber Security
+- Hacking
+- Mobile Apps
+- Data Management
+description: The official app of Narendra Modi, the Indian Prime Minister, was found
+  to contain a security flaw in 2015 that exposed millions of people's personal data.
+  A few days ago a very similar flaw was reported again. This post by Bhavyanshu Parasher,
+  who found the flaw and sought to get it fixed last year, explains the technical
+  details behind the security vulnerability.
+url: /internet-governance/blog/major-security-flaw-namo-app/
+original_url: https://cis-india.org/internet-governance/blog/major-security-flaw-namo-app
+type: blog
+program: internet-governance
+---
+<p><strong>This blog post has been authored by Bhavyanshu Parasher</strong>. The original post can be<a href="https://bhavyanshu.me/major-security-flaw-pm-app/09/29/2015"> read here</a>.</p>
+<hr/>
+<h2>What were the issues?</h2>
+<p>The main issue was how the app was communicating with the API served by narendramodi.in.</p>
+<div id="_mcePaste"><ol>
+<li>I was able to extract private data, like email addresses, of each registered user just by iterating over user IDs.</li>
+<li>There was no authentication check for API endpoints. Like, I was able to comment as any xyz user just by hand-crafting the requests.</li>
+<li>The API was still being served over HTTP instead of HTTPS.</li>
+</ol></div>
+<h3>Fixed</h3>
+<ol>
+<li>The most important issue of all. Unauthorized access to personal info, like email addresses, is fixed. I have tested it and can confirm it.</li>
+<li>A check to verify if a valid user is making the request to API endpoint is fixed. I have tested it and can confirm it.</li>
+<li>Blocked HTTP. Every response is served over HTTPS. The people on older versions (which was serving over HTTP) will get a message regarding this. I have tested it. It says something like “Please update to the latest version of the Narendra Modi App to use this feature and access the latest news and exciting new features”. It’s good that they have figuered out a way to deal with people running older versions of the app. Atleast now they will update the app.</li>
+</ol>
+<h2>Detailed Vulnerability Disclosure</h2>
+<p>Found major security loophole in how the app accesses the “api.narendramodi.in/api/” API. At the time of disclosure, API was being served over “HTTP” as well as “HTTPS”. People who were still using the older version of the app were accessing endpoints over HTTP. This was an issue because data (passwords, email addresses) was being transmitted as plain text. In simple terms, your login credentials could easily be intercepted. MITM attack could easily fetch passwords and email addresses. Also, if your ISP keeps log of data, which it probably does, then they might already have your email address, passwords etc in plain text. So if you were using this app,<strong> I would suggest you to change your password immediately</strong>. Can’t leave out a possibility of it being compromised.</p>
+<p>Another major problem was that the token needed to access API was giving a false sense of security to developers. The access token could easily be fetched &amp; anyone could send hand-crafted HTTP requests to the server. It would result in a valid JSON response without authenticating the user making the request. This included accessing user-data (primarily email address, fb profile pictures of those registered via fb) for any user and posting comments as any registered user of the app. There was no authentication check on the API endpoint. Let me explain you with a demo.</p>
+<p>The API endpoint to fetch user profile information (email address) was getprofile. Before the vulnerability was fixed, the endpoint was accessible via “http://www.narendramodi.in/api/getprofile?userid=useridvalue&amp;token=sometokenvalue”. As you can see, it only required two parameters. userid, which we could easily iterate on starting from 1 &amp; token which was a fixed value. There was no authentication check on API access layer. Hand-crafting such requests resulted in a valid JSON response which exposed critical data like email addresses of each and every user. I quickly wrote a very simply script to fetch some data to demonstrate. Here is the sample output for xrange(1,10).</p>
+<p><img alt="App" loading="lazy" src="/files/home-images/App.png" title="App"/></p>
+<p>Not just email addresses, using this method you could spam on any article pretending to be any user of the app. There was no authentication check as to who was making what requests to the API. See,</p>
+<p><img alt="App" loading="lazy" src="/files/home-images/copy_of_App.png" title="App"/></p>
+<p>They have fixed all these vulnerabilities. I still believe it wouldn’t have taken so long if I would have been able to get in touch with team of engineers directly right from the beginning. In future, I hope they figure out an easier way to communicate. Such issues must be addressed as soon as they are found but the communication gap cost us lot of time. The team did a great job by fixing the issues and that’s what matters.</p>
+<hr/>
+<h2>Disclosure to officials</h2>
+<p>The email address provided on Google play store returned a response stating “The email account that you tried to reach is over quota”. Had to get in touch with authorities via twitter.</p>
+<p>Vulnerability disclosed to authorities on 30th sep, 2015 around 5:30 AM</p>
+<p><img alt="Tweet 1" loading="lazy" src="/files/home-images/Tweet1.png" title="Tweet 1"/></p>
+<p>After about 30 hours of reporting the vulnerabillity</p>
+<p><img alt="Tweet 2" loading="lazy" src="/files/home-images/Tweet2.png" title="Tweet 2"/></p>
+<h2>Proposed Solution</h2>
+<p>Consulted <a href="https://twitter.com/pranesh_prakash">@pranesh_prakash</a> as well regarding the issue.</p>
+<p><img alt="Tweet 3" loading="lazy" src="/files/home-images/Tweet3.png" title="Tweet 3"/></p>
+<p>After this, I mailed them a solution regarding the issues.</p>
+<hr/>
+<h2>Discussion with developer</h2>
+<p>Received <strong>phone call</strong> from a developer. Discussed possible solutions to fix it.</p>
+<p><strong>The solution that I proposed could not be implemented </strong>since the vulnerability is caused by a design flaw that should have been thought about right from the beginning when they started developing the app. It just proved how difficult it is to fix such issues for mobile apps. For web apps, it’s lot easier. Why? Because for mobile apps, you need to consider backward compatibility. If they applied my proposed solution, it would crash app for people running the older versions. Main problem is that <strong>people don’t upgrade to latest versions leaving themselves vulnerable to security flaws</strong>. The one I proposed is a better way of doing it I think but it will break for people using older versions as stated by the developer. Though, they (developers) have come up with solutions that I think would fix most of the issues and can be considered an alternative.</p>
+<p><img alt="Tweet 4" loading="lazy" src="/files/home-images/Tweet4.png" title="Tweet 4"/></p>
+<p>On Oct 3rd, I received mail from one of the developers who informed me they have fixed it. I could not check it out at that time as I was busy but I checked it around 5 PM. <strong>I can now confirm they have fixed all three issues</strong>.</p>
+<hr/>
+<h2>Update 12/02/2016</h2>
+<p><a href="http://www.dailyo.in/variety/narendra-modi-namo-app-hacker-security-concerns-javed-khatri-demonetisation-survey-bjp-voter-data/story/1/14347.html">This vulnerability</a> in NM app is similar to the one I got fixed last year. Like I said before also, the vulnerability is because of how the API has been designed. They released the same patch which they did back then. Removing email addresses from the JSON output is not really a patch. I wonder why would they introduce personal information in JSON output again if they knew that’s a privacy problem and has been reported by me a year back. He showed how he was able to follow any user being any user. Similarly, I was able to comment on any post using account of any user of the app. When I talked to the developer back then he mentioned it will be difficult to migrate users to a newer/secure version of the app so they are releasing this patch for the meantime. It was more of a backward compatibility issue because of how API was designed. The only solution to this problem is to rewrite the API from scratch and add standard auth methods for API. That should take care of most of vulnerabilities.</p>
+<p>Also read:</p>
+<ul>
+<li><a href="http://www.newindianexpress.com/nation/2016/dec/02/narendra-modi-app-hacked-by-youngster-points-out-risk-to-7-million-users-data-1544933--1.html">Narendra Modi app hacked by youngster, points out risk to 7 million users’ data</a> (New Indian Express; December 2, 2016)</li>
+<li><a href="http://indiatoday.intoday.in/story/security-22-year-old-hacks-modi-app-private-data-7-million/1/825661.html">Security flaw: 22-year-old hacks Modi app and accesses private data of 7 million people</a> (India Today; December 2, 2016)</li>
+<li><a href="http://thewire.in/84148/tech-security-namo-api/">The NaMo App Non-Hack is Small Fry – the Tech Security on Government Apps Is Worse</a> (The Wire; December 3, 2016)</li>
+</ul>

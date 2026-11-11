@@ -1,0 +1,40 @@
+---
+title: Indian music streaming service Gaana hacked, millions of users’ details exposed
+date: '2015-05-28'
+authors:
+- Prasad Krishna
+tags:
+- Internet Governance
+description: Indian music streaming service Gaana, which has over 7.5 million monthly
+  visitors, has been compromised by a hacker and its user information database is
+  now exposed.
+url: /internet-governance/news/tnwnews-may-28-2015-abhimanyu-ghoshal-indian-music-streaming-service-gaana-hacked-millions-of-users-details-exposed/
+original_url: https://cis-india.org/internet-governance/news/tnwnews-may-28-2015-abhimanyu-ghoshal-indian-music-streaming-service-gaana-hacked-millions-of-users-details-exposed
+type: news
+program: internet-governance
+---
+<div id="parent-fieldname-text">
+<p>Read more at <a href="http://thenextweb.com/insider/2015/05/28/indian-music-streaming-service-gaana-hacked-millions-of-users-details-exposed/">http://thenextweb.com/insider/2015/05/28/indian-music-streaming-service-gaana-hacked-millions-of-users-details-exposed/</a></p>
+<hr/>
+<p>The hacker, who goes by the moniker Mak Man and appears to be based in Lahore, Pakistan, posted a link to a searchable database of Gaana user details on his Facebook page. Enter a user’s email address and it spits out their full name, email address, MD5-hashed password, date of birth Facebook and Twitter profiles and more.</p>
+<p>The hack appears to be a SQL injection-based exploit of Gaana’s systems, but the intention behind it is unknown. The database shows more than 12.5 million users are currently registered on Gaana.</p>
+<p>Mak Man also posted images of the service’s admin panel.</p>
+<p>It’s worrying that an online service from one of India’s biggest internet companies (<a href="http://www.timesinternet.in/">Times Internet</a>) is vulnerable to attacks like this.</p>
+<p>With user details exposed, it may not do much good to simply change your Gaana password, as it will reflect in the hacker’s database. You’re better off deactivating your account until the issue is resolved, and changing your email, Facebook and Twitter passwords if they’re the same as on Gaana right away.</p>
+<p><b>Update:</b> <i>Since our story broke, Gaana has <a href="http://gaana.com">taken its site offline </a>and the exposed database isn’t returning search results when we queried it with test data.</i></p>
+<p><i><i>The hacker has updated his database page with the following message:  “The vulnerable parameter I was using here, has been patched by the  Admin<br/> Now the question is, Was this the only vulnerable parameter I had .. ? ;)”</i></i></p>
+<p><b>Update 2: </b><i>Times Internet CEO Satyan Gajwani <a href="https://twitter.com/satyangajwani/status/603870753898024960">tweeted</a> that only login credentials were accessed and no financial or sensitive personal data was leaked.</i></p>
+<p><i>Gajwani attempted to contact the hacker on Facebook and  acknowledged the issue. He added that the attack was the hacker’s way of  highlighting Gaana’s vulnerability.</i></p>
+<p><i>The exposed database has since been removed on Gajwani’s request. All Gaana users’ passwords have been reset.</i></p>
+<p><i>Gajwani also sought to reassure his followers that no user data  was stored and that the passwords were hashed. Hacker</i></p>
+<p><i> Mak Man also <a href="https://www.facebook.com/themakmaniac/posts/853667861337854">confirmed this in a Facebook post</a>.  However, that can’t be confirmed and you’d best change your passwords  for any social accounts and email addresses associated with your Gaana  profile.</i></p>
+<p><i>According to <a href="https://twitter.com/pranesh_prakash">Pranesh Prakash</a>, Policy Director at <a href="https://cis-india.org/">Center for Internet and Society</a> in Bangalore, India, the MD5 hashing algorithm which appears to have  been used for securing passwords isn’t very strong and could easily be  unscrambled using a rainbow table to get the plain-text version of the  data.</i></p>
+<p><i>Prakash also says that for added security, Gaana should:</i></p>
+<ul>
+<li><i>Stop using MD5 as its password hashing function and instead look at stronger password derivation functions like <a href="https://www.wikiwand.com/en/Scrypt">scrypt</a>, <a href="https://www.wikiwand.com/en/Bcrypt">bcrypt</a>, or <a href="https://www.wikiwand.com/en/PBKDF2">PBKDF2</a>.</i></li>
+<li><i>Sanitize its SQL inputs to prevent against malicious SQL injections.</i></li>
+<li><i>Enable <a href="http://www.wikiwand.com/en/Two_factor_authentication">two-factor authentication</a> for users to log in securely.</i></li>
+<li><i>Urge its users to use long passphrases instead of short complicated passwords and to never to reuse a password.</i></li>
+</ul>
+<p>➤ <a href="http://www.gaana.com">Gaana</a> [via <a href="http://www.thegeekbyte.com/4841/gaana-com-database-compromised-by-hackers/">The Geek Byte</a>]</p>
+</div>

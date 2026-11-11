@@ -1,0 +1,512 @@
+---
+title: India’s parental control directive and the need to improve stalkerware detection
+date: '2024-04-04'
+authors:
+- Divyank Katira
+description: We analyse a child-monitoring app being developed by the Indian government
+  and question whether it is an effective way to enact parental controls. We highlight
+  how such monitoring apps are often repurposed for digital stalking and play a role
+  in intimate partner violence. We also evaluate the protection provided by antivirus
+  tools in detecting such stalkerware apps and describe how we collected technical
+  evidence to help improve the detection of these apps.
+url: /internet-governance/blog/india2019s-parental-control-directive-and-the-need-to-improve-stalkerware-detection/
+original_url: https://cis-india.org/internet-governance/blog/india2019s-parental-control-directive-and-the-need-to-improve-stalkerware-detection
+type: blog
+program: internet-governance
+---
+<p><em>This post was reviewed and edited by Amrita Sengupta.</em></p>
+<p><span id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">Stalkerware is a form of surveillance targeted primarily at partners, employees and children in abusive relationships. These are software tools that enable abusers to spy on a person’s mobile device, allowing them to remotely access all data on the device, including calls, messages, photos, location history, browsing history, app data, and more. Stalkerware apps run hidden in the background without the knowledge or consent of the person being surveilled.[1] Such applications are easily available online and can be installed by anyone with little technical know-how and physical access to the device.</span></p>
+<span id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+</span><span id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<p>News reports indicate that the Ministry of Electronics and Information Technology (MeitY) is supporting the development of an app called “SafeNet”[2] that allows parents to monitor activity and set content filters on children’s devices. Following a directive from the Prime Minister’s office to “incorporate parental controls in data usage” by July 2024, the Internet Service Providers Association of India (ISPAI) has suggested that the app should come preloaded on mobile phones and personal computers sold in the country. The Department of Telecom is also asking schools to raise awareness about such parental control solutions.[3][4]</p>
+<p>The beta version of the app is available for Android devices on the Google Play Store and advertises a range of functionalities including location access, monitoring website and app usage, call and SMS logs, screen time management and content filtering. The content filtering functionality warrants a separate analysis and this post will only focus on the surveillance capabilities of this app.</p>
+<p>Applications like Safenet, that do not attempt to hide themselves and claim to operate with the knowledge of the person being surveilled, are sometimes referred to as “watchware”.[5] However, for all practical purposes, these apps are indistinguishable from stalkerware. They possess the same surveillance capabilities and can be deployed in the exact same ways. Such apps sometimes incorporate safeguards to notify users that their device is being monitored. These include persistent notifications on the device’s status bar or a visible app icon on the device’s home screen. However, such safeguards can be circumvented with little effort. The notifications can simply be turned off on some devices and there are third-party Android tools that allow app icons and notifications to be hidden from the device user, allowing watchware to be repurposed as stalkerware and operate secretly on a device. This leaves very little room for distinction between stalkerware and watchware apps.[6] In fact, the developers of stalkerware apps often advertise their tools as watchware, instructing users to only use them for legitimate purposes.</p>
+<p>Even in cases where stalkerware applications are used in line with their stated purpose of monitoring minors’ internet usage, the effectiveness of a surveillance-centric approach is suspect. Our previous work on children’s privacy has questioned the treatment of all minors under the age of 18 as a homogenous group, arguing for a distinction between the internet usage of a 5-year-old child and a 17-year-old teenager. We argue that educating and empowering children to identify and report online harms is more effective than attempts to surveil them.[7][8] Most smartphones already come with options to enact parental controls on screen time and application usage[9][10], and the need for third-party applications with surveillance capabilities is not justified.</p>
+<p>Studies and news reports show the increasing role of technology in intimate partner violence (IPV).[11][12] Interviews with IPV survivors and support professionals indicate an interplay of socio-technical factors, showing that abusers leverage the intimate nature of such relationships to gain access to accounts and devices to exert control over the victim. They also indicate the prevalence of “dual-use” apps such as child-monitoring and anti-theft apps that are repurposed by abusers to track victims.[13]</p>
+<p>There is some data available that indicates the use of stalkerware apps in India. Kaspersky anti-virus’ annual State of Stalkerware reports consistently place India among the top 4 countries with the most number of infections detected by its product, with a few thousand infections reported each year between 2020 and 2023.[14][15][16[17] TechCrunch’s Spyware Lookup Tool, which compiles information from data leaks from more than nine stalkerware apps to notify victims, also identifies India as a hotspot for infections.[18] Avast, another antivirus provider, reported a 20% rise in the use of stalkerware apps during COVID-19 lockdowns.[19] The high rates of incidence of intimate partner violence in India, with the National Family Health Survey reporting that about a third of all married women aged 18–49 years have experienced spousal violence [20], also increases the risk of digitally-mediated abuse.</p>
+<p>Survivors of digitally-mediated abuse often require specialised support in handling such cases to avoid alerting abusers and potential escalations. As part of our ongoing work on countering digital surveillance, we conducted an analysis of seven stalkerware applications, including two that are based in India, to understand and improve how survivors and support professionals can detect their presence on devices.</p>
+<p>In some cases, where it is safe to operate the device, antivirus solutions can be of use. Antivirus tools can often identify the presence of stalkerware and watchware on a device, categorising them as a type of malware. We measured how effective various commercial antivirus solutions are at detecting stalkerware applications. Our results, which are detailed in the Appendix, indicate a reasonably good coverage, with six out of the seven apps being flagged as malicious by various antivirus solutions. We found that Safenet, the newest app on the list, was not detected by any antivirus. We also compared the detection results with a similar study conducted in 2019 [21] and found that some newer versions of previously known apps saw lower rates of detection. This indicates that antivirus solutions need to analyse new apps and newer versions of apps more frequently to improve coverage and understand how they are able to evade detection.</p>
+<p>In cases where the device cannot be operated safely, support workers use specialised forensic tools such as the Mobile Verification Toolkit [22] and Tinycheck [23], which can be used to analyse devices without modifying them. We conducted malware analysis on the stalkerware apps to document the traces they leave on devices and submitted them to an online repository of indicators of compromise (IOCs).[24] These indicators are incorporated in detection tools used by experts to detect stalkerware infections.</p>
+<p>Despite efforts to support survivors and stop the spread of stalkerware applications, the use of technology in abusive relationships continues to grow.[25] Making a surveillance tool like Safenet available for free, publicising it for widespread use, and potentially preloading it on mobile devices and personal computers sold in the country, is an ill-conceived way to enact parental controls and will lead to an increase in digitally-mediated abuse. The government should immediately take this application out of the public domain and work on developing alternate child protection policies that are not rooted in distrust and surveillance.</p>
+<p><em>If you are affected by stalkerware there are some resources available here: <br/></em><a href="https://stopstalkerware.org/information-for-survivors/">https://stopstalkerware.org/information-for-survivors/</a> <br/><a href="https://stopstalkerware.org/resources/">https://stopstalkerware.org/resources/</a></p>
+</span><strong id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<br/>
+<p>Appendix</p>
+</strong><span id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<p>Our analysis covered two apps based in India, SafeNet and OneMonitar, and five other apps, Hoverwatch, TheTruthSpy, Cerberus, mSpy and FlexiSPY. All samples were directly obtained from the developer’s websites. The details of the samples are as follows:</p>
+</span><strong id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<br/>
+<div>
+<table><colgroup><col width="105"/><col width="101"/><col width="69"/><col width="133"/><col width="192"/></colgroup>
+<tbody>
+<tr>
+<td>
+<p>Name</p>
+</td>
+<td>
+<p>File name</p>
+</td>
+<td>
+<p>Version</p>
+</td>
+<td>
+<p>Date sample was obtained</p>
+</td>
+<td>
+<p>SHA-1 Hash</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>SafeNet</p>
+</td>
+<td>
+<p>Safenet_Child.apk</p>
+</td>
+<td>
+<p>0.15</p>
+</td>
+<td>
+<p>16th March, 2024</p>
+</td>
+<td>
+<p>d97a19dc2212112353ebd84299d49ccfe8869454</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>OneMonitar</p>
+</td>
+<td>
+<p>ss-kids.apk</p>
+</td>
+<td>
+<p>5.1.9</p>
+</td>
+<td>
+<p>19th March, 2024</p>
+</td>
+<td>
+<p>519e68ab75cd77ffb95d905c2fe0447af0c05bb2</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Hoverwatch</p>
+</td>
+<td>
+<p>setup-p9a8.apk</p>
+</td>
+<td>
+<p>7.4.360</p>
+</td>
+<td>
+<p>5th March, 2024</p>
+</td>
+<td>
+<p>50bae562553d990ce3c364dc1ecf44b44f6af633</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>TheTruthSpy</p>
+</td>
+<td>
+<p>TheTruthSpy.apk</p>
+</td>
+<td>
+<p>23.24</p>
+</td>
+<td>
+<p>5th March, 2024</p>
+</td>
+<td>
+<p>8867ac8e2bce3223323f38bd889e468be7740eab</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Cerberus</p>
+</td>
+<td>
+<p>Cerberus_disguised.apk</p>
+</td>
+<td>
+<p>3.7.9</p>
+</td>
+<td>
+<p>4th March, 2024</p>
+</td>
+<td>
+<p>75ff89327503374358f8ea146cfa9054db09b7cb</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>mSpy</p>
+</td>
+<td>
+<p>bt.apk</p>
+</td>
+<td>
+<p>7.6.0.1</p>
+</td>
+<td>
+<p>21st March, 2024</p>
+</td>
+<td>
+<p>f01f8964242f328e0bb507508015a379dba84c07</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>FlexiSPY</p>
+</td>
+<td>
+<p>5009_5.2.2_1361.apk</p>
+</td>
+<td>
+<p>5.2.2</p>
+</td>
+<td>
+<p>26th March, 2024</p>
+</td>
+<td>
+<p>5092ece94efdc2f76857101fe9f47ac855fb7a34</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</strong><span id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<p>We analysed the network activity of these apps to check what web servers they send their data to. With increasing popularity of Content Delivery Networks (CDNs) and cloud infrastructure, these results may not always give us an accurate idea about where these apps originate, but can sometimes offer useful information: </p>
+</span><strong id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<br/>
+<div>
+<table>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Domain</td>
+<td>IP Address[26]</td>
+<td>Country</td>
+<td>ASN Name and Number</td>
+</tr>
+<tr>
+<td>SafeNet</td>
+<td>safenet.family</td>
+<td>103.10.24.124</td>
+<td>India</td>
+<td>Amrita Vishwa Vidyapeetham, AS58703</td>
+</tr>
+<tr>
+<td>OneMonitar</td>
+<td>onemonitar.com</td>
+<td>3.15.113.141</td>
+<td>United States</td>
+<td>Amazon.com, Inc., AS16509</td>
+</tr>
+<tr>
+<td>OneMonitar</td>
+<td>api.cp.onemonitar.com</td>
+<td>3.23.25.254</td>
+<td>United States</td>
+<td>Amazon.com, Inc., AS16509</td>
+</tr>
+<tr>
+<td>Hoverwatch</td>
+<td>hoverwatch.com</td>
+<td>104.236.73.120</td>
+<td>United States</td>
+<td>DigitalOcean, LLC, AS14061</td>
+</tr>
+<tr>
+<td>Hoverwatch</td>
+<td>a.syncvch.com</td>
+<td>158.69.24.236</td>
+<td>Canada</td>
+<td>OVH SAS, AS16276</td>
+</tr>
+<tr>
+<td>TheTruthSpy</td>
+<td>thetruthspy.com</td>
+<td>172.67.174.162</td>
+<td>United States</td>
+<td>Cloudflare, Inc., AS13335</td>
+</tr>
+<tr>
+<td>TheTruthSpy</td>
+<td>protocol-a946.thetruthspy.com</td>
+<td>176.123.5.22</td>
+<td>Moldova</td>
+<td>ALEXHOST SRL, AS200019</td>
+</tr>
+<tr>
+<td>Cerberus</td>
+<td>cerberusapp.com</td>
+<td>104.26.9.137</td>
+<td>United States</td>
+<td>Cloudflare, Inc., AS13335</td>
+</tr>
+<tr>
+<td>mSpy</td>
+<td>mspy.com</td>
+<td>104.22.76.136</td>
+<td>United States</td>
+<td>Cloudflare, Inc., AS13335</td>
+</tr>
+<tr>
+<td>mSpy</td>
+<td>mobile-gw.thd.cc</td>
+<td>104.26.4.141</td>
+<td>United States</td>
+<td>Cloudflare, Inc., AS13335</td>
+</tr>
+<tr>
+<td>FlexiSPY</td>
+<td>flexispy.com</td>
+<td>104.26.9.173</td>
+<td>United States</td>
+<td>Cloudflare, Inc., AS13335</td>
+</tr>
+<tr>
+<td>FlexiSPY</td>
+<td>djp.bz</td>
+<td>119.8.35.235</td>
+<td>Hong Kong</td>
+<td>HUAWEI CLOUDS, AS136907</td>
+</tr>
+</tbody>
+</table>
+</div>
+</strong><span id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<p>To understand whether commercial antivirus solutions are able to categorise stalkerware apps as malicious, we used a tool called VirusTotal, which aggregates checks from over 70 antivirus scanners.[27] We uploaded hashes (i.e. unique signatures) of each sample to VirusTotal and recorded the total number of detections by various antivirus solutions. We compared our results to a similar study by Citizen Lab in 2019 [28] that looked at a similar set of apps to identify changes in detection rates over time.</p>
+</span><strong id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<br/>
+<div>
+<table><colgroup><col width="148"/><col width="191"/><col width="261"/></colgroup>
+<tbody>
+<tr>
+<td>
+<p>Product</p>
+</td>
+<td>
+<p>VirusTotal Detections (March 2024)</p>
+</td>
+<td>
+<p>VirusTotal Detections (January 2019) (By Citizen Lab)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>SafeNet [29]</p>
+</td>
+<td>
+<p>0/67 (0 %)</p>
+</td>
+<td>
+<p>N/A</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>OneMonitar [30]</p>
+</td>
+<td>
+<p>17/65 (26.1%)</p>
+</td>
+<td>
+<p>N/A</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Hoverwatch</p>
+</td>
+<td>
+<p>24/58 (41.4%)</p>
+</td>
+<td>
+<p>22/59 (37.3%)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>TheTruthSpy</p>
+</td>
+<td>
+<p>38/66 (57.6%)</p>
+</td>
+<td>
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Cerberus</p>
+</td>
+<td>
+<p>8/62 (12.9%)</p>
+</td>
+<td>
+<p>6/63 (9.5%)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>mSpy</p>
+</td>
+<td>
+<p>8/63 (12.7%)</p>
+</td>
+<td>
+<p>20/63 (31.7%)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Flexispy [31]</p>
+</td>
+<td>
+<p>18/66 (27.3%)</p>
+</td>
+<td>
+<p>34/63 (54.0%)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</strong><span id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<p>We also checked if Google’s Play Protect service [32], a malware detection tool that is built-in to Android devices using Google’s Play Store. These results were also compared with similar checks performed by Citizen Lab in 2019.</p>
+</span><strong id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<br/>
+<div>
+<table><colgroup><col width="148"/><col width="191"/><col width="261"/></colgroup>
+<tbody>
+<tr>
+<td>
+<p>Product</p>
+</td>
+<td>
+<p>Detected by Play Protect (March 2024)</p>
+</td>
+<td>
+<p>Detected by Play Protect (January 2019) (By Citizen Lab)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>SafeNet</p>
+</td>
+<td>
+<p>no</p>
+</td>
+<td>
+<p>N/A</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>OneMonitar</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+<td>
+<p>N/A</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Hoverwatch</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>TheTruthSpy</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Cerberus</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+<td>
+<p>no</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>mSpy</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Flexispy</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+<td>
+<p>yes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1>Endnotes</h1>
+</strong><span id="docs-internal-guid-c4a151a8-7fff-1d6a-d9e3-7643eb3ccd5b">
+<p>1.  Definition adapted from Coalition Against Stalkerware, <a href="https://stopstalkerware.org/">https://stopstalkerware.org/</a> </p>
+<p>2.  <a href="https://web.archive.org/web/20240316060649/https://safenet.family/">https://web.archive.org/web/20240316060649/https://safenet.family/</a> </p>
+<p>3.  <a href="https://www.hindustantimes.com/india-news/itministry-tests-parental-control-app-progress-to-be-reviewed-today-101710702452265.html">https://www.hindustantimes.com/india-news/itministry-tests-parental-control-app-progress-to-be-reviewed-today-101710702452265.html</a> </p>
+<p>4.  <a href="https://www.hindustantimes.com/india-news/schools-must-raise-awareness-about-parental-control-in-internet-usage-says-dot-101710840561172.html">https://www.hindustantimes.com/india-news/schools-must-raise-awareness-about-parental-control-in-internet-usage-says-dot-101710840561172.html</a> </p>
+<p>5.  <a href="https://github.com/AssoEchap/stalkerware-indicators/blob/master/README.md">https://github.com/AssoEchap/stalkerware-indicators/blob/master/README.md</a> </p>
+<p>6.  https://cybernews.com/privacy/difference-between-parenting-apps-and-stalkerware/</p>
+<p>7.  <a href="https://timesofindia.indiatimes.com/blogs/voices/shepherding-children-in-the-digital-age/">https://timesofindia.indiatimes.com/blogs/voices/shepherding-children-in-the-digital-age/</a> </p>
+<p>8.  <a href="https://blog.avast.com/stalkerware-and-children-avast">https://blog.avast.com/stalkerware-and-children-avast</a> </p>
+<p>9.  <a href="https://safety.google/families/parental-supervision/">https://safety.google/families/parental-supervision/</a> </p>
+<p>10.  <a href="https://support.apple.com/en-in/105121">https://support.apple.com/en-in/105121</a> </p>
+<p>11.  R. Chatterjee et al., "The Spyware Used in Intimate Partner Violence," 2018 IEEE Symposium on Security and Privacy (SP), 2018, pp. 441-458.</p>
+<p>12.  <a href="https://www.computerweekly.com/news/252492575/Use-of-abusive-stalkerware-against-women-skyrocketed-in-2020">https://www.computerweekly.com/news/252492575/Use-of-abusive-stalkerware-against-women-skyrocketed-in-2020</a> </p>
+<p>13.  D. Freed et al., "Digital technologies and intimate partner violence: A qualitative analysis with multiple stakeholders", PACM: Human-Computer Interaction: Computer-Supported Cooperative Work and Social Computing (CSCW), vol. 1, no. 2, 2017.</p>
+<p>14.  <a href="https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2024/03/07160820/The-State-of-Stalkerware-in-2023.pdf">https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2024/03/07160820/The-State-of-Stalkerware-in-2023.pdf</a> </p>
+<p>15.  <a href="https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2023/03/07152747/EN_The-State-of-Stalkerware_2022.pdf">https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2023/03/07152747/EN_The-State-of-Stalkerware_2022.pdf</a> </p>
+<p>16.  <a href="https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2022/04/12075509/EN_The-State-of-Stalkerware-2021.pdf">https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2022/04/12075509/EN_The-State-of-Stalkerware-2021.pdf</a> </p>
+<p>17.  <a href="https://media.kasperskycontenthub.com/wp-content/uploads/sites/100/2020/03/25175212/EN_The-State-of-Stalkerware-2020.pdf">https://media.kasperskycontenthub.com/wp-content/uploads/sites/100/2020/03/25175212/EN_The-State-of-Stalkerware-2020.pdf</a> </p>
+<p>18.  <a href="https://techcrunch.com/pages/thetruthspy-investigation/">https://techcrunch.com/pages/thetruthspy-investigation/</a> </p>
+<p>19.  https://www.thenewsminute.com/atom/avast-finds-20-rise-use-spying-and-stalkerware-apps-india-during-lockdown-129155</p>
+<p>20.  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10071919/</p>
+<p>21.  <a href="https://citizenlab.ca/docs/stalkerware-holistic.pdf">https://citizenlab.ca/docs/stalkerware-holistic.pdf</a> </p>
+<p>22.  https://docs.mvt.re/en/latest/ </p>
+<p>23.  https://tiny-check.com/ </p>
+<p>24.  <a href="https://github.com/AssoEchap/stalkerware-indicators/pull/125">https://github.com/AssoEchap/stalkerware-indicators/pull/125</a> </p>
+<p>25.  https://stopstalkerware.org/2023/05/15/report-shows-stalkerware-is-not-declining/</p>
+<p>26.  IP information provided by https://ipinfo.io/ </p>
+<p>27.  <a href="https://docs.virustotal.com/docs/how-it-works">https://docs.virustotal.com/docs/how-it-works</a> </p>
+<p>28.  <a href="https://citizenlab.ca/docs/stalkerware-holistic.pdf">https://citizenlab.ca/docs/stalkerware-holistic.pdf</a> </p>
+<p>29.  Sample was not known to VirusTotal, it was uploaded at the time of analysis</p>
+<p>30.  Sample was not known to VirusTotal, it was uploaded at the time of analysis</p>
+<p>31.  Sample was not known to VirusTotal, it was uploaded at the time of analysis</p>
+<p>32.  <a href="https://developers.google.com/android/play-protect">https://developers.google.com/android/play-protect</a></p>
+</span>

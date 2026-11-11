@@ -1,0 +1,51 @@
+---
+title: Odia Language gets a new Unicode Font Converter
+date: '2014-06-20'
+authors:
+- Subhashish Panigrahi
+tags:
+- Access to Knowledge
+- Wikimedia
+- Wikipedia
+- Odia Wikipedia
+- Openness
+description: Recently, I worked on designing a font encoding converter with a fellow
+  Wikimedian Manoj Sahukar. We worked by taking the code of a converter that was made
+  three years back and made it work for two fonts AkrutiOriSarala99 and AkrutiOriSarala
+  that are used by the media industry for printing and publishing.
+url: /openness/blog-old/odia-language-gets-new-unicode-font-converter/
+original_url: https://cis-india.org/openness/blog-old/odia-language-gets-new-unicode-font-converter
+type: blog
+program: openness
+---
+<p>This converter can now convert text typed using a modified ISCII based encoding and help generating Unicode text. Based on this learning from this I created another such converter for one such popular font Shreelipi that is used by Government of Odisha's official documentation including a magazine. The following is a summary of the usability of the converters:</p>
+<p>It’s been over a decade since <a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> standard was made available for <a href="https://en.wikipedia.org/wiki/Oriya_alphabet">Odia script</a>. <a href="https://en.wikipedia.org/wiki/Oriya_language">Odia</a> is a language spoken by roughly 33 million people in Eastern India, and  is one of the many official languages of India. Since its release, it  has been challenging to get more content on Unicode, the reason being  many who are used to other non-Unicode standards are not willing to make  the move to Unicode. This created the need for a simple converter that  could convert text once typed in various non-Unicode fonts to Unicode.  This could enrich <a href="https://www.wikipedia.org/">Wikipedia</a> and  other Wikimedia projects by converting previously typed content and  making it more widely available on the internet. The Odia language  recently got such a converter, making it possible to convert two of the  most popular fonts among media professionals (AkrutiOriSarala99 and  AkrutiOriSarala) into Unicode.</p>
+<p>All of the non-<a href="https://en.wikipedia.org/wiki/Latin_script">Latin scripts</a> came under one umbrella after the rollout of Unicode. Since then, many  Unicode compliant fonts have been designed and the open source community  has put forth effort to produce good quality fonts. Though contribution  to Unicode compliant portals like Wikipedia increased, the publication  and printing industries in India were still stuck with the pre-existing <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> and <a href="https://en.wikipedia.org/wiki/ISCII">ISCII</a> standards (Indian font encoding standard based on ASCII). Modified  ASCII fonts that were used as typesets for newspapers, books, magazines  and other printed documents still exist in these industries. This  created a massive amount of content that is not searchable  or reproducible because it is not Unicode compliant. The difference in  Unicode font is the existence of separate <a href="https://en.wikipedia.org/wiki/Glyph">glyphs</a> for the Indic script characters along with the Latin glyphs that are  actually replaced by the Indic characters. So, when someone does not  have a particular ASCII standard font installed, the typed text looks  absurd (see <a href="https://en.wikipedia.org/wiki/Mojibake" title="w:Mojibake">Mojibake</a>),  however text typed using one Unicode font could be read using another  Unicode font in a different operating system. Most of the ASCII fonts  that are used for typing Indic languages are proprietary and many  individuals/organizations even use pirated software and fonts. Having  massive amounts of content available in multiple standards and  little content in Unicode created a large gap for many languages  including Odia. Until all of this content gets converted to Unicode to  make it searchable, sharable and reusable, then the knowledge base  created will remain inaccessible. Some of the <a href="https://en.wikipedia.org/wiki/Indo-Aryan%20languages">Indic languages</a> fortunately have more and more contributors creating Unicode content.  There is a need to work on technological development to convert  non-Unicode content to Unicode and open it up for people to use.</p>
+<table>
+<tbody>
+<tr>
+<td>
+<p>There are a few different kinds of fonts used by media and publication  houses, the most popular one is Akruti. Two other popular standards are  LeapOffice and Shreelipi. Akruti software comes bundled with a variety of typefaces and an encoding engine that works well in <a href="https://en.wikipedia.org/wiki/Adobe_Acrobat">Adobe Acrobat Creator</a>, the most popular <a href="https://en.wikipedia.org/wiki/Desktop_publishing">DTP software</a> package. Industry professionals are comfortable using it for its  reputation and seamless printing. The problem of migrating content from  other standards to Unicode arose when the Odia Wikimedia community  started reaching out to these industry professionals. Apparently  authors, government employees and other professional were more  comfortable using one of the standards mentioned above. All of these  people type using either a generic popular standard, Modular, or  a universal standard, Inscript. Fortunately, the former is now  incorporated into <a href="https://en.wikipedia.org/wiki/MediaWiki">Mediawiki</a>‘s <a href="https://www.mediawiki.org/wiki/Universal_Language_Selector">Universal Language Selector</a> (ULS) and the latter is in the process of getting added to ULS. Once  this is done, many folks could start contributing to Wikipedia easily.</p>
+<p>Content that has been typed in various modified ASCII fonts include encyclopedias that could help grow content on <a href="https://wikisource.org/wiki/Main_Page">Wikisource</a> and <a href="https://en.wikiquote.org/wiki/Main_Page">Wikiquote</a>.  All of these need to be converted to Unicode. The non-profit group  Srujanika first initiated a project to build a converter for conversion  of two different Akruti fonts: AkrutiOriSarala99 and OR-TT Sarala. The  former being outdated and the other being less popular. The Rebati 1  converter which was built by the Srujanika team was not being maintained  and was more of an orphan project.</p>
+</td>
+<th><img alt="Unicode" height="473" loading="lazy" src="/files/home-images/Unicode.png" title="Unicode" width="323"/></th>
+</tr>
+<tr>
+<td colspan="2">Above: Akruti Sarala - Unicode Odia converter user manual. Image credit: Subhashish Panigrahi, CC-BY-3.0<br/></td>
+</tr>
+</tbody>
+</table>
+<p>Fellow Wikimedian <a href="https://or.wikipedia.org/wiki/User:TWO%5E0">Manoj Sahukar</a> and myself used parts of the “Rebati 1 converter” code and worked on   building another converter. The new “Akruti Sarala – Unicode Odia   converter” can convert the more popular AkrutiOriSarala font and its   predecessor AkrutiOriSarala99, which is still used by some. Odia   Wikimedian <a href="https://or.wikipedia.org/wiki/User:MKar">Mrutyunjaya Kar</a> and journalist <a href="https://or.wikipedia.org/wiki/User:Subhransupanda">Subhransu Panda</a> have helped by reporting broken conjuncts which helps in fixing all   problems before publishing. Odia authors and journalists have already   started using the font and many of them have regular posts in Odia. We   are waiting for more authors to contribute to Wikipedia by converting   their work and wikifying it.</p>
+<p>Recently a beta version of another Unicode font converter for Shreelipi fonts based on Odia Wikipedian <a href="https://en.wikipedia.org/wiki/or:%E0%AC%B6%E0%AC%BF%E0%AC%A4%E0%AC%BF%E0%AC%95%E0%AC%A3%E0%AD%8D%E0%AC%A0_%E0%AC%A6%E0%AC%BE%E0%AC%B6" title="w:or:ଶିତିକଣ୍ଠ ଦାଶ">Shitikantha Dash</a>‘s initial code is <a href="https://22bc339da9ca3e2462414546a715752e4c2c5e0d.googledrive.com/host/0B5rBGd680WZFemVLa3RxY0preE0/ShreeUnicode" title="Click to open Shreelipi - Unicode converter">released</a>. It works with at least 85 % accuracy.</p>
+<blockquote>"Even after getting the classical status, Odia language is not being used actively on the internet like some other Indian languages. The main reason behind this is our writing system has not been web-friendly. Most of those in Odisha having typing skills, use modular keyboard and Akruti fonts. Akruti is not web-compatible as we know. There are thousands of articles, literary works, news stories typed in Akruti fonts lying unused (on the internet). Thanks to Subhashish Panigrahi and his associates, they have developed this new font converter that can convert your Akruti text into Unicode. I have checked it. It’s error-free. Now it’s easy for us to write articles online (for Wikipedia and other sites). Yes, we are late entrants as far as use of vernacular languages on the internet is concerned. But this converter will help us to go godspeed. Lets make Odia our language of communication and expression."</blockquote>
+<hr/>
+<p>The above was <a href="http://blog.wikimedia.org/2014/06/20/odia-language-gets-a-new-unicode-font-converter/">originally posted on Wikimedia blog</a>.</p>
+<p>Quick Links</p>
+<ul>
+<li><a href="https://googledrive.com/host/0B5rBGd680WZFemVLa3RxY0preE0/AkrutiUnicode">Akruti Sarala – Unicode Odia converter</a></li>
+<li><a href="https://github.com/OdiaWikimedia/converter">Source code</a> on <a href="https://en.wikipedia.org/wiki/GitHub">GitHub</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Akruti_converter_user_manual_%28white%29.svg">Print-ready manual for the converter</a></li>
+</ul>
+<ul>
+<li>Copyright notes: <a href="https://commons.wikimedia.org/wiki/File:Akruti_Sarala_-_Unicode_converter_screenshot_mock-up.svg">"Akruti Sarala - Unicode converter screenshot mock-up.svg"</a>, <a href="https://commons.wikimedia.org/wiki/File:Akruti_converter_user_manual_%28white%29.svg">"Akruti converter user manual (white).svg"</a> by <a href="https://commons.wikimedia.org/wiki/User:Psubhashish"> Subhashish Panigrahi </a>, under <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0 Unported</a>, from Wikimedia Commons</li>
+</ul>

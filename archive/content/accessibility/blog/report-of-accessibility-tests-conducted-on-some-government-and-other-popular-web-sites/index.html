@@ -1,0 +1,198 @@
+---
+title: 'Accessibility Test Results: Government and Other Popular Websites'
+date: '2008-11-27'
+authors:
+- Nirmita Narasimhan
+tags:
+- Accessibility
+description: The CIS conducted some automated accessibility tests on a few Government
+  web sites, including that of the National Informatics Centre, and on the web sites
+  of some banks, medical and educational institutions. This is a report of the results.
+url: /accessibility/blog/report-of-accessibility-tests-conducted-on-some-government-and-other-popular-web-sites/
+original_url: https://cis-india.org/accessibility/blog/report-of-accessibility-tests-conducted-on-some-government-and-other-popular-web-sites
+type: blog
+program: accessibility
+---
+<p><a id="OLE_LINK2" name="OLE_LINK2"></a><a id="OLE_LINK1" name="OLE_LINK1"><strong>Summary</strong></a></p>
+<p>We carried out accessibility testing on the homepages of 23 sites using the automated tool at <a href="http://www.contentquality.com/"><u>www.contentquality.com</u></a>. Of the 23 sites tested, 21 failed automated verification and only the RBI and IIM-B websites passed verification on the basis of WCAG Priority 1 checkpoints. However, all 23 sites had issues with Priority 2 and Priority 3 checkpoints and failed on these criteria. Most sites also used layout tables, without linearized alternatives. Overall the sites that failed the fewest tests were RBI, IIM-B, RTI and CMC Vellore. On the additional test carried out on the quality of the alternative text, only the Ministry of HRD passed; this test was not applicable for the CMC Vellore, RBI, RTI, IIM-B and DDA sites; all others failed the test.</p>
+<p>Even a basic automated verification tool, thus, demonstrates the deplorable state of public website accessibility in India, where all sites surveyed, except two, did not even conform to the basic accessibility criteria enumerated in the WCAG priority one checkpoints.</p>
+<p>The section below lists the tests that most sites commonly failed; this is followed by a section with the actual test details, including information on the URL, time of test, status, browser emulated and checkpoints passed/failed.</p>
+<p><strong>Note:</strong></p>
+<p>The web content accessibility
+validation tool on www.contentquality.com, i.e. the HiSoftware Cynthia
+Says portal, is designed to identify errors in content related to
+Section 508 standards and the WCAG guidelines. This free tool is an
+online test which only validates one page at a time – the tests above
+were run for the homepages of the various sites and while this served
+as an initial automated accessibility check, this was by no means a
+comprehensive test for which more sophisticated tools as well as manual
+checking would be required.</p>
+<p><strong>Checkpoints</strong></p>
+<p><strong>Priority 1</strong></p>
+<p><strong>1.1</strong>  (a) Provide a text equivalent for every non-text element (e.g., via "alt", "longdesc", or in element content). <em>This includes</em>: images, graphical representations of text (including symbols), image map regions, animations (e.g., animated GIFs), applets and programmatic objects, ascii art, frames, scripts, images used as list bullets, spacers, graphical buttons, sounds (played with or without user interaction), stand-alone audio files, audio tracks of video, and video.</p>
+<p><strong>- RBI and CMC Vellore passed this, all others failed</strong></p>
+<p><strong>6.3</strong> (l),(m) Ensure that pages are usable when scripts, applets, or other programmatic objects are turned off or not supported. If this is not possible, provide equivalent information on an alternative accessible page.</p>
+<p><strong>12.1 </strong> (i) Title each frame to facilitate frame identification and navigation.</p>
+<p><strong>- HRD, DDA, NASSCOM, Hindu and Times of India failed. All others passed; in some cases this was not applicable. <br/></strong></p>
+<p><strong>Priority 2</strong></p>
+<p><strong>7.4</strong> Until user agents provide the ability to stop the refresh, do not create periodically auto-refreshing pages.</p>
+<p><strong>11.2</strong> Avoid deprecated features of W3C technologies.</p>
+<p><strong>12.3</strong> Divide large blocks of information into more manageable groups where natural and appropriate.</p>
+<p><strong>13.2</strong> Provide metadata to add semantic information to pages and sites.<strong></strong></p>
+<p><em>Priority 2 - Tables</em></p>
+<p><strong>3.2</strong> Create documents that validate to published formal grammars.</p>
+<p><strong>5.3</strong> Do not use tables for layout unless the table makes sense when linearized. Otherwise, if the table does not make sense, provide an alternative equivalent (which may be a linearized version).</p>
+<p><u><em>Priority 2 - Forms</em><em></em></u></p>
+<p><strong>12.2</strong> Describe the purpose of frames and how frames relate to each other if it is not obvious by frame titles alone.</p>
+<p><strong>12.4</strong> Associate labels explicitly with their controls.</p>
+<p><strong>13.2</strong> Provide metadata to add semantic information to pages and sites.</p>
+<p> <strong>- All passed 7.4 . With regard to all the other checkpoints, some sites passed and others failed.</strong></p>
+<p><strong>Priority 3</strong></p>
+<p><strong>4.3</strong> Identify the primary natural language of a document.</p>
+<p><strong>9.4</strong> Create a logical tab order through links, form controls, and objects.</p>
+<p><strong>9.5</strong> Provide keyboard shortcuts to important links (including those in client-side image maps), form controls, and groups of form controls.</p>
+<p><strong>10.5</strong> Until user agents (including assistive technologies) render adjacent links distinctly, include non-link, printable characters (surrounded by spaces) between adjacent links.</p>
+<p><strong>Alternative text validation</strong></p>
+<p><strong>1.1 Validate that the alt text does not use the word image</strong> When users add alternative text to an image they tend to add the word "Image" when it really says nothing about the image, but describes the object versus the meaning of the object. This check will fail a page for the use of the word image in the alternative text. </p>
+<p><strong>1.2 Validate that the alt text does not contain the text: .jpg, .gif, .bmp, .jpeg</strong> Many content creation tools will automatically add alternative text when you add an image to your content. The text is generally the image name. Validate that: .jpg, .gif, .bmp, .jpeg, are not found in the alt text. </p>
+<p><strong>1.3 Validate that the alt text does not contain the text "image"</strong> Many content creation tools will automatically add alternative text when you add an image to your content. The text is generally the image name or the word image with a number associated, like image001. This checkpoint will fail a page if the string image is found in the alternative text. </p>
+<p><strong>2.1 Validate that Alternative Text is greater than 7 and less than 81 characters in length</strong> Short alternative text may not be valid, warn the report user if alternative text was found that is less than seven characters in length. Additionally alternative text should not be larger than 80 characters, if the alt text is greater the long description attribute should be used. This check validates that the alt attribute does not exceed 80 characters in length. </p>
+<p><strong>2.2 Validate that Alternative Text is not used to repeat words</strong> Alternative text should not be used to simply hide words with the hope of increasing your ranking on search engines. If you repeat a word more than 5 times your page may not be indexed. <br/></p>
+<p><strong>- Lok Sabha, Rajya Sabha, JNU, IITD,
+Ministry of Social Justice and Empowerment, AIIMS and NASSCOM failed on
+all these 4 points. Other results were split, with some passes and some
+failures</strong></p>
+<h3> TEST DETAILS</h3>
+<ol><li><strong> National Informatics Centre</strong></li></ol>
+<strong>Verified File Name: </strong><a href="http://indiaimage.nic.in/"><u>http://indiaimage.nic.in/</u></a>
+<p><strong>Date and Time:</strong> 11/27/2008 12:01:55 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0   </p>
+<p>Priority 1 - Failed 1.1, 6.3;<br/>Priority 2 - Passed 7.4, 13.1, 13.3, 12.2; Failed 11.2, 13.2, 12.4<br/>Priority 3 - Passed 10.5; Failed   4.3, 10.5<br/>Alt text quality – Passed 1.2, 2.2; Failed 1.1, 1.6; Warning 2.1;<strong> <br/></strong></p>
+<ol><li>
+<p><strong>Lok Sabha</strong></p>
+</li></ol>
+<p><strong>Verified File Name: </strong><a href="http://loksabha.gov.in/" title="Opens New Window"><u>http://loksabha.gov.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 1:11:21 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 – Failed 1.1<br/>Priority 2 – Passed 7.4, 12.3; Failed 11.2, 13.2, 12.4,<br/>Priority 3 – Failed 4.3, 9.4, 9.5,10.5<br/>5.3 – used lots of tables<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>Rajya Sabha</strong></p>
+</li></ol>
+<p><a href="http://rajyasabha.gov.in/" title="Opens New Window"><u>http://rajyasabha.gov.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://rajyasabha.gov.in/" title="Opens New Window"><u>http://rajyasabha.gov.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 3:32:13 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 – Failed 1.1<br/>Priority 2 – Passed 7.4, 13.1; Failed 3.2, 12.4<br/>Priority 3 – Failed 4.3, 9.4, 9.5, 10.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>Ministry of Human Resources</strong></p>
+</li></ol>
+<p><a href="http://education.nic.in/" title="Opens New Window"><u>http://education.nic.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://education.nic.in/" title="Opens New Window"><u>http://education.nic.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 3:43:36 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 – Failed  1.1, 6.3<br/>Priority 2 – Passed 7.4, 12.4, 13.1;  Failed 3.2, 11.2<br/>Priority 3 –  Passed 9.5,10.5 Failed : 4.3,9.4<br/>Alt text quality – Passed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>Ministry of Urban Affairs</strong></p>
+</li></ol>
+<p><a href="http://urbanindia.nic.in/moud/moud.htm"><u>http://urbanindia.nic.in/moud/moud.htm</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://urbanindia.nic.in/moud/moud.htm" title="Opens New Window"><u>http://urbanindia.nic.in/moud/moud.htm</u></a><br/><strong>Date and Time:</strong> 11/25/2008 9:11:56 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Failed 1.1<br/>Priority 2 - Passed 7.4, 13.1; Failed 3.2, 11.2, 13.2<br/>Priority 3 – Passed 10.5 ; Failed 4.3, 9.4, 9.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>Delhi</strong><strong> Development Authority</strong>:</p>
+</li></ol>
+<p><strong>Verified File Name: </strong><a href="http://www.dda.org.in/" title="Opens New Window"><u>http://www.dda.org.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 9:56:31 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p><a href="http://www.dda.org.in/"><u>http://www.dda.org.in/</u></a> </p>
+<p>Priority 1 - Failed 1.1, 6.3<br/>Priority 2 - Passed 7.4, 13.1; Failed 11.2, 13.2<br/>Priority 3 – Passed 10.5 ; Warning  4.3, 9.4, 9.5<br/>Alt text quality – N/A <br/></p>
+<ol><li>
+<p><strong>Railways</strong></p>
+</li></ol>
+<p><a href="http://www.indianrail.gov.in/"><u>http://www.indianrail.gov.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://www.indianrail.gov.in/" title="Opens New Window"><u>http://www.indianrail.gov.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 10:01:28 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Failed 1.1<br/>Priority 2 - Passed 7.4, 13.1, 13.2, 12.4 ; Failed 3.2, 11.2<br/>Priority 3 – Passed 4.3, 10.5; Failed 9.4, 9.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>Ministry of Social Justice and Empowerment</strong></p>
+</li></ol>
+<p><a href="http://socialjustice.nic.in/"><u>http://socialjustice.nic.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://socialjustice.nic.in/" title="Opens New Window"><u>http://socialjustice.nic.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 10:07:22 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Failed 1.1<br/>Priority 2 - Passed 7.4, 12.4 ; Failed 3.2, 11.2, 13.2<br/>Priority 3 – Failed   4.3, 9.4, 9.5, 10.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>Ministry of Law and Justice</strong></p>
+</li></ol>
+<p><a href="http://lawmin.nic.in/"><u>http://lawmin.nic.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://lawmin.nic.in/" title="Opens New Window"><u>http://lawmin.nic.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 10:50:36 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Failed 1.1<br/>Priority 2 - Passed 7.4, 13.1, 12.4; Failed 11.2, 13.2<br/>Priority 3 –  Passed  10.5; Failed   4.3, 9.4, 9.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>RTI</strong></p>
+</li></ol>
+<p><a href="http://www.rti.gov.in/"><u>http://www.rti.gov.in</u></a> </p>
+<p><strong>Verified File Name: </strong><a href="http://www.rti.gov.in/" title="Opens New Window"><u>http://www.rti.gov.in</u></a><br/><strong>Date and Time:</strong> 11/26/2008 3:54:10 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 – Passed 1.1, 6.3; Failed 12.1<br/>Priority 2 - Passed 7.4, 11.2, 13.1, 12.4; Failed 3.2, 13.2, 12.2<br/>Priority 3 –  Passed  9.4, 9.5, 10.5; Failed   4.3<br/>Alt text quality – N/A <br/></p>
+<ol><li>
+<p><strong>NCERT</strong></p>
+</li></ol>
+<p><strong>Verified File Name: </strong><a href="http://www.ncert.nic.in/index.htm" title="Opens New Window"><u>http://www.ncert.nic.in/index.htm</u></a><br/><strong>Date and Time:</strong> 11/26/2008 6:22:59 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0<strong> <br/></strong></p>
+<p>Priority 1 –Failed 1.1, 6.3, 7.1<br/>Priority 2 - Passed 7.4, 13.1, 12.4, 12.2; Failed 3.2, 13.2, 11.2<br/>Priority 3 –  Passed  10.5; Failed   4.3, 9.4, 9.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1<strong> <br/></strong></p>
+<ol><li>
+<p><strong>JNU</strong></p>
+</li></ol>
+<p><a href="http://www.jnu.ac.in/" title="Opens New Window"><u>http://www.jnu.ac.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://www.jnu.ac.in/" title="Opens New Window"><u>http://www.jnu.ac.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 4:00:11 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 – Failed 1.1, 7.1<br/>Priority 2 – Passed 7.4 ;  Failed 3.2, 11.2, 13.1, 13.2, 12.4<br/>Priority 3 –  Failed  4.3, 9.4, 9.5, 10.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>IIT Delhi</strong></p>
+</li></ol>
+<p><a href="http://www.iitd.ac.in/"><u>http://www.iitd.ac.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://www.iitd.ac.in/" title="Opens New Window"><u>http://www.iitd.ac.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 5:07:01 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 – Passed 6.3; Failed 1.1, 7.1<br/>Priority 2 – Passed 7.4, 13.1,12.2, 12.4; Failed 11.2, 13.2<br/>Priority 3 – Failed 4.3, 9.4, 9.5, 10.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>AIIMS</strong></p>
+</li></ol>
+<p><a href="http://www.aiims.edu/"><u>http://www.aiims.edu/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://www.aiims.edu/" title="Opens New Window"><u>http://www.aiims.edu/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 10:11:37 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Failed 1.1, 7.1<br/>Priority 2 - Passed 7.4,12.4, 13.1 ; Failed 11.2, 13.2<br/>Priority 3 – Failed   4.3, 9.4, 9.5, 10.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>CMC Vellore</strong></p>
+</li></ol>
+<p><a href="http://home.cmcvellore.ac.in/"><u>http://home.cmcvellore.ac.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://home.cmcvellore.ac.in/" title="Opens New Window"><u>http://home.cmcvellore.ac.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 10:15:44 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Passed 1.1; Failed 12.1<br/>Priority 2 - Passed 7.4, 11.2, 12.4, 13.1 ; Failed 13.2<br/>Priority 3 – Passed 9.4, 9.5, 10.5; Failed   4.3<br/>Alt text quality – N/A <br/></p>
+<ol><li>
+<p><strong>IIM Ahmedabad</strong></p>
+</li></ol>
+<p><a href="http://www.iimahd.ernet.in/"><u>http://www.iimahd.ernet.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://www.iimahd.ernet.in/" title="Opens New Window"><u>http://www.iimahd.ernet.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 10:19:46 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0   </p>
+<p>Priority 1 - Failed 1.1;<br/>Priority 2 - Passed 7.4, 12.4, 13.1 ; Failed 3.2, 11.2, 13.2<br/>Priority 3 – Passed 10.5; Failed   4.3, 9.4, 9.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>IIM Bangalore</strong></p>
+</li></ol>
+<p><strong>Verified File Name: </strong><a href="http://www.iimb.ernet.in/" title="Opens New Window"><u>http://www.iimb.ernet.in/</u></a><br/><strong>Date and Time:</strong> 11/26/2008 6:27:18 AM<br/><strong>Passed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Passed 1.1, 6.3;<br/>Priority 2 - Passed 7.4, 11.2, 12.4, 13.1; Failed 3.2, 13.2<br/>Priority 3 – Passed 9.4, 9.5, 10.5; Failed   4.3<br/>Alt text quality – N/A<strong> <br/></strong></p>
+<ol><li>
+<p><strong>IIM Calcutta</strong></p>
+</li></ol>
+<p><strong>Verified File Name: </strong><a href="http://www.iimcal.ac.in/" title="Opens New Window"><u>http://www.iimcal.ac.in/</u></a><br/><strong>Date and Time:</strong> 11/26/2008 6:30:42 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Passed 6.3; Failed 1.1<br/>Priority 2 - Passed 7.4, 12.4, 13.1; Failed 3.2, 11.2, 13.2<br/>Priority 3 – Passed 10.5; Failed   4.3, 9.4, 9.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1<strong> <br/></strong></p>
+<ol><li>
+<p><strong>State Bank of India</strong></p>
+</li></ol>
+<p><a href="http://www.sbi.co.in/"><u>http://www.sbi.co.in/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://www.sbi.co.in/" title="Opens New Window"><u>http://www.sbi.co.in/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 10:26:29 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Failed 1.1;<br/>Priority 2 - Passed 7.4, 12.4; Failed 3.2, 11.2, 13.1, 13.2<br/>Priority 3 – Passed 10.5; Failed   4.3, 9.4, 9.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1      </p>
+<ol><li>
+<p><strong>Reserve Bank of India</strong></p>
+</li></ol>
+<p><a href="http://www.rbi.org.in/home.aspx"><u>http://www.rbi.org.in/home.aspx</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://www.rbi.org.in/home.aspx" title="Opens New Window"><u>http://www.rbi.org.in/home.aspx</u></a><br/><strong>Date and Time:</strong> 11/25/2008 10:36:25 AM<br/><strong>Passed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Passed 1.1;<br/>Priority 2 - Passed 7.4, 11.2, 13.1, 12.4; Failed 3.2, 13.2<br/>Priority 3 – Passed 10.5; Failed   4.3, 9.4, 9.5<br/>Alt text quality – N/A<br/>    <a href="http://www.rbi.org.in/commonman/English/Scripts/Home.aspx"><u>http://www.rbi.org.in/commonman/English/Scripts/Home.aspx</u></a> <br/></p>
+<ol><li>
+<p><strong>NASSCOM</strong></p>
+</li></ol>
+<p><a href="http://www.nasscom.in/Default.aspx"><u>http://www.nasscom.in/Default.aspx</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://www.nasscom.in/Default.aspx" title="Opens New Window"><u>http://www.nasscom.in/Default.aspx</u></a><br/><strong>Date and Time:</strong> 11/25/2008 10:47:00 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Failed 1.1, 6.3;<br/>Priority 2 - Passed 7.4; Failed 11.2, 13.1, 13.2, 12.4<br/>Priority 3 –  Failed   4.3, 9.4, 9.5, 10.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1 <br/></p>
+<ol><li>
+<p><strong>The Hindu</strong></p>
+</li></ol>
+<p> <a href="http://www.hinduonnet.com/"><u>http://www.hinduonnet.com/</u></a></p>
+<p><strong>Verified File Name: </strong><a href="http://www.hinduonnet.com/" title="Opens New Window"><u>http://www.hinduonnet.com/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 11:00:09 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0</p>
+<p>Priority 1 - Failed 1.1, 6.3;<br/>Priority 2 - Passed 7.4 ; Failed 3.2, 11.2, 13.1, 13.2, 12.4<br/>Priority 3 –  Passed  10.5; Failed   4.3, 9.4, 9.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1            </p>
+<ol><li>
+<p><strong>The Times of India</strong></p>
+</li></ol>
+<p><a href="http://timesofindia.indiatimes.com/"><u>http://timesofindia.indiatimes.com/</u></a> </p>
+<p><strong>Verified File Name: </strong><a href="http://timesofindia.indiatimes.com/" title="Opens New Window"><u>http://timesofindia.indiatimes.com/</u></a><br/><strong>Date and Time:</strong> 11/25/2008 11:22:15 AM<br/><strong>Failed Automated Verification</strong><br/><strong>Emulated Browser:</strong> MS Internet Explorer 6.0   </p>
+<p>Priority 1 - Failed 1.1, 6.3;<br/>Priority 2 - Passed 7.4 ; Failed 3.2, 11.2, 13.1, 13.2, 12.4<br/>Priority 3 –  Passed  10.5; Failed   4.3, 9.4, 9.5<br/>Alt text quality – Failed 1.1, 1.2, 1.6, 2.2; Warning 2.1</p>
+<h3> </h3>

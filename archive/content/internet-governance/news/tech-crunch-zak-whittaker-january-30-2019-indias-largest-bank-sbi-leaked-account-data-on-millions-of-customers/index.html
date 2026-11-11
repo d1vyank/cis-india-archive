@@ -1,0 +1,37 @@
+---
+title: India’s largest bank SBI leaked account data on millions of customers
+date: '2019-02-01'
+authors:
+- Admin
+tags:
+- Internet Governance
+- Privacy
+description: India’s largest bank has secured an unprotected server that allowed anyone
+  to access financial information on millions of its customers, like bank balances
+  and recent transactions.
+url: /internet-governance/news/tech-crunch-zak-whittaker-january-30-2019-indias-largest-bank-sbi-leaked-account-data-on-millions-of-customers/
+original_url: https://cis-india.org/internet-governance/news/tech-crunch-zak-whittaker-january-30-2019-indias-largest-bank-sbi-leaked-account-data-on-millions-of-customers
+type: news
+program: internet-governance
+---
+<div id="parent-fieldname-text">
+<p id="speakable-summary">The blog post by Zack Whittaker was <a href="https://techcrunch.com/2019/01/30/state-bank-india-data-leak/">published Tech Crunch</a> on January 30, 2019. Karan Saini was quoted.</p>
+<hr/>
+<p>The server, hosted in a regional Mumbai-based data  center, stored two months of data from SBI Quick, a text message and  call-based system used to request basic information about their bank  accounts by customers of <a href="https://www.crunchbase.com/organization/state-bank-of-india#section-overview">the government-owned State Bank of India</a> (SBI), the largest bank in the country and a highly ranked company in the Fortune 500.</p>
+<p>But  the bank had not protected the server with a password, allowing anyone  who knew where to look to access the data on millions of customers’  information.</p>
+<p>It’s not known for how long the server was open, but  long enough for it to be discovered by a security researcher, who told  TechCrunch of the leak, but did not want to be named for the story.</p>
+<p>SBI  Quick allows SBI’s banking customers to text the bank, or make a missed  call, to retrieve information back by text message about their finances  and accounts. It’s ideal for millions of the banking giant’s customers  who don’t use smartphones or have limited data service. By using  predefined keywords, like “BAL” for a customer’s current balance, the  service recognizes the customer’s registered phone number and will send  back the current amount in that customer’s bank account. The system can  also be used to send back the last five transactions, block an ATM card  and make inquiries about home or car loans.</p>
+<p>It was the back-end text message system that was exposed, TechCrunch can confirm, storing millions of text messages each day.</p>
+<p><img alt="SBI" loading="lazy" src="/files/home-images/SBI.png" title="SBI"/></p>
+<p>A redacted example of some of the banking and credit information found in the database (Image: TechCrunch)</p>
+<p>The passwordless database allowed us to see all of the text messages  going to customers in real time, including their phone numbers, bank  balances and recent transactions. The database also contained the  customer’s partial bank account number. Some would say when a check had  been cashed, and many of the bank’s sent messages included a link to  download SBI’s YONO app for internet banking.</p>
+<p>The bank sent out close to three million text messages on Monday alone.</p>
+<p>The  database also had daily archives of millions of text messages each,  going back to December, allowing anyone with access a detailed view into  millions of customers’ finances.</p>
+<p>We verified the data by asking India-based security researcher <a href="https://twitter.com/iasni">Karan Saini</a> to send a text message to the system. Within seconds, we found his  phone number in the database, including the text message he received  back.</p>
+<p>“The data available could potentially be used to profile and  target individuals that are known to have high account balances,” said  Saini in a message to TechCrunch. Saini previously <a href="https://www.zdnet.com/article/another-data-leak-hits-india-aadhaar-biometric-database/">found a data leak</a> in India’s Aadhaar, the country’s national identity database, and <a href="https://www.zdnet.com/article/uber-security-flaw-two-factor-login-bypass/">a two-factor bypass bug</a> in Uber’s ridesharing app.</p>
+<p>Saini  said that knowing a phone number “could be used to aid social  engineering attacks — which is one of the most common attack vectors in  the country with regard to financial fraud,” he said.</p>
+<p>SBI <a href="https://www.sbichicago.com/about-us/about-sbi">claims more than</a> 500 million customers across the glob,e with 740 million accounts.</p>
+<p>Just  days earlier, SBI accused Aadhaar’s authority, UIDAI, of mishandling  citizen data that allowed fake Aadhaar identity cards to be created,  despite <a href="https://www.tribuneindia.com/news/nation/uidai-says-tribune-story-misreporting--read-how-that-is-wrong/523478.html">numerous security lapses</a> and misuse of the system. UIDAI denied the report, saying there was “no security breach” of its system. (UIDAI often uses <a href="https://twitter.com/UIDAI/status/1023543590033608705">the term “fake news”</a> to describe coverage it doesn’t like.)</p>
+<p>TechCrunch  reached out to SBI and India’s National Critical Information  Infrastructure Protection Centre, which receives vulnerability reports  for the banking sector. The database was secured overnight.</p>
+<p>Despite several emails, SBI did not comment prior to publication.</p>
+</div>

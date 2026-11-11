@@ -1,0 +1,42 @@
+---
+title: 'Open Letter to the Finance Committe: Biometrics'
+date: '2011-02-16'
+authors:
+- Prasad Krishna
+tags:
+- Privacy
+description: This note points out the weaknesses inherent in biometrics and the pitfalls
+  in using them. It recommends procedural safeguards that should be adopted by the
+  UID in order to make the use of biometrics more secure and inclusive.
+url: /internet-governance/blog/privacy/biometrics/
+original_url: https://cis-india.org/internet-governance/blog/privacy/biometrics
+type: blog
+program: internet-governance
+---
+<ol><li>
+<p> <strong>Biometrics are not centrally stored and are used only for identification </strong></p>
+<p>Biometrics, as our first letter notes <a href="#1">1</a> are better suited for identification, and are inappropriate for authentication. Therefore, the central server need not store biometric information, and need only store the public key of each citizen's digital signature.<a href="#2">2</a> Biometrics on a smart card for authentication will allow service providers to determine if the card is being carried by the right person. This configuration of biometrics has many positives. It is : </p>
+<ul><li> Cost effective</li><li> More secure</li><li> Places the control of biometric information in the hands of the data subject  </li></ul>
+</li><li>
+<p><strong>Use encrypted data, rather than live data </strong></p>
+<p>The UID scheme has stated that biometrics will be encrypted, but has not provided further details. <a href="#3">3</a></p>
+It is recommended that biometrics are:
+<ul><li>Encrypted whenever it is used, stored and transferred;</li><li>A biometric should be encrypted to such a degree that it is not possible to reconstruct the biometric data; and</li></ul>
+<ul><li>After an encrypted version of the biometric is made, the original biometric should be deleted. </li></ul>
+<p>In order to perform an identification check – the biometrics presented should be encrypted and then compared to the encrypted version stored on the card. If the card is stolen – the thief would not be able to harvest biometrics.</p>
+</li><li>
+<p><strong>Security clearance for all associated entities and personnel </strong></p>
+<p>UID registrations and transactions will be handled by 'registrars' or in other words personnel who work at organizations not directly under the control of the UIDAI. A clear process associated with who can perform transactions and a proper audit system is needed to prevent 'insider' attacks.</p>
+</li><li>
+<p><strong>Clearly defined alternate identification factors </strong></p>
+<p>There are many situations in which a biometric cannot be accepted in a transaction. For example, when the biometric changes, is misread, or is unreadable. The UID has recognized this possibility and has stated: <em>“In case of authentication, the operator needs to find an alternate method of authentication if fingerprint verification fails. The operator/application would not know the cause of verification failure. A timeout will be implemented in service after five attempts.”</em><a href="#4">4</a></p>
+The alternative identity factors that will be accepted need to be clearly defined and articulate.
+</li><li><strong>Standards for acceptance of biometric as authentication factor</strong><br/>
+<p>The UIDAI has proposed a whole range of authentication factors – pin, password, partial biometrics, full biometrics, mobile phone and combination's thereof. <a href="#5">5</a> Some of these authentication factors may also be presented by the data subject over the Internet. As our previous letters have stated – some authentication factors are more secure than others. Therefore, the UIDAI should publish standards for acceptance of different authentication factors based on the security requirements of different types of transactions. Even if biometrics are used as an authentication standard – in our opinion it should only be used for trivial transactions without major financial or citizenship implications.</p>
+</li></ol>
+<p><strong>Footnotes:</strong></p>
+<p><a id="1" name="1">1http://www.cis-india.org/advocacy/igov/privacy-india/letter-to-finance-committee</a></p>
+<p><a id="2" name="2">2 Distinguish and separate the authentication process from the identification process: </a><a id="2" name="2">Identification is a comparison of one set of biometric data against all sets of collected biometrics in one central database to verify the identity of the owner of the biometric data. Authentication is a comparison of a biometric against a stored template to validate the existence of that specific biometric</a></p>
+<p><a id="3" name="3">3 http://uidai.gov.in/index.php?option=com_fsf&amp;view=faq&amp;Itemid=206&amp;catid=7 </a></p>
+<p><a id="3" name="3"></a><a id="4" name="4">4 Biometric Design Standards for UID Applications: pg 37</a></p>
+<p><a id="4" name="4"></a><a id="5" name="5">5 UIDAI Strategy Overview. Creating a Unique Identity Number for Every Resident in India. Pg. 28</a></p>

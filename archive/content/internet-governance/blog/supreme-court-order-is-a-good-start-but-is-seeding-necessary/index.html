@@ -1,0 +1,169 @@
+---
+title: Supreme Court Order is a Good Start, but is Seeding Necessary?
+date: '2015-08-29'
+authors:
+- Elonnai Hickok
+- Rohan George
+tags:
+- Internet Governance
+- Privacy
+description: This blog post seeks to unpack the ‘seeding’ process in the UIDAI scheme,
+  understand the implications of the Supreme Court order on this process, and identify
+  questions regarding the UID scheme that still need to be clarified by the court
+  in the context of the seeding process.
+url: /internet-governance/blog/supreme-court-order-is-a-good-start-but-is-seeding-necessary/
+original_url: https://cis-india.org/internet-governance/blog/supreme-court-order-is-a-good-start-but-is-seeding-necessary
+type: blog
+program: internet-governance
+---
+<div>
+<h3>Introduction</h3>
+</div>
+<div>
+<p>On August 11th 2015, in the writ petition Justice K.S Puttaswamy (Retd.) &amp; Another vs. Union of India &amp; Others1, the Supreme Court of India 		issued an interim order regarding the constitutionality of the UIDAI scheme. In response to the order, Dr. Usha Ramanathan published an article titled 		 'Decoding the Aadhaar judgment: No more seeding, not till the privacy issue is settled by the court' which, among other points, highlights 		concerns around the seeding of Aadhaar numbers into service delivery databases. She writes that "seeding' is a matter of grave concern in the UID 		project. This is about the introduction of the number into every data base. Once the number is seeded in various databases, it makes convergence of 		personal information remarkably simple. So, if the number is in the gas agency, the bank, the ticket, the ration card, the voter ID, the medical 		records and so on, the state, as also others who learn to use what is called the 'ID platform', can 'see' the citizen at will."2</p>
+</div>
+<div>
+<p>Building off of this statement, this article seeks to unpack the 'seeding' process in the UIDAI scheme, understand the implications of the Supreme 		Court order on this process, and identify questions regarding the UID scheme that still need to be clarified by the Court in the context of the seeding 		process.</p>
+</div>
+<div>
+<h3>What is Seeding?</h3>
+</div>
+<div>
+<p>In the UID scheme, data points within databases of service providers and banks are organized via individual Aadhaar numbers through a process known as 		'seeding'. The UIDAI has released two documents on the seeding process - "Approach Document for Aadhaar Seeding in Service Delivery Databases version 		1.0" (Version 1.0)3 and "Standard Protocol Covering the Approach &amp; Process for Seeding Aadhaar Number in Service Delivery Databases June 2015 		Version 1.1" (Version 1.1)4</p>
+</div>
+<div>
+<p>According to Version 1.0 "Aadhaar seeding is a process by which UIDs of residents are included in the service delivery database of service providers 		for enabling Aadhaar based authentication during service delivery."5 Version 1.0 further states that the "Seeding process typically involves data 		extraction, consolidation, normalization, and matching".6 According to Version 1.1, Aadhaar seeding is "a process by which the Aadhaar numbers of 		residents are included in the service delivery database of service providers for enabling de-duplication of database and Aadhaar based authentication 		during service delivery".7 There is an extra clause in Version 1.1's definition of seeding which includes "de-duplication" in addition to 		authentication.</p>
+</div>
+<div>
+<p>Though not directly stated, it is envisioned that the Aadhaar number will be seeded into the databases of service providers and banks to enable 		cash transfers of funds. This was alluded to in the Version 1.1 document with the UIDAI stating "Irrespective of the Scheme and the geography, as the 		Aadhaar Number of a given Beneficiary finally has to be linked with the Bank Account, Banks play a strategic and key role in Seeding."8</p>
+</div>
+<div>
+<h3>How does the seeding process work?</h3>
+</div>
+<div>
+<p>The seeding process itself can be done through manual/organic processes or algorithmic/in-organic processes. In the inorganic process the Aadhaar 		database is matched with the database of the service provider - namely the database of beneficiaries, KYR+ data from enrolment agencies, and the 		EID-UID database from the UIDAI. Once compared and a match is found - for example between KYR fields in the service delivery database and KYR+ fields 		in the Aadhaar database - the Aadhaar number is seeded into the service delivery database.9</p>
+</div>
+<div>
+<p>Organic seeding can be carried out via a number of methods, but the recommended method from the UIDAI is door to door collection of Aadhaar numbers 		from residents which are subsequently uploaded into the service delivery database either manually or through the use of a tablet or smart phone. 		Perhaps demonstrating the fact that technology cannot be used as a 'patch' for a broken or premature system, organic (manual) seeding is suggested as 		the preferred process by the UIDAI due to challenges such as lack of digitization of beneficiary records, lack of standardization in Name and Address 		records, and incomplete data.10</p>
+</div>
+<div>
+<p>According to the 1.0 Approach Paper, to facilitate the seeding process, the UIDAI has developed an in house software known as Ginger. Service providers 		that adopt the Aadhaar number must move their existing databases onto the Ginger platform, which then organizes the present and incoming data in the 		database by individual Aadhaar numbers. This 'organization' can be done automatically or manually. Once organized, data can be queried by Aadhaar 		number by person's on the 'control' end of the Ginger platform.11</p>
+</div>
+<div>
+<p>In practice this means that during an authentication in which the UIDAI responds to a service provider with a 'yes' or 'no' response, the UIDAI 		would have access to at least these two sets of data: 1.) Transaction data (date, time, device number, and Aadhaar number of the individual 		authenticating) 2.) Data associated to an individual Aadhaar number within a database that has been seeded with Aadhaar numbers (historical and 		incoming). According to the Approach Document version 1.0, "The objective here is that the seeding process/utility should be able to access the service 		delivery data and all related information in at least the read-only mode." 12 and the Version 1.1 document states "Software application users with 		authorized access should be able to access data online in a seamless fashion while providing service benefit to residents." 13</p>
+</div>
+<div>
+<h3>What are the concerns with seeding?</h3>
+</div>
+<div>
+<p>With the increased availability of data analysis and processing technologies, organisations have the ability to link disparate data points stored 		across databases in order that the data can be related to each other and thereby analysed to derive holistic, intrinsic, and/or latent assessments. 		This can allow for deeper and more useful insights from otherwise standalone data. In the context of the government linking data, such "relating" can 		be useful - enabling the government to visualize a holistic and more accurate data and to develop data informed policies through research14. Yet, 		allowing for disparate data points to be merged and linked to each other raises questions about privacy and civil liberties - as well as more intrinsic 		questions about purpose, access,  consent and choice.  To name a few, linked data can be used to create profiles of individuals, it can 		facilitate surveillance, it can enable new and unintended uses of data, and it can be used for discriminatory purposes.</p>
+</div>
+<div>
+<p>The fact that the seeding process is meant to facilitate extraction, consolidation, normalization and matching of data so it can be queried by Aadhaar 		number, and that existing databases can be transposed onto the Ginger platform can give rise to Dr. Ramanthan's concerns. She argues that anyone having 		access to the 'control' end of the Ginger platform can access all data associated to a Aadhaar number, that convergence can now easily be initiated 		with databases on the Ginger platform,  and that profiling of individuals can take place through the linking of data points via the Ginger 		platform.</p>
+</div>
+<div>
+<h3>How does the Supreme Court Order impact the seeding process and what still needs to be clarified?</h3>
+</div>
+<div>
+<p>In the interim order the Supreme Court lays out four welcome clarifications and limitations on the UID scheme:</p>
+</div>
+<div><ol>
+<li>The Union of India shall give wide publicity in the electronic and print media including radio and television networks that it is not mandatory for 		a citizen to obtain an Aadhaar card;</li>
+<li>The production of an Aadhaar card will not be condition for obtaining any benefits otherwise due to a citizen;</li>
+<li>The Unique Identification Number or the Aadhaar card will not be used by the respondents for any purpose other than the PDS Scheme and in particular 		for the purpose of distribution of foodgrains, etc. and cooking fuel, such as kerosene. The Aadhaar card may also be used for the purpose of the LPG 		Distribution Scheme;</li>
+<li>The information about an individual obtained by the Unique Identification Authority of India while issuing an Aadhaar card shall not be used for any 		other purpose, save as above, except as may be directed by a Court for the purpose of criminal investigation."15 </li>
+</ol></div>
+<div>
+<div>
+<p>In some ways, the court order addresses some of the concerns regarding the seeding of Aadhaar numbers by limiting the scope of the seeding process 			to the PDS scheme, but there are still a number of aspects of the scheme as they pertain to the seeding process that need to be addressed by the 			court.</p>
+</div>
+<div>
+<p>These include:</p>
+</div>
+<div>
+<p><b>The Process of Seeding </b></p>
+<b> </b></div>
+<b> </b>
+<div><b> </b>
+<p><b> </b>Prior to the Supreme Court interim order, the above concerns were quite broad in scope as Aadhaar could be adopted by any private or public entity 			- and the number was being seeded in databases of banks, the railways, tax authorities, etc. The interim order, to an extent, lessens these 			concerns by holding that  "The Unique Identification Number or the Aadhaar card will not be used by the respondents for any purpose other 			than the PDS Scheme…".</p>
+</div>
+<div>
+<p>However, the Court could have perhaps been more specific regarding what is included under the PDS scheme, because the scheme itself is broad. That 			said, the restrictions put in place by the court create a form of purpose limitation and a boundary of  proportionality on the UID scheme. By 			limiting the purpose of the Aadhaar number to use in the PDS system, the  Aadhaar number can only be seeded into the databases of entities 			involved in the PDS Scheme, rather than any entity that had adopted the number. Despite this, the seeding process is an issue in itself for the 			following reasons:</p>
+</div>
+<ol> </ol>
+<div><b>Access</b>: Embedding service delivery databases and bank databases with the Aadhaar number allows for the UIDAI or authorized users to access 				information in these databases. According to version 1.1 of the seeding document from the UIDAI - the UIDAI is carrying out the seeding process 				through 'seeding agencies'. These agencies can include private companies, public limited companies, government companies, PSUs, semi-government 				organizations, and NGOs that are registered and operating in India for at least three years.16 Though under contract by the UIDAI, it is 				unclear what information such organizations would be able to access. This ambiguity leaves the data collected by UIDAI open to potential abuse 				and unauthorized access. Thus, the Court Ruling fails to provide clarity on the access that the seeding process enables for the UIDAI and for 				private parties.</div>
+<div><br/><b>Consent</b>: Upon enrolling for an Aadhaar number, individuals have the option of consenting to the UIDAI sharing information in three instances:</div>
+<div>
+<ul>
+<li>"I have no objection to the UIDAI sharing information provided by me to the UIDAI with agencies engaged in delivery of welfare services."</li>
+</ul>
+</div>
+<div>
+<ul>
+<li>"I want the UIDAI to facilitate opening of a new Bank/Post Office Account linked to my Aadhaar Number. </li>
+</ul>
+</div>
+<div>
+<ul>
+<li>"I have no objection to sharing my 				information for this purpose""I have no objection to linking my present bank account provided here to my Aadhaar number"17 </li>
+</ul>
+</div>
+<div>Aside for the vague and sweeping language of actions users provide consent for, which raises questions about how informed an individual is of the 			information he consents to share, at no point is an individual provided the option of  consenting  to the UIDAI accessing data - 			historic or incoming - that is stored in the database of a service provider in the PDS system seeded with the Aadhaar number. Furthermore, as noted 			earlier, the fact that the UIDAI concedes that a beneficiary has to be linked with a bank account raises questions of consent to this process as 			linking one's bank account with their Aadhaar number is an optional part of the enrollment process. Thus, even with the restrictions from the court 			order, if individuals want to use their Aadhaar number to access benefits, they must also seed their number with their bank accounts. On this 			point, in an order from the Finance Ministry it was clarified that the seeding of Aadhaar numbers into databases is a voluntary decision, but if a 			beneficiary provides their number on a voluntary basis - it can be seeded into a database.18</div>
+<div>
+<p><b>Withdrawing Consent</b>: The Court also did not directly address if individuals could withdraw consent after enrolling in the UID scheme - and if 			they did - whether Aadhaar numbers should be 'unseeded' from PDS related databases. Similarly, the Court did not clarify whether services that have 			seeded the Aadhaar number, but are not PDS related, now need to unseed the number. Though news items indicate that in some cases (not all) 			organizations and government departments not involved in the PDS system are stopping the seeding process19, there is no indication of departments 			undertaking an 'unseeding' process. Nor is there any indication of the UIDAI allowing indivduals enrolled to 'un-enroll' from the scheme. In being 			silent on issues around consent, the court order inadvertently overlooks the risk of function creep possible through the seeding process, which 			"allows numerous opportunities for expansion of functions far beyond those stated to be its purpose"20.</p>
+</div>
+<div>
+<p><b>Verification and liability</b>: According to Version 1.0 and Version 1.1 of the Seeding documents, "no seeding is better than incorrect seeding". 			This is because incorrect seeding can lead to inaccuracies in the authentication process and result in individuals entitled to benefits being 			denied such benefits. To avoid errors in the seeding process the UIDAI has suggested several steps including using the "Aadhaar Verification 			Service" which verifies an Aadhaar number submitted for seeding against the Aadhaar number and demographic data such as gender and location in the 			CIDR. Though recognizing the importance of accuracy in the seeding process, the UIDAI takes no responsibility for the same. According to Version 			1.1 of the seeding document, "the responsibility of correct seeding shall always stay with the department, who is the owner of the database."21 			This replicates a disturbing trend in the implementation of the UID scheme - where the UIDAI 'initiates' different processes through private sector 			companies but does not take responsibility for such processes. 22</p>
+</div>
+<div>
+<p><b>The Scope of the UIDAI's mandate and the necessity of seeding </b></p>
+<b> </b></div>
+<b> </b>
+<div><b> </b>
+<p><b> </b>Aside from the problems within the seeding process itself, there is a question of the scope of the UIDAI's mandate and the role that seeding plays 			in fulfilling this. This is important in understanding the necessity of the seeding process.</p>
+</div>
+</div>
+<div>
+<p>On the official website, the UIDAI has stated that its mandate is "to issue every resident a unique identification number linked to the resident's 		demographic and biometric information, which they can use to identify themselves anywhere in India, and to access a host of benefits and services." 23 		Though the Supreme Court order clarifies the use of the Aadhaar number, it does not address the actual legality of the UIDAI's mandate - as there is no 		enabling statute in place -and it does not clarify or confirm the scope of the UIDAI's mandate.</p>
+</div>
+<div>
+<p>In Version 1.0 of the Seeding document the UIDAI has stated the "Aadhaar numbers of enrolled residents are being 'seeded' ie. included in the databases 		of service providers that have adopted the Aadhaar platform in order to enable authentication via the Aadhaar number during a transaction or service 		delivery."24 This statement is only partially correct. For only providing and authenticating of an Aadhaar number - seeding is not necessary as the 		Aadhaar number submitted for verification alone only needs to be compared with the records in the CIDR to complete authentication of the same. Yet, in 		an example justifying the need for seeding in the Version 1.0 seeding document the UIDAI states "A consolidated view of the entire data would 		facilitate the social welfare department of the state to improve the service delivery in their programs, while also being able to ensure that the same 		person is not availing double benefits from two different districts."25 For this purpose, seeding is again unnecessary as it would be simple to 		correlate PDS usage with a Aadhaar number within the PDS database. Even if limited to the PDS system,  seeding in the databases of service 		providers is only necessary for the creation and access to comprehensive information about an individual in order to determine eligibility for a 		service. Further, seeding is only necessary in the databases of banks if the Aadhaar number moves from being an identity factor - to a transactional 		factor - something that the UIDAI seems to envision as the Version 1.1 seeding document states that Aadhaar is sufficient enough to transfer payments 		to an individual and thus plays a key role in cash transfers of benefits.26</p>
+</div>
+<div>
+<h3>Conclusion</h3>
+</div>
+<div>
+<p>Despite the fact that adherence to the interim order from the Supreme Court has been adhoc27, the order does provide a number of welcome limitations 		and clarifications to the UID Scheme. Yet, despite limited clarification from the Supreme Court and further clarification from the Finance Ministry's 		Order, the process of seeding and its necessity remain unclear. Is the UIDAI taking fully informed consent for the seeding process and what it will 		enable? Should the UIDAI be liable for the accuracy of the seeding process? Is seeding of service provider and bank databases necessary for the UIDAI 		to fulfill its mandate? Is the UIDAI's mandate to provide an identifier and an authentication of identity mechanism or is it to provide authentication 		of eligibility of an individual to receive services? Is this mandate backed by law and with adequate safeguards? Can the court order be interpreted to 		mean that to deliver services in the PDS system, UIDAI will need access to bank accounts or other transactions/information stored in a service 		provider's database to verify the claims of the user?</p>
+</div>
+<div>
+<p>Many news items reflect a concern of convergence arising out of the UID scheme.28 To be clear, the process of seeding is not the same as convergence. 		Seeding enables convergence which can enable profiling, surveillance, etc. That said, the seeding process needs to be examined more closely by the 		public and the court to ensure that society can reap the benefits of seeding while avoiding the problems it may pose.</p>
+</div>
+<hr/>
+<p>[<a href="#fr1" id="fn1" name="fn1">1</a>]. Justice K.S Puttaswamy &amp; Another vs. Union of India &amp; Others. Writ Petition (Civil) No. 494 of 2012. Available at:  http://judis.nic.in/supremecourt/imgs1.aspx?filename=42841</p>
+<p>[<a href="#fr2" id="fn2" name="fn2">2</a>]. Usha Ramanthan. Decoding the Aadhaar judgment: No more seeding, not till the privacy issues is settled by the court. The Indian Express. August 12<sup>th</sup> 2015. Available at: http://indianexpress.com/article/blogs/decoding-the-aadhar-judgment-no-more-seeding-not-till-the-privacy-issue-is-settled-by-the-court/</p>
+<p>[<a href="#fr3" id="fn3" name="fn3">3</a>]. UIDAI. Approach Document for Aadhaar Seeding in Service Delivery Databases. Version 1.0. Available at: https://authportal.uidai.gov.in/static/aadhaar_seeding_v_10_280312.pdf</p>
+<p>[<a href="#fr4" id="fn4" name="fn4">4</a>]. UIDAI. Standard Protocol Covering the Approach &amp; Process for Seeding Aadhaar Numbers in Service Delivery Databases. Available at: https://uidai.gov.in/images/aadhaar_seeding_june_2015_v1.1.pdf</p>
+<p>[<a href="#fr5" id="fn5" name="fn5">5</a>]. Version 1.0 pg. 2</p>
+<p>[<a href="#fr6" id="fn6" name="fn6">6</a>]. Version 1.0 pg. 19</p>
+<p>[<a href="#fr7" id="fn7" name="fn7">7</a>]. Version 1.1 pg. 3</p>
+<p>[<a href="#fr8" id="fn8" name="fn8">8</a>]. Version 1.1 pg. 7</p>
+<p>[<a href="#fr9" id="fn9" name="fn9">9</a>]. Version 1.1 pg. 5 -7</p>
+<p>[<a href="#fr10" id="fn10" name="fn10">10</a>]. Version 1.1 pg. 7-13</p>
+<p>[<a href="#fr11" id="fn11" name="fn11">11</a>]. Version 1.0 pg 19-22</p>
+<p>[<a href="#fr12" id="fn12" name="fn12">12</a>]. Version 1.0 pg. 4</p>
+<p>[<a href="#fr13" id="fn13" name="fn13">13</a>]. Version 1.1 pg. 5, figure 3.</p>
+<p>[<a href="#fr14" id="fn14" name="fn14">14</a>]. David Card, Raj Chett, Martin Feldstein, and Emmanuel Saez. Expanding Access to Adminstrative Data for Research in the United States. Available at: http://obs.rc.fas.harvard.edu/chetty/NSFdataaccess.pdf</p>
+<p>[<a href="#fr15" id="fn15" name="fn15">15</a>]. Justice K.S Puttaswamy &amp; Another vs. Union of India &amp; Others. Writ Petition (Civil) No. 494 of 2012. Available at:  http://judis.nic.in/supremecourt/imgs1.aspx?filename=42841</p>
+<p>[<a href="#fr16" id="fn16" name="fn16">16</a>]. Version 1.1 pg. 18</p>
+<p>[<a href="#fr17" id="fn17" name="fn17">17</a>]. Aadhaar Enrollment Form from Karnataka State. http://www.karnataka.gov.in/aadhaar/Downloads/Application%20form%20-%20English.pdf<i><br/> </i></p>
+<p>[<a href="#fr18" id="fn18" name="fn18">18</a>]. Business Line. Aadhaar only for foodgrains, LPG, kerosene, distribution. August 27<sup>th</sup> 2015. Available at: http://www.thehindubusinessline.com/economy/aadhaar-only-for-foodgrains-lpg-kerosene-distribution/article7587382.ece</p>
+<p>[<a href="#fr19" id="fn19" name="fn19">19</a>]. Bharti Jain. Election Commission not to link poll rolls to Aadhaar. The Times of India. August 15<sup>th</sup> 2015. Available at: http://timesofindia.indiatimes.com/india/Election-Commission-not-to-link-poll-rolls-to-Aadhaar/articleshow/48488648.cms</p>
+<p>[<a href="#fr20" id="fn20" name="fn20">20</a>]. Graham Greenleaf. “Access all areas': Function creep guaranteed in Australia's ID Card Bill (No.1) Computer Law &amp; Security Review. Volume 23, Issue 4. 2007. Available at:  http://www.sciencedirect.com/science/article/pii/S0267364907000544</p>
+<p>[<a href="#fr21" id="fn21" name="fn21">21</a>]. Version 1.1 pg. 3</p>
+<p>[<a href="#fr22" id="fn22" name="fn22">22</a>]. For example, the UIDAI depends on private companies to act as enrollment agencies and collect, verify, and enroll individuals in the UID scheme. Though the UID enters into MOUs with these organizations, the UID cannot be held responsible for the security or accuracy of data collected, stored, etc. by these entities. See draft MOU for registrars: https://uidai.gov.in/images/training/MoU_with_the_State_Governments_version.pdf</p>
+<p>[<a href="#fr23" id="fn23" name="fn23">23</a>]. Justice K.S Puttaswamy &amp; Another vs. Union of India &amp; Others. Writ Petition (Civil) No. 494 of 2012. Available at:  http://judis.nic.in/supremecourt/imgs1.aspx?filename=42841</p>
+<p>[<a href="#fr24" id="fn24" name="fn24">24</a>]. Version 1.0 pg.3</p>
+<p>[<a href="#fr25" id="fn25" name="fn25">25</a>]. Version 1.0  pg.4</p>
+<p>[<a href="#fr26" id="fn26" name="fn26">26</a>]. Version 1.1 pg. 3</p>
+<p>[<a href="#fr27" id="fn27" name="fn27">27</a>]. For example, there are reports of Aadhaar being introduced for different services such as education. See: Tanu Kulkarni. Aadhaar may soon replace roll numbers. The Hindu. August 21<sup>st</sup>, 2015. For example: http://www.thehindu.com/news/cities/bangalore/aadhaar-may-soon-replace-roll-numbers/article7563708.ece</p>
+<p>[<a href="#fr28" id="fn28" name="fn28">28</a>]. For example see: Salil Tripathi. A dangerous convergence. July 31<sup>st</sup>. 2015. The Live Mint. Available at: http://www.livemint.com/Opinion/xrqO4wBzpPbeA4nPruPNXP/A-dangerous-convergence.html</p>

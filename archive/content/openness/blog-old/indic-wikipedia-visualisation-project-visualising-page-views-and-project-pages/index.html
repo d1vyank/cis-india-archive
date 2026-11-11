@@ -1,0 +1,54 @@
+---
+title: 'Indic Wikipedia Visualisation Project #2: Visualising Page Views and Project
+  Pages'
+date: '2013-04-22'
+authors:
+- Sajjad Anwar
+- Sumandro Chattapadhyay
+tags:
+- Access to Knowledge
+- Wikimedia
+- Wikipedia
+- Featured
+- Openness
+description: In this blog post, we bring you a visualisation of the page views statistics
+  and the project specific pages that we created last month. The page views indicate
+  the number of unique visits the Wikipedia project concerned has received in one
+  month.
+url: /openness/blog-old/indic-wikipedia-visualisation-project-visualising-page-views-and-project-pages/
+original_url: https://cis-india.org/openness/blog-old/indic-wikipedia-visualisation-project-visualising-page-views-and-project-pages
+type: blog
+program: openness
+---
+<p>Unlike the <a href="/openness/blog-old/indic-wikipedia-visualisation-project-visualising-basic-parameters/">basic parameters</a> that we discussed last month, we received the Page Views data only from January 2008 onwards. The project-specific pages allow the user to see all the different variables related to a Indic language Wikipedia project in one page, thus giving a general overview of the activities in that project and their inter-relationships. Instead of comparing multiple projectsn, as in the calendar charts and motion chart discussed in the last post, the project-specific pages focus on understanding one Wikipedia project in detail.</p>
+<h3>Page Views</h3>
+<p>The data came in a structure that is useful for human-readability of the data but not so much for visualisation. The first column contained the date value (01/01/2008, 01/02/2008, and so on), followed by a column for each Indic Wikipedia project (Assamese, Bhojpuri, and so on) and one for the total Page Views across projects for the month concerned. The original data file can be <a href="https://github.com/geohacker/indicwiki/blob/master/data/page_views.csv">accessed here</a>. We re-formatted this data to the following column structure: the first column gives the date value, the second column gives the language of the Wikipedia project, and the third column gives the Page Views value. Further, the Page Views file contained data for 2013 that are not available for any other variables (like Total Articles, Total Editors etc.). So we decided to remove the 2013 values from the Page Views file for easier comparison with other variables. The data file that we finally used for the visualisation can be <a href="https://github.com/geohacker/indicwiki/blob/master/data/page_views_2.csv">accessed here</a>.</p>
+<h3>Calendar (Heatmap) Chart</h3>
+<p>The first chart that we created was the calendar (heatmap) chart discussed in detail in the <a href="/openness/blog-old/indic-wikipedia-visualisation-project-visualising-basic-parameters/">last post</a>.   For the Page View variable we only had data form 2008. We plotted it as calendar-like heatmap to allow quick cross-project comparisons of trends in readership. The chart can be <a href="http://geohacker.github.io/indicwiki/page-views">accessed here</a>.</p>
+<table>
+<tbody>
+<tr>
+<th><img alt="Indic Wiki Calendar" loading="lazy" src="/files/home-images/indicwiki_02_calendar.png" title="Indic Wiki Calendar"/></th>
+</tr>
+</tbody>
+</table>
+<h3>Project Pages</h3>
+<p>So far, we have been visualising the data from an overall perspective, constantly asking the question: "How does project A compare to project B?". <a href="http://geohacker.github.io/indicwiki/projects"> The Project pages</a> sheds light from a different angle: "How did project A get to this point?". Each of the projects are visualised in isolation around the basic parameters to understand how they have changed/evolved over the years. We wanted to keep this as simple as possible and decided to use straight forward line charts. This also ensures that the patterns are clearly evident.   On the right corner of the navigation bar is the project selector. You can search or pick a project and the page will load the charts specific to that project. Each project has a different page, this makes it easier for you to share the project that you are interested in. The chart employs filtering and dynamic scales. Dynamic scales are important because not all the projects have the same rate of growth.</p>
+<table>
+<tbody>
+<tr>
+<th><img alt="Indic Wiki Projects" loading="lazy" src="/files/home-images/indicwiki_02_project.png" title="Indic Wiki Projects"/></th>
+</tr>
+</tbody>
+</table>
+<h3>Readership Dashboard</h3>
+<p>We were not satisfied with creating only the calendar heatmap chart for Page Views. Being a very important variable for anybody trying to understand activities on Indic Wikipedia projects, we wanted to create a more detailed visualisation for the variable. While the project-specific pages do allow for comparing Page Views for a certain Indic Wikipedia with its other variables (such as Total Articles), we wanted to make that comparison even easier. Hence we decided to make a chart combining a line graph showing the movement of Page View for a project across the years and bar graphs showing a separate variable for the same project. Thus we created the <a href="http://geohacker.github.io/indicwiki/readers">Readership Dashboard</a>.  The dashboard has two controls: project selector and the parameter selector buttons. Selecting a project from the dropdown will update the line chart showing the movement of page views. Hover over the line graph points to see the date of observation and the corresponding value. The bars behind the line represent the selected parameters. Click on the parameter buttons to load different parameters as the background bar graph. Hover over the bars to see the date and the value. The bar graph is carefully aligned to the line chart such that the visualisation reflects the relation in movement of both. However, please note that the vertical scale of the line graph and the bar graphs are not the same.</p>
+<table>
+<tbody>
+<tr>
+<th><img alt="Indic Wiki Readership" loading="lazy" src="/files/home-images/indicwiki_02_readership.png" title="Indic Wiki Readership"/></th>
+</tr>
+</tbody>
+</table>
+<hr/>
+<p><a href="http://sajjad.in/">Sajjad Anwar</a> is a programmer based in Bangalore. <a href="http://www.ajantriks.net/">Sumandro Chattapadhyay</a><a href="http://www.ajantriks.net/"></a> is a researcher based in Delhi. They often work together.</p>
