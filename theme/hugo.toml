@@ -14,6 +14,9 @@ relativeURLs = true
   description = "An archive of blog posts, events and news published by the Centre for Internet and Society, India (2008 onwards)."
   original = "https://cis-india.org"
   issues = "https://github.com/d1vyank/cis-india-archive/issues"
+  source = "https://github.com/d1vyank/cis-india-archive"
+  # The original site's programmes, in navigation order (category names as written by tools/convert.py).
+  programmes = ["Internet Governance", "Access to Knowledge", "Openness", "RAW", "Accessibility", "Telecom", "Digital Natives"]
 [markup.goldmark.renderer]
   unsafe = true
 [outputs]

@@ -1,20 +1,31 @@
 {{ define "main" }}
-<section class="intro">
-  <h1>Centre for Internet and Society — Archive</h1>
-  <p>{{ site.Params.description }}</p>
-  <form class="search-inline" action="{{ (site.GetPage "/search").RelPermalink }}"><input type="search" name="q" placeholder="Search the archive" aria-label="Search the archive"><button>Search</button></form>
-  <p class="counts">{{ len (where site.RegularPages "Params.type" "blog") }} blog posts · {{ len (where site.RegularPages "Params.type" "event") }} events{{ with where site.RegularPages "Params.type" "news" }} · {{ len . }} news items{{ end }}</p>
+<section class="programmes">
+  <h1>Programmes</h1>
+  <div class="cards">
+    {{ range site.Params.programmes }}{{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}
+    <a class="card" href="{{ .RelPermalink }}">
+      <span class="card-head"><span class="card-name">{{ .Title }}</span><span class="card-total">{{ len .Pages | lang.FormatNumber 0 }}</span></span>
+      <span class="card-about">{{ .Description }}</span>
+      <span class="card-split">{{ len (where .Pages "Params.type" "blog") | lang.FormatNumber 0 }} posts · {{ len (where .Pages "Params.type" "event") | lang.FormatNumber 0 }} events{{ with where .Pages "Params.type" "news" }} · {{ len . | lang.FormatNumber 0 }} news{{ end }}</span>
+    </a>
+    {{ end }}{{ end }}
+  </div>
 </section>
-<p class="programmes">{{ range site.Taxonomies.categories.ByCount }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span>{{ .Count }}</span></a>{{ end }}</p>
-<h2>Latest blog posts</h2>
-<ul class="items">{{ range first 10 (where site.RegularPages "Params.type" "blog").ByDate.Reverse }}{{ partial "item.html" . }}{{ end }}</ul>
-<p><a href="{{ (site.GetPage "/browse/blog").RelPermalink }}">All blog posts →</a></p>
-<h2>Recent events</h2>
-<ul class="items">{{ range first 5 (where site.RegularPages "Params.type" "event").ByDate.Reverse }}{{ partial "item.html" . }}{{ end }}</ul>
-<p><a href="{{ (site.GetPage "/browse/events").RelPermalink }}">All events →</a></p>
-{{ with where site.RegularPages "Params.type" "news" }}
-<h2>In the news</h2>
-<ul class="items">{{ range first 5 .ByDate.Reverse }}{{ partial "item.html" . }}{{ end }}</ul>
-<p><a href="{{ (site.GetPage "/browse/news").RelPermalink }}">All news →</a></p>
-{{ end }}
+<div class="home-cols">
+  <section class="latest">
+    {{ $blog := where site.RegularPages "Params.type" "blog" }}
+    <div class="section-head"><h2>Last published</h2><a href="{{ (site.GetPage "/browse/blog").RelPermalink }}">All {{ len $blog | lang.FormatNumber 0 }} blog posts</a></div>
+    <ul class="items">{{ range first 6 $blog.ByDate.Reverse }}{{ partial "item.html" (dict "page" . "programme" true) }}{{ end }}</ul>
+  </section>
+  <aside class="about">
+    <h2>About this archive</h2>
+    <p>The Centre for Internet and Society is no longer active. This site preserves its published work as plain static pages so that it stays readable and citable.</p>
+    <p>Every page links back to its original address at cis-india.org.</p>
+    <ul>
+      <li><a href="{{ (site.GetPage "/authors").RelPermalink }}">Browse by author</a></li>
+      <li><a href="{{ (site.GetPage "/tags").RelPermalink }}">Browse by topic</a></li>
+      <li><a href="{{ site.Params.source }}">Source code on GitHub</a></li>
+    </ul>
+  </aside>
+</div>
 {{ end }}
