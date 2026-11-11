@@ -13,7 +13,22 @@ A static archive of blog posts and events from cis-india.org (Centre for Interne
 
 Raw crawl data (`crawl/`) and build output (`site/`, `bin/`) are not committed.
 
-## Rebuilding the content
+## Building the full archive from the server dump
+
+The 2026-11-07 dump (`cis-india-archive-2026-11-07.zip`, 6.9 GB, from https://archive.cis-india.org/download/) is a rendered copy of the whole site: `site/<path>/index.html` for every page, attachments as files, and `nginx/files.map` / `redirects.map` mapping URLs to files. No crawling is needed.
+
+```sh
+unzip -q cis-india-archive-2026-11-07.zip -d dump
+python3 tools/inventory_dump.py dump/cis-india-archive-2026-11-07 work/inventory.json   # ~40 s
+python3 tools/convert.py work/inventory.json work/archive                              # ~2 min, writes work/convert_report.json
+ARCHIVE=$PWD/work/archive sh tools/build.sh                                            # ~1 min
+```
+
+`inventory_dump.py` picks pages by Plone type (`--types blog-entry,event,news-item`, all three by default), keeps one copy of pages reachable under two paths (e.g. `/website/...`), and skips folder pages. The 2026-11-07 dump gives 3,108 blog posts, 446 events and 2,600 news items, with 3,817 attachments (4.2 GB). The built site is about 18,600 files.
+
+Every item keeps its original URL exactly (front matter `url`), including capitals and spaces. Links to pages outside the archive go to `LINK_BASE` (default `https://cis-india.org`); set `FILES_BASE` to serve attachments from another host, such as an R2 bucket.
+
+## Rebuilding the sample from a crawl
 
 ```sh
 python3 tools/crawl_sample.py crawl            # slow: the live server takes up to ~30 s per page

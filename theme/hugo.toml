@@ -10,7 +10,7 @@ relativeURLs = true
   tag = "tags"
   author = "authors"
 [params]
-  description = "An archive of blog posts and events published by the Centre for Internet and Society, India (2008 onwards)."
+  description = "An archive of blog posts, events and news published by the Centre for Internet and Society, India (2008 onwards)."
   original = "https://cis-india.org"
 [markup.goldmark.renderer]
   unsafe = true

@@ -15,6 +15,7 @@
     <nav>
       <a href="{{ (site.GetPage "/browse/blog").RelPermalink }}">Blog</a>
       <a href="{{ (site.GetPage "/browse/events").RelPermalink }}">Events</a>
+      {{ if where site.RegularPages "Params.type" "news" }}<a href="{{ (site.GetPage "/browse/news").RelPermalink }}">News</a>{{ end }}
       <a href="{{ (site.GetPage "/tags").RelPermalink }}">Topics</a>
       <a href="{{ (site.GetPage "/search").RelPermalink }}">Search</a>
     </nav>

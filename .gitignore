@@ -5,3 +5,6 @@ node_modules/
 # raw crawl data (re-creatable with tools/crawl_sample.py)
 /crawl/
 __pycache__/
+# full conversion output (re-creatable from the server dump)
+/work/
+/dump/

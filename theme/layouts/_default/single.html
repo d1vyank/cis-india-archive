@@ -1,6 +1,6 @@
 {{ define "main" }}
 <article data-pagefind-body>
-  <p class="kicker" data-pagefind-ignore data-pagefind-filter="Type">{{ if eq .Params.type "event" }}Event{{ else }}Blog post{{ end }}</p>
+  <p class="kicker" data-pagefind-ignore data-pagefind-filter="Type">{{ if eq .Params.type "event" }}Event{{ else if eq .Params.type "news" }}News / media coverage{{ else }}Blog post{{ end }}</p>
   <h1 data-pagefind-meta="title">{{ .Title }}</h1>
   <div class="meta" data-pagefind-ignore>
     {{ with .Params.authors }}By {{ range $i, $a := . }}{{ if $i }}, {{ end }}<a href="{{ (site.GetPage (printf "/authors/%s" ($a | urlize))).RelPermalink }}" data-pagefind-filter="Author">{{ $a }}</a>{{ end }} · {{ end }}

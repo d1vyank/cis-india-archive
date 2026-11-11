@@ -2,8 +2,11 @@
  "stats": {
   "items": 100,
   "skipped": 0,
-  "files_linked": 41
+  "files_linked": 41,
+  "files_copied": 0,
+  "bytes_copied": 0
  },
+ "errors": [],
  "missing_files": [
   "https://cis-india.org/advocacy/open-standards/accessibility/uploads/Participants%20List%20for%20the%20web%20site.xls",
   "https://cis-india.org/advocacy/open-standards/accessibility/uploads/Sessions%20for%20the%20workshopv2.doc/at_download/file",
