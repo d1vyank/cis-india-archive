@@ -10,6 +10,9 @@ export async function onRequest({ request, env }) {
   if (request.method !== "GET" && request.method !== "HEAD") {
     return new Response("Method not allowed", { status: 405, headers: { allow: "GET, HEAD" } });
   }
+  if (!env.FILES) {   // binding missing in this environment (e.g. Preview deployments)
+    return new Response("Attachments are not configured: bind the R2 bucket as FILES for this environment.", { status: 503 });
+  }
   let key;
   try {
     key = decodeURIComponent(new URL(request.url).pathname).replace(/^\/+/, "");
